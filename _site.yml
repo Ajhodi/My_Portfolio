@@ -1,0 +1,16 @@
+name: "my-website"
+navbar:
+  title: "Mon Portfolio"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Compétences"
+      href: skills.html
+    - text: "Exprérience Pro"
+      href: exp.html
+    - text: "Projets"
+      href: projects.html
+    - text: "Articles"
+      href: papers.html
+    - text: "Hobbies"
+      href: hobbies.html

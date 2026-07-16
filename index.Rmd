@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+output: 
+  rmdformats::material
+---
+
+# Jhodi AVIZARA
+**Bioinformaticien & Data Scientist**
+
+> *À l'intersection de la biologie et de la science des données.*
+
+Bienvenue sur mon portfolio.
+
+Je suis bioinformaticien spécialisé dans l'analyse de données omiques et le développement d'outils pour la recherche en sciences du vivant. Titulaire d'un Master de l'Université de Bordeaux, je combine une solide formation en biologie (biochimie, physiologie végétale) avec des compétences techniques avancées en programmation (Python, R, Bash) et en gestion de flux de travail (Nextflow, GitHub).
+
+Mon approche repose sur une double compétence : comprendre les enjeux biologiques sous-jacents et concevoir des solutions informatiques robustes pour les traiter. Que ce soit pour l'assemblage de génomes, l'analyse de métabolomique ou le développement de modèles prédictifs, je m'efforce de transformer des données complexes en résultats scientifiques exploitables.
+
+Ce portfolio présente une sélection de mes projets de recherche, mes expériences professionnelles et mes développements personnels, illustrant ma capacité à m'adapter à des environnements pluridisciplinaires et à relever des défis techniques variés.
+
+---
+*Basé à Bordeaux, ouvert aux opportunités en recherche et développement.*
+
+
+*Avizara-Jhodi[at]protonmail.com*

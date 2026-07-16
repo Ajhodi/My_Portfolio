@@ -1,0 +1,34 @@
+---
+title: "Articles Scientifiques et Abstracts"
+output: 
+  rmdformats::material
+---
+
+<br>
+
+--- 
+
+# Environmental drivers of metabolic and taxonomic temporal dynamics of freshwater biofilms and their role in the sensitivity to the chemical stress
+
+#### Arthur Medina, Olivier Lepais, Melissa Eon, Zoé Delporte, Jhodi Avizara, Chloé Bonnineau, Sebastien Boutry, David Carayon, Sylvain Prigent, Remy Cordazzo, Guillaume Marti, Nicolas Mazzella, Aurelie Moreira, Soizic Morin, Erwan Guichoux, Nicolas Creusot
+
+---
+
+In the context of global environmental change, comprehending how microbiomes in natural habitats respond to multiple stressors is essential to maintain ecosystem functions and services. In aquatic systems contaminated by chemicals, a critical challenge is understanding how shifts in microbial community composition and function modify their sensitivity to micropollutants. Here, we combined metabolomics and metagenomics to assess microbial activity, taxonomic diversity, and gene profiles, aiming to uncover the assembly mechanisms underlying these responses. This study pursued two main objectives: (i) investigating the synchronicity between the intrinsic dynamics of microbial metabolic activity (meta‐metabolome) and structural biodiversity (species and gene diversity) over a one‐year period, and (ii) evaluating how these natural fluctuations modulate the sensitivity of the meta‐metabolome and photosynthetic processes to a representative herbicide, terbuthylazine (TBA). Monthly, biofilms were allowed
+to colonize glass slides in a pilot pond. Post-sampling, the biofilms were quenched, freeze-dried, and processed for comprehensive omics analyses. Simultaneously, sub-samples were exposed to graded concentrations of TBA for four hours to determine community sensitivity. Findings revealed an asynchronous and uncorrelated dynamics between the meta‐metabolome
+and microbial composition, suggesting distinct assembly processes. Principal Component Analysis based on Aitchison distance and DIABLO analysis demonstrated that temperature significantly influences microbial taxonomy, while meta‐metabolome structuring appears to be regulated by alternative factors such as nitrate availability. These variations likely alter TBA sensitivity, predominantly impacting metabolic functions. Ongoing investigations aim to clarify the roles of internal metabolism versus external water properties in driving these shifts. Overall, our study substantially deepens understanding of environmental microbiome responses to stress.
+
+---
+
+# Meta-Metabolomic Insights into Environmental Drivers of Periphyton Metabolic Variation Across 75 French Rivers
+
+#### Amelie Malherbe (1,2), Jhodi Avizara (1,2), Melissa Eon1, Chloe Bonnineau (1), Sebastien Boutry1, David Carayon, Sylvain Prigent (2,3), Guillaume Marty (3), Pierre Petriacq (2,3), Nicolas Creusot (1)
+
+*(1) INRAE UR EABX, Gazinet-Cestas, France*
+*(2) Bordeaux Metabolome, MetaboHUB, Villenave d’Ornon, France*
+*(3) UMR BFP, Université Bordeaux, INRAE, Villenave d’Ornon, France*
+
+---
+
+In ecotoxicology, microbial periphyton communities are critical for assessing freshwater ecosystem responses to chemical stressors. However, field-based interpretations remain limited due to insufficient understanding of how environmental conditions shape these communities. This study leverages meta-metabolomics to unravel how spatial heterogeneity in water chemistry, climate, and micropollutant exposure influences periphyton metabolic activity across 75 French rivers with diverse ecological and physicochemical conditions. We measured in situ photosynthetic yield, water parameters (nutrients, pH, temperature, micropollutants), and analyzed untargeted LC-HRMS metabolomics alongside biomass traits. Prelimary chemometrics showed discrepancies in the meta-metabolome fingerprints between the investigated sites. Hence, HCA highlighted 3 main clusters composed of sites from Nouvelle Aquitaine collected in Spring and Summer vs sites from the area collected in Automn vs the sites surrounding Lyon collected in Automn and Winter. Annotation based on Natural Product Classifier did not show marked differences at the pathway level whereas discrepancies were noted at the superclass level. For instance the superclasses of the fatty amides,
+fatty esters, glycerophospholipids, macrolides, carotenoids, the triterpenoids and the sequiterpenoids showed more marked differences between the sites. Contradictory, superclasses with similar intensity between the site might be constitutive of a core meta-metabolome which contribute to overall homoestasis of the whole community. Further multibloc approaches are ongoing to identify key environmental drivers of metabolome variation. By defining the "normal operating range" of the periphyton metabolome under natural conditions, this work advances biomarker discovery for chemical stress and strengthens frameworks for ecological biomonitoring.

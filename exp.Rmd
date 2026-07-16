@@ -1,0 +1,32 @@
+---
+title: "Exprérience Pro"
+output: 
+  rmdformats::material
+---
+
+# **Stagiaire en Recherche – INRAE, Cestas (Janv. 2025 – Juil. 2025)**
+> *Mission :* Analyse de l'hétérogénéité spatio-temporelle du métabolisme microbien. <br>
+> *Moyens :* Approche multi-bloc, Machine Learning, gestion de données complexes. <br>
+> *Résultat :* Développement de pipelines d'analyse et contribution à des publications scientifiques. <br>
+
+Mon parcours professionnel a été marqué par une immersion progressive dans des environnements de recherche exigeants, où j'ai pu appliquer mes compétences en bioinformatique et en science des données à des problématiques concrètes. Lors de mon stage à l'**INRAE de Cestas**, j'ai été amené à travailler sur des données métabolomiques complexes, en développant des méthodes d'analyse basées sur le *Machine Learning* pour comprendre l'hétérogénéité des biofilms aquatiques. Bien que ce projet ait été encadré par des chercheurs expérimentés, j'ai eu la responsabilité de concevoir et d'exécuter les pipelines d'analyse, ce qui m'a permis de maîtriser la gestion de grands jeux de données et d'appréhender les défis de la reproductibilité scientifique.
+
+# **Stagiaire en Recherche – INRAE, Villenave-d'Ornon (Janv. 2023 – Mars 2023)**
+>*Mission :* Étude du stress thermique sur la production de métabolites secondaires chez la tomate. <br>
+>*Moyens :* Analyse de données biologiques, collaboration avec des chercheurs en écophysiologie. <br>
+>*Résultat :* Compréhension des mécanismes de résistance des plantes au stress climatique. <br>
+
+De manière similaire, mon expérience précédente à l'**INRAE de Villenave-d'Ornon** m'a offert une première approche du monde de la recherche en biologie végétale, en étudiant les mécanismes de réponse des tomates au stress thermique. Ces missions, bien que réalisées sous supervision, m'ont appris à structurer des données biologiques et à interpréter des résultats dans un contexte de changement climatique.
+
+# **Bénévole & Chargé de Projet – Cohabit Fablab, Gradignan (Nov. 2025 – Présent)**
+>*Mission :* Encadrement de projets de R&D (Balance de ruche connectée, RobotGoWest). <br>
+>*Moyens :* Développement électromécanique, analyse de signaux électrophysiologiques, gestion de projet. <br>
+>*Résultat :* Conception de prototypes fonctionnels et coordination d'équipes pluridisciplinaires. <br>
+
+Par la suite, mon engagement au **Cohabit Fablab** a complété mon profil en me confrontant à la réalité du développement de prototypes et à la gestion de projets collaboratifs. J'y ai encadré des initiatives techniques, allant du développement de capteurs pour l'apiculture à l'analyse de signaux végétaux, ce qui a renforcé ma capacité à travailler en équipe et à communiquer autour de projets transversaux.
+
+
+---
+
+ToDo: Mettre une table des matières
+ToDo: Des liens vers les gits et autres.
