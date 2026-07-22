@@ -1,7 +1,14 @@
 ---
-title: "Compétences"
-output: 
-  rmdformats::material
+title: "COMPETENCES"
+output:
+  html_document:
+    highlight: kate
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    use_bookmarks: true
+    css: styles.css
 ---
 
 <br>

@@ -1,7 +1,17 @@
 ---
-title: "Exprérience Pro"
-output: 
-  rmdformats::material
+title: "EXPERIENCES"
+output:
+  html_document:
+    highlight: kate
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    toc: true
+    toc_float: true
+    toc_depth: 1
+    use_bookmarks: true
+    css: styles.css
 ---
 
 # **Stagiaire en Recherche – INRAE, Cestas (Janv. 2025 – Juil. 2025)**

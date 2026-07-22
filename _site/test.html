@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="abc" />
+
+
+<title>asd</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="skills.html">Compétences</a>
+</li>
+<li>
+  <a href="exp.html">Exprérience Pro</a>
+</li>
+<li>
+  <a href="projects.html">Projets</a>
+</li>
+<li>
+  <a href="papers.html">Articles</a>
+</li>
+<li>
+  <a href="hobbies.html">Hobbies</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">asd</h1>
+<h4 class="author">abc</h4>
+<h4 class="date">22 July, 2026</h4>
+
+</div>
+
+
+<div
+id="analyse-fréquentielle-de-la-pluviométrie-de-la-région-alaotra-mangora-madagascar-dans-le-but-de-proposer-une-actualisation-du-calendrier-cultural-du-riz"
+class="section level1 tabset">
+<h1 class="tabset">Analyse fréquentielle de la pluviométrie de la région
+Alaotra-Mangora (Madagascar) dans le but de proposer une actualisation
+du calendrier cultural du riz</h1>
+<p><em>2023</em> <br> <em>Auteurs: Jhodi Avizara</em></p>
+<div id="résumé" class="section level2">
+<h2>Résumé</h2>
+<div class="container-with-shape">
+<div class="fig-right">
+<pre><code>![](images/SPI%20mensuel%20de%20la%20région%20Alaotra%20de%201991%20à%202023.png)</code></pre>
+</div>
+<div class="text-wrapper">
+Cette étude a pour objectif d’analyser la fréquence et l’intensité des
+précipitations de la région Alaotra-Mangoro de 1991 à 2023 à l’aide du
+Standardized Precipitation Index (SPI) afin de proposer un nouveau
+calendrier cultural du riz avec de nouvelles variétés. La région étudiée
+est l’un des principaux greniers à riz de Madagascar, avec une
+production de l’ordre de 300 000 T par an, mais elle est sujette aux
+effets du dérèglement climatique. Ces effets se caractérisent entre
+autres par une concentration des pluies sur une courte période et une
+interruption de ces dernières en pleine saison. On constate ainsi une
+variation notable de la pluviométrie depuis 1991 et les tendances
+montrent une baisse constante des précipitations sur l’ensemble de
+l’année à l’exception des mois de novembre, mars et avril.
+Traditionnellement, les agriculteurs commencent à planter le riz en
+décembre pour une durée d’environ 6 mois selon la variété, nous
+proposons alors de commencer la production en novembre et encourageons
+l’utilisation de variétés à cycle court comme SEBOTA et Mailaka afin que
+les stades critiques de l’initiation florale, la floraison et la
+maturation ne soient pas perturbés par le manque d’eau dans la période
+de novembre à mars.
+</div>
+</div>
+</div>
+<div id="détails" class="section level2">
+<h2>Détails</h2>
+<hr />
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<div id="le-centre-fofifa" class="section level4">
+<h4>Le Centre FOFIFA</h4>
+<p>Le Centre FOFIFA, ou Centre National de Recherche Appliqué au
+Développement Rural, est la principale institution de recherche agricole
+à Madagascar. Créé en 1974 à la suite du départ des instituts français
+de recherche agricole, elle contribue à élaborer la politique nationale
+de recherche en matière de développement rural et d’en assurer la
+diffusion et la capitalisation et développe la recherche thématique de
+base pour générer des connaissances et techniques pour anticiper les
+enjeux à venir [1].</p>
+</div>
+<div id="thématique-du-stage" class="section level4">
+<h4>Thématique du stage</h4>
+<p>L’un des principaux enjeux actuels, au niveau national mais également
+au niveau global, concerne le dérèglement climatique, qui impacte
+directement les productions agricoles. A Madagascar, le secteur agricole
+compte pour 30% du PIB et emploie 80% des familles malgaches, selon les
+chiffres de l’International Fund for Agricultural Development [2]. Et
+l’une des régions les plus productives, faisant partie des principaux
+greniers à riz du pays, est la région Alaotra-Mangoro. Située dans la
+région Atsinanana dans la partie centre-est de l’île et s’étendant sur
+une superficie de 33 054 km², la production rizicole, selon de rapport
+du centre FOFIFA de Mars 2015, est de l’ordre de 300 000 T par an [3].
+Force est donc de constater qu’une baisse de la productivité de cette
+région impacterait la sécurité alimentaire ainsi que l’économie de tout
+le pays. Traditionnellement, les agriculteurs commencent à planter du
+riz en décembre pour une durée de 4 à 6 mois en fonction des variétés,
+mais le bouleversement climatique perturbe ce calendrier. Ces effets se
+caractérisent entre autres par une concentration des pluies sur une
+courte période et une interruption de ces dernières en pleine saison.
+L’enjeux de cette étude est alors d’analyser les données pluviométriques
+de 1991 à 2023 afin de proposer un nouveau calendrier cultural du riz en
+cohérence avec le cycle végétatif des nouvelles variétés utilisées.</p>
+</div>
+</div>
+<div id="méthodologie" class="section level3">
+<h3>Méthodologie</h3>
+<p>Le jeu de données rassemble les données pluviométriques mensuelles de
+la région Alaotra-Mangoro de janvier 1991 à mai 2023, fournie par la
+station météo de Ambohitsilaozana. Pour évaluer le niveau de
+précipitation de la zone, nous nous basons sur le Standardized
+Precipitation Index (SPI), un indicateur statistique comparant le total
+des précipitations reçues d’une zone en particulier pendant une période
+de n mois avec la distribution des précipitations à long terme pendant
+la même période et au même endroit [4]. Les valeurs que renvoie le SPI
+donnent la sévérité des sécheresses (SPI &lt; 0) et des précipitations
+(SPI &gt; 0). L’ensemble de l’analyse et les différents graphiques ont
+été réalisés à l’aide du logiciel R et avec le package “precintcon” pour
+calculer les SPI, “ggplot2” et “plotly” pour les graphiques. Résultats
+et Discussions La région se caractérise par un climat tropical chaud et
+humide, elle comporte deux saisons bien marquées : une saison sèche avec
+quelques pluies, d’avril à septembre, et une saison pluvieuse, d’octobre
+à mars (Fig 1).</p>
+<p><img
+src="images/Pluviom%C3%A9trie_mensuelle_de_la_r%C3%A9gion_Alaotra_de_janvier_1991_a_mai_2023.png"
+alt="Figure 1 : Pluviométrie mensuelle de la région Alaotra de janvier 1991 à mai 2023" />
+<br></p>
+<p>Traditionnellement, les agriculteurs commencent à cultiver le riz au
+début du plus fort de la saison humide, en décembre. Cependant les
+tendances montrent que les précipitations des mois de décembre à février
+diminuent (Fig 2). Et dans l’ensemble cette diminution est de l’ordre de
+0.56 mm par an depuis 1991 à l’exception des mois de novembre, mars et
+avril, qui suivent une tendance croissante, respectivement de l’ordre de
+1.94, 1.36 et 0.48 mm par an en moyenne.</p>
+<p><img
+src="images/Evolution_des_pr%C3%A9cipitations_mensuelles_de_1991_a_2022.png"
+alt="Figure 2 : Evolution des précipitations mensuelles de 1991 à 2022" />
+<br></p>
+<p>On constate alors que le climat de la région Alaotra Mangoro est en
+constante évolution, comme le montre la variation du SPI depuis 1991
+(Fig 3). Le climat passant progressivement de humide à sec mais tout en
+restant dans des valeurs de SPI moyen compris entre 0.99 et -0.99,
+c’est-à-dire, les zones de minimum humide et minimum sec (tab 1).</p>
+<p><img
+src="images/SPI%20mensuel%20de%20la%20r%C3%A9gion%20Alaotra%20de%201991%20%C3%A0%202023.png"
+alt="Figure 3 : SPI mensuel de la région Alaotra de 1991 à 2023" />
+<br></p>
+<p>Cependant le climat semble être plus sec que humide avec un SPI
+inférieur à 0 comptant pour 51,29 % d’occurrence contre 48,71 % pour
+l’inverse (tab 1). Une différence notamment due aux minimums secs avec
+une occurrence de 41,69 %, suivi par les minimums humides avec 34,19 %.
+Les événements humides modérés et sévères ( SPI entre 1 et 1,99) ont
+12,41 % d’occurrence totale et 8,2 % pour les événements secs (SPI entre
+-1 et -1,99). Quant aux événements extrêmes (SPI ≥ 2 ou SPI ≤ −2), 1,41
+% d’occurrence pour les sécheresse et l’inverse est à 2,11 %.</p>
+<table class="table" style="font-size: 12px; color: black; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+SPI
+</th>
+<th style="text-align:left;font-weight: bold;">
+Interprétation
+</th>
+<th style="text-align:right;font-weight: bold;">
+Effectif (Janv. 1991 - Mai 2023)
+</th>
+<th style="text-align:left;font-weight: bold;">
+Occurrence (%)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+≥ 2.0
+</td>
+<td style="text-align:left;">
+Extrêmement humide
+</td>
+<td style="text-align:right;width: 100px; ">
+9
+</td>
+<td style="text-align:left;width: 100px; ">
+2.11 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1.5 à 1.99
+</td>
+<td style="text-align:left;">
+Sévèrement humide
+</td>
+<td style="text-align:right;width: 100px; ">
+22
+</td>
+<td style="text-align:left;width: 100px; ">
+5.15 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1.0 à 1.49
+</td>
+<td style="text-align:left;">
+Modérément humide
+</td>
+<td style="text-align:right;width: 100px; ">
+31
+</td>
+<td style="text-align:left;width: 100px; ">
+7.26 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0 à 0.99
+</td>
+<td style="text-align:left;">
+Minimum humide
+</td>
+<td style="text-align:right;width: 100px; ">
+146
+</td>
+<td style="text-align:left;width: 100px; ">
+34.19 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0 à -0.99
+</td>
+<td style="text-align:left;">
+Minimum sec
+</td>
+<td style="text-align:right;width: 100px; ">
+178
+</td>
+<td style="text-align:left;width: 100px; ">
+41.69 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+-1.0 à -1.49
+</td>
+<td style="text-align:left;">
+Modérément sec
+</td>
+<td style="text-align:right;width: 100px; ">
+28
+</td>
+<td style="text-align:left;width: 100px; ">
+6.56 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+-1.5 à -1.99
+</td>
+<td style="text-align:left;">
+Sévèrement sec
+</td>
+<td style="text-align:right;width: 100px; ">
+7
+</td>
+<td style="text-align:left;width: 100px; ">
+1.64 %
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+≤ -2.0
+</td>
+<td style="text-align:left;">
+Extrêmement sec
+</td>
+<td style="text-align:right;width: 100px; ">
+6
+</td>
+<td style="text-align:left;width: 100px; ">
+1.41 %
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tableau 1 : Niveau d’humidité et de sècheresse, leur effectif et
+leur occurrence de janvier 1991 à mai 2023, basés sur le Standardized
+Precipitation Index (SPI)</em></p>
+<p>Il est à noter que les besoins réels en eau d’une rizière dépendent à
+la fois de la variété de riz cultivée et de la nature du sol [5]. Sur un
+sol argileux, la variété la plus utilisée, Makalioka 34 (MK 34), demande
+en moyenne 130 et 160 mm d’eau par mois pour un cycle végétatif de 6
+mois environ. Mais les besoins varient en fonction du stade phénologique
+de la plante. Elle est particulièrement sensible à la sécheresse au
+stage de l’initiation florale, et durant la montaison, la floraison et
+jusqu’au début de la maturation (fig 4 et ref 6). La période la plus
+critique pour le riz a alors lieu pendant le deuxième mois après la
+plantation et dure deux mois suivant les variétés. Durant ces périodes
+les besoins en eau d’une rizière peuvent aller de 4 à 6 mm par jour.
+Dans un contexte où la saison humide tend à se raccourcir, une variété à
+cycle long comme la MK 34 n’est plus favorable, d’autres variétés comme
+SEBOTA et Mailaka le sont car plus résilientes et ont un cycle plus
+court. Mais en contrepartie, le riz est de moins bonne qualité, limitant
+son utilisation par les agriculteurs [3 et 7].</p>
+<p><img
+src="images/Stades%20de%20croissance%20du%20plant%20de%20riz.png"
+alt="Figure 4 : Stades de croissance du plant de riz -6-" /> <br></p>
+</div>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<p>Le climat de la région Alaotra-Mangoro se modifie indéniablement, une
+baisse notable des précipitations est observée en pleine saison
+culturale bien que, dans l’ensemble, la région semble toujours favorable
+à la culture du riz. La majorité des mois de l’année sont de moins en
+moins humides, à l’exception des mois de novembre, mars et avril. Nous
+permettant ainsi de proposer d’avancer le calendrier cultural d’un mois,
+en novembre, pour éviter que le riz souffre de la sécheresse durant ses
+premiers stades végétatifs.<br />
+Une solution simple et facile à mettre en œuvre, et garantit de
+meilleurs résultats avec l’utilisation de variétés à cycle court ou
+moyen. Car l’initiation florale et la floraison, ayant lieu plus tard au
+cours de la croissance du riz, sont aussi particulièrement sensibles à
+la sécheresse. Et la période favorable à sa culture est comprise entre
+novembre et mars, soit 5 mois. En somme, pour adapter la région
+Alaotra-Mangoro aux changements du climat, nous préconisons de commencer
+la plantation du riz en novembre et d’utiliser des variétés à cycle
+court.</p>
+</div>
+<div id="bilan-personnel" class="section level3">
+<h3>Bilan personnel</h3>
+<p>Ce stage m’a permis de découvrir le monde de la recherche et plus
+particulièrement la recherche dans une approche globale. C’est-à-dire,
+prendre en compte des besoins de toutes les parties prenantes d’un
+projet, en particulier des bénéficiaires, dans le contexte qui leur est
+propre. J’ai pu alors entrer en contact et faire le lien entre ces
+parties, j’ai ainsi à mon échelle participé un projet commun. Ce stage
+m’a aussi permis de développer des compétences en analyse et
+modélisation de données avec le logiciel R.</p>
+</div>
+<div id="références" class="section level3">
+<h3>Références</h3>
+<ul>
+<li>Site officiel du centre FOFIFA ; <a
+href="https://www.fofifa.mg/?page_id=2"
+class="uri">https://www.fofifa.mg/?page_id=2</a> ; consulté le
+05/06/2023.</li>
+<li>International Fund for Agricultural Development ; Madagascar ; <a
+href="https://www.ifad.org/fr/web/operations/w/pays/madagascar"
+class="uri">https://www.ifad.org/fr/web/operations/w/pays/madagascar</a>
+; consulté le 05/06/2023.</li>
+<li>Dr RAKOTOARISOA Jacqueline et RABESON Raymond ; “Analyse comparative
+et participative des techniques et technologies de productions rizicoles
+de la région d’Alaotra Mangoro et dans les autres greniers de
+Madagascar” ; Centre FOFIFA ; mars 2015.</li>
+<li>Product fact sheet : SPI – Africa ; European Commission ; mai 2013
+<a
+href="https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_spi_ado.pdf"
+class="uri">https://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_spi_ado.pdf</a>
+; consulté le 07/06/2023.</li>
+<li>Pr RAZAFINJARA Aimé Lala ; “Système de Riziculture Intensive (SRI)”
+; rapport du centre FOFIFA ; 2012.</li>
+<li>Radios Rurales Internationales ; Fiche documentaire : Production et
+activités post-récolte du riz au Ghana ; James Karuga ; 5 octobre 2021 ;
+<a
+href="https://scripts.farmradio.fm/fr/radio-resource-packs/ensemble-des-ressources-pour-la-radio-agricole-119/fiche-documentaire-production-et-activites-post-recolte-du-riz-au-ghana/"
+class="uri">https://scripts.farmradio.fm/fr/radio-resource-packs/ensemble-des-ressources-pour-la-radio-agricole-119/fiche-documentaire-production-et-activites-post-recolte-du-riz-au-ghana/</a>
+; consulté le 10/06/2023.</li>
+<li>RANAIVOSON Andry ; “Contribution à la lutte agroécologique contre
+les lepidoptères, foureur de tige de riz cultivé en bas fond et sur
+bruli dans la région d’Ankepaka Manankara” ; mémoir pour l’obtention du
+diplome d’étude approfondie en sciences biologiques appliquées, soutenu
+le 24 Juillet 2009 ; Université d’Antananarivo ; <a
+href="http://biblio.univ-antananarivo.mg/pdfs/ranaivosonAndry_SN_M2_09.pdf"
+class="uri">http://biblio.univ-antananarivo.mg/pdfs/ranaivosonAndry_SN_M2_09.pdf</a></li>
+</ul>
+</div>
+<div id="mots-clefs" class="section level3">
+<h3>Mots clefs</h3>
+<p>Précipitations _ Agriculture _ Analyse Fréquentielle</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5,h6",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>
