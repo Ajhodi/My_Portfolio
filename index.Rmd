@@ -1,5 +1,5 @@
 ---
-title: "Jhodi AVIZARA"
+title: "Bioinformaticien & Data Scientist: Jhodi AVIZARA"
 output:
   html_document:
     highlight: kate
@@ -14,62 +14,91 @@ output:
     css: styles.css
 ---
 
-**Bioinformaticien & Data Scientist**
+---
 
-> *À l'intersection de la biologie et de la science des données.*
-
-Bienvenue sur mon portfolio.
-
-Je suis bioinformaticien spécialisé dans l'analyse de données omiques et le développement d'outils pour la recherche en sciences du vivant. Titulaire d'un Master de l'Université de Bordeaux, je combine une solide formation en biologie (biochimie, physiologie végétale) avec des compétences techniques avancées en programmation (Python, R, Bash) et en gestion de flux de travail (Nextflow, GitHub).
-
-Mon approche repose sur une double compétence : comprendre les enjeux biologiques sous-jacents et concevoir des solutions informatiques robustes pour les traiter. Que ce soit pour l'assemblage de génomes, l'analyse de métabolomique ou le développement de modèles prédictifs, je m'efforce de transformer des données complexes en résultats scientifiques exploitables.
-
-Ce portfolio présente une sélection de mes projets de recherche, mes expériences professionnelles et mes développements personnels, illustrant ma capacité à m'adapter à des environnements pluridisciplinaires et à relever des défis techniques variés.
+> *"Transformer des données complexes en résultats scientifiques exploitables."*
 
 ---
-*Basé à Bordeaux, ouvert aux opportunités en recherche et développement.*
 
+# À propos
 
+Je suis **Bioinformaticien** spécialisé dans l'analyse de données omiques et le développement d'outils de recherche pour le vivant. Titulaire d'un Master de l'Université de Bordeaux, je possède une double compétence rare : une **solide expertise biologique** (biochimie, physiologie végétale, écologie) couplée à des **compétences techniques avancées** en data science (Python, R, Machine Learning) et en ingénierie logicielle (Nextflow, Docker, C++).
 
-> Mon parcours de Master en Bioinformatique (Université de Bordeaux) m'a permis de consolider une expertise hybride, alliant rigueur biologique et ingénierie logicielle.
+Mon parcours est marqué par une volonté de **créativité technique** : que ce soit pour analyser des flux de données métabolomiques chez INRAE, développer des modèles de deep learning pour la détection de maladies de la vigne, ou concevoir un jeu vidéo en Godot et une interface robotique plante-machine, je cherche toujours à repousser les limites des outils existants.
 
+Je suis actuellement basé à **Talence (Bordeaux)** et ouvert aux opportunités en **R&D, Data Science et Bioinformatique**.
 
+---
 
-<br>
+# 💬 Ce qu'on dit de moi
+
+> "Jhodi a su s'adapter à un sujet complexe et exploratoire. Efficace, autonome et inventif, il a développé un pipeline d'intégration de données omiques basé sur l'analyse multibloc. C'est un collaborateur sérieux, rigoureux et très agréable."
+>
+> — **Nicolas Creusot**, Chercheur INRAE
+
+> "Jhodi est toujours rigoureux, curieux et agréable. Il a démontré de réelles compétences en manipulation de samples biologiques, même si ce n'était pas son background initial. Je soutiens pleinement son engagement dans un parcours de recherche."
+>
+> — **Frédéric Delmas**, Professeur Associé & HDR, INRAE
+
+---
 
 # 🧬 Ingénierie des Données Biologiques (Data Engineering)
 
-*   **Intégration & Structuration :** Collecte, intégration et structuration de sources de données biologiques hétérogènes et massives (omiques, métabolomiques) au sein de bases de données exploitables.
-*   **Fusion de données :** Capacité à intégrer des résultats d'analises informatiques, bio-informatiques et statistiques pour établir des associations transversales et faciliter leur interprétation par les biologistes.
-*   **Gestion de données :** Conception de workflows robustes pour la gestion du cycle de vie des données, de la collecte à la diffusion.
+Mon expertise repose sur la capacité à structurer, harmoniser et exploiter des sources d'information biologiques massives et hétérogènes.
 
-Mon expertise en ingénierie des données repose sur la capacité à structurer et harmoniser des sources d'information biologiques massives et hétérogènes pour en extraire de la valeur. À l'issue de mon Master, j'ai acquis la compétence fondamentale de collecter, intégrer et organiser ces données au sein de bases de données robustes, prêtes pour l'exploitation analytique. Au-delà de la simple accumulation, je sais fusionner des résultats d'analyses informatiques, bio-informatiques et statistiques pour établir des corrélations significatives entre les différents types de données (génomiques, transcriptomiques, métabolomiques). Cette approche permet de transformer des volumes de données brutes en informations interprétables, facilitant ainsi la compréhension des mécanismes biologiques complexes par les biologistes de terrain et garantissant que les données ne restent pas de simples fichiers, mais deviennent des outils de décision scientifique.
+*   **Intégration Omique :** Conception de pipelines pour l'intégration de données multi-omics (métagénomique, métabolomique) et environnementales.
+    *   *Projet INRAE :* Analyse des populations microbiennes dans des milieux aquatiques pollués.
+    *   *Outils :* DIABLO, consensusPLS, RGCCA, mixOmics.
+*   **Fusion de données :** Capacité à établir des corrélations transversales entre données biologiques, informatiques et statistiques pour faciliter l'interprétation par les biologistes.
+*   **Workflows Robustes :** Conception de flux de travail reproductibles (Nextflow, GitHub Actions) pour gérer le cycle de vie des données, de la collecte à la diffusion.
 
-# 💻 Développement de Solutions Bio-informatiques
+---
 
-*   **Conception de traitements :** Développement d'outils et de pipelines informatiques sur mesure pour résoudre des questions biologiques complexes (analyse de données massives, génomique).
-*   **Outils avancés :** Maîtrise autonome des environnements numériques de recherche (Python, R, Bash, SQL) et des outils de conteneurisation (Docker).
-*   **Visualisation de données :** Conception et développement de techniques de visualisation (R Shiny, graphiques scientifiques) pour rendre lisible et synthétique l'interprétation de grands jeux de données biologiques.
+# 💻 Développement de Solutions & Innovation
 
-Dans le domaine du développement, je ne me contente pas d'utiliser des outils standards ; je conçois et implémente des traitements informatiques sur mesure pour résoudre des questions biologiques spécifiques et complexes. Fort d'une autonomie complète dans l'utilisation d'outils numériques avancés, je suis capable de concevoir des pipelines et des workflows reproductibles (notamment avec Nextflow ou Target ) qui automatisent les analyses de données massives. Une partie cruciale de cette compétence réside dans la visualisation : je sais concevoir des techniques de représentation graphiques et de dashboards interactifs (via R Shiny ou Python) pour rendre lisible et synthétique l'interprétation de grands jeux de données. Que ce soit pour l'assemblage de génomes, l'annotation fonctionnelle ou la modélisation prédictive, mon objectif est toujours de créer des solutions logicielles qui répondent précisément aux besoins de la recherche tout en garantissant leur fiabilité et leur extensibilité.
+Je ne me contente pas d'utiliser des outils standards ; je conçois et implémente des traitements sur mesure, y compris dans des domaines hybrides (robotique, jeu vidéo, embedded).
+
+*   **Machine Learning & Deep Learning :**
+    *   Développement de modèles prédictifs pour la détection de maladies de la vigne (Deep Learning mobile).
+    *   Pipeline d'analyse de signaux électrophysiologiques végétaux pour la navigation autonome de robots (Preuve de concept interface plante-machine).
+*   **Développement Embarqué & IoT :**
+    *   Conception d'une balance hybride pour ruchers (système électromécanique combinant robustesse mécanique et haute précision).
+    *   Intégration de protocoles LoRaWAN et programmation C++ (Arduino, STM32).
+*   **Développement Créatif :**
+    *   Conception et développement d'un jeu 2D complet (Rogue-like) avec le moteur **Godot** et le plugin de Machine à États **La-State-Makina**.
+
+---
 
 # 🚀 Gestion de Projet & Communication Scientifique
 
-*   **Pilotage de projet :** Conduite complète de projets pluridisciplinaires (conception, pilotage, coordination d'équipe, évaluation et diffusion) dans un cadre collaboratif.
-*   **Transfert de connaissances :** Communication spécialisée pour le transfert de concepts techniques vers des publics variés (biologistes, développeurs, partenaires industriels).
-*   **Veille technologique :** Identification des usages numériques et de leur évolution pour adapter les outils de recherche aux besoins actuels.
+Mon parcours académique et professionnel m'a permis de développer une maîtrise des méthodologies de gestion de projets pluridisciplinaires.
 
-Mon parcours académique et mes expériences de stage m'ont permis de développer une première maîtrise des méthodologies de gestion de projets de recherche pluridisciplinaires. J'ai eu l'opportunité de participer activement à la conception et au suivi de projets, en collaborant étroitement avec des encadrants pour piloter les étapes clés, de la coordination d'équipe à la mise en œuvre opérationnelle. Dans ces environnements collaboratifs, je joue souvent un rôle de lien entre les biologistes, les informaticiens et les partenaires, en m'assurant que les besoins de chacun sont pris en compte. Parallèlement, je m'efforce de transmettre des concepts techniques complexes à des publics variés, en adaptant ma communication pour rendre les résultats accessibles et compréhensibles. Cette expérience m'a appris l'importance de la rigueur, de l'organisation et de l'écoute dans le travail d'équipe, des qualités que je souhaite maintenant approfondir pour contribuer efficacement à la réussite de projets collectifs.
+*   **Pilotage de projet :** Conduite complète de projets de recherche (conception, pilotage, évaluation) en collaboration avec des biologistes et des ingénieurs.
+*   **Transfert de connaissances :** Expérience en **enseignement** (Tutorat SVT, Maths, Physique) et en **médiation scientifique** (4PScienceas). Je sais vulgariser des concepts techniques complexes pour des publics variés.
+*   **Veille technologique :** Identification et intégration de nouvelles technologies (Deep Learning, IoT) pour adapter les outils de recherche aux besoins actuels.
 
-# 🌍 Langues & Soft Skills
+---
 
-*   **Langues :** Anglais (C1 - Scientifique), Allemand (A2).
-*   **Savoir-être :** Rigueur, autonomie, curiosité, esprit d'équipe.
-*   **Médiation :** Expérience en enseignement (SVT, Maths) et vulgarisation scientifique.
+# 🌍 Langues & Compétences Clés
 
-Ma formation et mes expériences professionnelles m'ont permis de développer une maîtrise linguistique et des aptitudes comportementales adaptées à un environnement de recherche international et collaboratif. Je possède un niveau d'anglais courant (C1) qui me permet de lire la littérature scientifique internationale, de rédiger des publications et de collaborer efficacement avec des équipes étrangères, une exigence clé pour des projets comme MUSCASEQ. Sur le plan des soft skills, je me distingue par une grande rigueur dans l'organisation de mon travail, une autonomie dans la résolution de problèmes et une curiosité intellectuelle constante qui me pousse à me tenir informé des avancées technologiques. Mon goût pour le travail en équipe, couplé à une expérience en médiation scientifique et en enseignement, me permet de m'adapter rapidement à de nouveaux environnements, de communiquer clairement et de contribuer activement à la dynamique collective, que ce soit dans un laboratoire de recherche ou lors de projets de développement.
+| Compétences Techniques | Outils & Plateformes | Langues |
+| :--- | :--- | :--- |
+| **Langages :** Python, R, SQL, Bash, C++, GDScript | **Data Science :** Keras, PyTorch, scikit-learn, dplyr, tidyr, NumPy, SciPy | 🇫🇷 **Français** (Natif) |
+| **Bioinfo :** Nextflow, Bioconductor, Galaxy, mixOmics | **Data Viz :** ggplot2, Plotly, Matplotlib, R Shiny | 🇬🇧 **Anglais** (C1 - Scientifique) |
+| **Embedded :** Arduino, STM32, LoRaWAN, C++ | **Versionning & CI/CD :** GitHub, Git, Docker | 🇩🇪 **Allemand** (A2) |
+| **Labo :** PCR, Spectrophotométrie, Électrophorèse | **Stats :** DIABLO, PLS, RGCCA | |
 
-TODO: Rajouter des liens hypertexte vers les projets qui appuis les skills.
+---
+
+# 📫 Contact & Liens
+
+*   📧 **Email :** [Avizara-Jhodi@protonmail.com](mailto:Avizara-Jhodi@protonmail.com)
+*   📍 **Localisation :** Talence, France
+*   💻 **GitHub :** [github.com/Ajhodi](https://github.com/Ajhodi)
+*   📞 **Tél :** +33 7 72 15 98 25
+
+---
+
 
 
 *Avizara-Jhodi[at]protonmail.com*

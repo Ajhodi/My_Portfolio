@@ -411,7 +411,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Mon Portfolio</a>
+      <a class="navbar-brand" href="index.html">Jhodi Avizara</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -447,6 +447,7 @@ div.tocify {
 </div>
 
 
+<hr />
 <p><br></p>
 <div
 id="séchage-de-cossettes-de-manioc-à-laide-de-biogaz-et-dénergie-solaire"
@@ -471,6 +472,7 @@ pluies en RDC. Le projet vise à fournir aux habitants une technologie
 pragmatique, durable et adaptée au contexte local, permettant de réduire
 les pertes post-récolte et d’améliorer la qualité des produits
 transformés.</p>
+<p><img src="images/baeldung-7_1%20(copie).png" /></p>
 </div>
 <div id="détails" class="section level2">
 <h2>Détails</h2>
@@ -601,6 +603,7 @@ toxicité résiduelle due aux cyanures.</p>
 </div>
 <div id="état-de-lart-de-la-thématique" class="section level3">
 <h3>État de l’art de la thématique</h3>
+<p><img src="images/baeldung-6_1.png" /></p>
 <p>Le projet vise à déshydrater les cossettes de manioc en transformant
 l’eau liquide en vapeur. Le choix de l’énergie est donc central. Les
 techniques actuelles de séchage incluent le séchage à l’air libre, les
@@ -616,10 +619,14 @@ biogaz) pour permettre un séchage continu, de jour comme de nuit, et par
 mauvais temps. Notre groupe s’oriente actuellement vers cette solution
 hybride, imaginant un four utilisant l’énergie solaire naturelle et la
 combustion de biogaz.</p>
-<p>Une illustration d’un système de séchage solaire indirect combiné
-avec un ventilateur, tel que conçu par le laboratoire LENREZA, a été
-étudiée pour comprendre les mécanismes de transfert thermique et
-d’humidité.</p>
+<div class="float">
+<img src="images/baeldung-7_1%20(copie).png"
+alt="Une illustration d’un système de séchage solaire indirect combiné avec un ventilateur, tel que conçu par le laboratoire LENREZA, a été étudiée pour comprendre les mécanismes de transfert thermique et d’humidité." />
+<div class="figcaption">Une illustration d’un système de séchage solaire
+indirect combiné avec un ventilateur, tel que conçu par le laboratoire
+LENREZA, a été étudiée pour comprendre les mécanismes de transfert
+thermique et d’humidité.</div>
+</div>
 </div>
 <div id="approche-locale-globale" class="section level3">
 <h3>Approche locale-globale</h3>
@@ -716,7 +723,7 @@ href="https://www.climatsetvoyages.com/climat/republique-democratique-congo"
 class="uri">https://www.climatsetvoyages.com/climat/republique-democratique-congo</a></li>
 <li>Wikipedia. <em>Énergie solaire en Europe</em>. Disponible sur : <a
 href="https://fr.wikipedia.org/wiki/%C3%89nergie_solaire_en_Europe#Production_d&#39;%C3%A9lectricit%C3%A9"
-class="uri">https://fr.wikipedia.org/wiki/%C3%89nergie_solaire_en_Europe#Production_d'%C3%A9lectricit%C3%A9</a></li>
+class="uri">https://fr.wikipedia.org/wiki/%C3%89nergie_solaire_en_Europe#Production_d’%C3%A9lectricit%C3%A9</a></li>
 <li>InfoMetha. <em>État des lieux de la méthanisation en Europe</em>.
 Disponible sur : <a
 href="https://www.infometha.org/effets-socio-economiques/etat-des-lieux-de-la-methanisation-en-europe"
@@ -1193,13 +1200,14 @@ Extract_features.py to handle all of the preprocessing. Additionally, if
 required, this script can perform further sampling via the SMOTE()
 function from the imbalanced-learn package to balance class
 proportions.</p>
-<pre><code># Feature extraction example
-from Exctract_features import create_dataset
-
-pwd = &quot;./513_distribute&quot;
-
-df1 = create_dataset(pwd, method=&#39;ohe&#39;, rsp=True)  # One-hot encoding with resampling
-df2 = create_dataset(pwd, method=&#39;freq&#39;, rsp=True)  # Frequency encoding with resampling</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Feature extraction example</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> Exctract_features <span class="im">import</span> create_dataset</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>pwd <span class="op">=</span> <span class="st">&quot;./513_distribute&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>df1 <span class="op">=</span> create_dataset(pwd, method<span class="op">=</span><span class="st">&#39;ohe&#39;</span>, rsp<span class="op">=</span><span class="va">True</span>)  <span class="co"># One-hot encoding with resampling</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>df2 <span class="op">=</span> create_dataset(pwd, method<span class="op">=</span><span class="st">&#39;freq&#39;</span>, rsp<span class="op">=</span><span class="va">True</span>)  <span class="co"># Frequency encoding with resampling</span></span></code></pre></div>
 <p>DSSP 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 RES<br />
 CDAFVGTWKLVSS 2 0.076923 0.0 0.000000 0.076923 0.076923 0.0 0.000000
 0.076923 0.0 0.0 0.076923 0.076923 0.0 0.076923 0.0 0.153846 0.076923
@@ -1238,25 +1246,26 @@ as the one used for one-hot encoding for the combined DataFrame (one-hot
 one and is designed to learn quickly to achieve higher accuracy.
 Furthermore, we tested various layer densities and learning rates to
 achieve the results that we will discuss.</p>
-<pre><code>early_stopping = EarlyStopping(monitor=&#39;val_loss&#39;, min_delta=0, patience=15, verbose=1, mode=&#39;min&#39;)
-
-model = keras.Sequential([
-    keras.layers.Dense(500, activation=&#39;relu&#39;),  
-    keras.layers.Dense(256, activation=&#39;relu&#39;), 
-    keras.layers.Dense(128, activation=&#39;relu&#39;), 
-    keras.layers.Dense(3, activation=&#39;softmax&#39;)                   
-])
-# For the second and third model we use 5 hiden layers (1000, 500, 500, 256, 128), Relu as activation
-opt = keras.optimizers.Adam(learning_rate=0.008) # for frequency encoding we use learning_rate=0.001, the same for the last case
-
-model.compile(optimizer=opt,
-              loss=&#39;categorical_crossentropy&#39;,
-              metrics=[&#39;accuracy&#39;])
-
-history = model.fit(X_train, y_train, 
-                    epochs=3, batch_size=32, 
-                    validation_data=(X_test, y_test),
-                    callbacks=early_stopping)</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>early_stopping <span class="op">=</span> EarlyStopping(monitor<span class="op">=</span><span class="st">&#39;val_loss&#39;</span>, min_delta<span class="op">=</span><span class="dv">0</span>, patience<span class="op">=</span><span class="dv">15</span>, verbose<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">&#39;min&#39;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>model <span class="op">=</span> keras.Sequential([</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    keras.layers.Dense(<span class="dv">500</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>),  </span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    keras.layers.Dense(<span class="dv">256</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>), </span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    keras.layers.Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>), </span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    keras.layers.Dense(<span class="dv">3</span>, activation<span class="op">=</span><span class="st">&#39;softmax&#39;</span>)                   </span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>])</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co"># For the second and third model we use 5 hiden layers (1000, 500, 500, 256, 128), Relu as activation</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>opt <span class="op">=</span> keras.optimizers.Adam(learning_rate<span class="op">=</span><span class="fl">0.008</span>) <span class="co"># for frequency encoding we use learning_rate=0.001, the same for the last case</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span>opt,</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>              loss<span class="op">=</span><span class="st">&#39;categorical_crossentropy&#39;</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>              metrics<span class="op">=</span>[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>history <span class="op">=</span> model.fit(X_train, y_train, </span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>                    epochs<span class="op">=</span><span class="dv">3</span>, batch_size<span class="op">=</span><span class="dv">32</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>                    validation_data<span class="op">=</span>(X_test, y_test),</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>                    callbacks<span class="op">=</span>early_stopping)</span></code></pre></div>
 </div>
 <div id="results-and-analysis" class="section level3">
 <h3>Results and Analysis</h3>
@@ -1313,13 +1322,421 @@ amino acid sequences, but we did not do so due to time constraints.</p>
 </div>
 </div>
 </div>
+<div
+id="biologie-et-biotechnologies-des-plantes-transformation-stable-et-transitoire-de-nicotiana-benthamiana-et-solanum-lycopersicum-par-agrobacterium-tumefaciens"
+class="section level1 tabset">
+<h1 class="tabset">Biologie et Biotechnologies des Plantes :
+Transformation stable et transitoire de <em>Nicotiana benthamiana</em>
+et <em>Solanum lycopersicum</em> par <em>Agrobacterium
+tumefaciens</em></h1>
+<p><strong>2024</strong> <br> <strong>Auteurs :</strong> Anaelle
+Rambaud, Jhodi Avizara</p>
+<div id="résumé-3" class="section level2">
+<h2>Résumé</h2>
+<p>Ce projet a consisté à comparer deux stratégies de transformation
+génétique du tabac (Nicotiana benthamiana) et de la tomate (Solanum
+lycopersicum) via Agrobacterium tumefaciens : la transformation stable
+par agro-infiltration et la transformation transitoire par
+agro-injection. La première partie a visé l’insertion permanente de
+gènes rapporteurs (GFP et RUBY) pour observer la régénération de plantes
+en culture in vitro, révélant une expression fonctionnelle de la GFP
+dans les trichomes et les racines du tabac, tandis que la construction
+RUBY a échoué, probablement en raison de contraintes techniques liées à
+la culture ou à l’expression du gène. La seconde partie a exploité la
+transformation transitoire pour réintroduire une voie de biosynthèse
+d’acides gras polyinsaturés (PUFAs) dans les feuilles de tabac, une
+approche validée par chromatographie en phase gazeuse qui a confirmé
+l’activité des enzymes introduites (désaturases et élongase) par
+l’apparition de lipides spécifiques, démontrant ainsi l’efficacité de
+cette méthode pour l’ingénierie métabolique rapide sans nécessiter de
+régénération végétale complète.</p>
+<p><img src="images/baeldung-9_4.png" /></p>
+</div>
+<div id="détails-3" class="section level2">
+<h2>Détails</h2>
+<div id="introduction-3" class="section level3">
+<h3>Introduction</h3>
+<p>L’objectif de ces quatre séances de travaux pratiques était double :
+1. <strong>Comparer les résultats de transformations stables</strong>
+réalisées à l’aide de gènes rapporteurs (GFP et construction RUBY) sur
+des plants de tabac (<em>Nicotiana benthamiana</em>) et de tomate
+(<em>Solanum lycopersicum</em>). 2. <strong>Réaliser une transformation
+transitoire</strong> sur du tabac afin de modifier le contenu lipidique
+de ses feuilles en recréant la voie de biosynthèse des acides gras
+polyinsaturés (PUFAs).</p>
+<p>Dans les deux cas, les transformations ont été effectuées via
+<em>Agrobacterium tumefaciens</em>. La méthode
+d’<strong>agro-infiltration</strong> a été utilisée pour la
+transformation stable, tandis que la méthode
+d’<strong>agro-injection</strong> a été employée pour la transformation
+transitoire.</p>
+<div id="concepts-théoriques" class="section level4">
+<h4>Concepts théoriques</h4>
+<p><strong>Transformation stable et culture <em>in vitro</em></strong>
+Une transformation stable consiste à incorporer de façon permanente un
+ou plusieurs gènes dans le génome d’une cellule hôte. Dans notre
+expérience, la transformation a été réalisée sur des explants de tabac
+et de tomate. Pour observer le phénotype, la régénération des plantes en
+culture <em>in vitro</em> est nécessaire. La culture <em>in vitro</em>
+est une technique permettant de régénérer une plante entière à partir de
+simples cellules ou de tissus végétaux dans un milieu nutritif enrichi
+en hormones, en présence d’un facteur de sélection (un antibiotique) et
+dans des conditions axéniques. La présence d’un antibiotique dans le
+milieu de culture, couplée à un gène de résistance dans le vecteur de
+transformation, permet de sélectionner et de maintenir en culture
+uniquement les cellules qui ont été transformées.</p>
+<p><strong>Transformation transitoire et chromatographie en phase
+gazeuse</strong> Une transformation transitoire consiste à incorporer un
+transgène qui ne sera exprimé que pendant quelques jours. Le but de
+l’expérience était de recréer dans les feuilles la voie de biosynthèse
+des PUFAs [3]. L’analyse des résultats se fait par chromatographie en
+phase gazeuse (CPG). Les lipides étudiés se distinguent par leurs
+propriétés physico-chimiques, notamment leur affinité pour la phase
+stationnaire lors de la chromatographie, ce qui permet de les séparer en
+fonction de leur temps de rétention.</p>
+<hr />
+</div>
+</div>
+<div id="matériel-et-méthodes" class="section level3">
+<h3>Matériel et Méthodes</h3>
+<div id="transformation-stable" class="section level4">
+<h4>Transformation Stable</h4>
+<div
+id="préparation-des-explants-de-tomate-solanum-lycopersicum-sur-milieu-kcms"
+class="section level5">
+<h5>Préparation des explants de tomate (<em>Solanum lycopersicum</em>)
+sur milieu KCMS</h5>
+<p>Pour réaliser la transformation stable, nous avons prélevé les
+cotylédons de tomates cultivées <em>in vitro</em>. Les extrémités des
+cotylédons ont été retirées, puis ceux-ci ont été coupés en trois
+fragments d’environ 5 mm². Ces explants ont été mis en culture sur boîte
+de Pétri sur du milieu <strong>KCMS</strong> supplémenté avec : * 0,2 mM
+d’acétophénone * 0,9 mg/L de thiamine * 0,1 mg/L de kinétine * 0,2 mg/L
+de 2,4D</p>
+<p>Cette préparation a duré deux jours en lumière indirecte dans une
+chambre de culture à 25°C. Les explants ont été positionnés avec leur
+épiderme supérieur en contact avec la gélose pour permettre une
+diffusion plus lente des hormones dans les tissus.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Composant</th>
+<th align="left">Concentration initiale</th>
+<th align="left">Volume final</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Milieu KCMS</td>
+<td align="left">-</td>
+<td align="left">50 mL</td>
+</tr>
+<tr class="even">
+<td align="left">Acétophénone</td>
+<td align="left">20 mM</td>
+<td align="left">500 µL</td>
+</tr>
+<tr class="odd">
+<td align="left">Thiamine</td>
+<td align="left">10 mg/mL</td>
+<td align="left">4.5 µL</td>
+</tr>
+<tr class="even">
+<td align="left">Kinétine</td>
+<td align="left">1 mg/mL</td>
+<td align="left">5 µL</td>
+</tr>
+<tr class="odd">
+<td align="left">2,4D</td>
+<td align="left">1 mg/mL</td>
+<td align="left">10 µL</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tableau 1 : Composition du milieu de culture in vitro des
+tomates</em></p>
+</div>
+<div
+id="préparation-des-explants-de-tabac-nicotiana-benthamiana-sur-milieu-ms"
+class="section level5">
+<h5>Préparation des explants de tabac (<em>Nicotiana benthamiana</em>)
+sur milieu MS</h5>
+<p>Pour le tabac, nous avons prélevé des feuilles cultivées <em>in
+vitro</em>. La nervure centrale a été éliminée, puis les feuilles ont
+été découpées en carrés d’environ 5 mm². Ces explants ont été mis en
+culture sur milieu <strong>MS</strong> supplémenté avec : * 0,2 mM
+d’acétophénone * 1 mg/L de BAP * 0,1 mg/L d’ANA</p>
+<p>Comme pour la tomate, la préparation a duré deux jours en lumière
+indirecte à 25°C, avec les explants positionnés épiderme supérieur vers
+la gélose.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Composant</th>
+<th align="left">Concentration initiale</th>
+<th align="left">Volume final</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Milieu ½ MS</td>
+<td align="left">-</td>
+<td align="left">50 mL</td>
+</tr>
+<tr class="even">
+<td align="left">Acétophénone</td>
+<td align="left">20 mM</td>
+<td align="left">500 µL</td>
+</tr>
+<tr class="odd">
+<td align="left">BAP</td>
+<td align="left">10 mg/L</td>
+<td align="left">5 µL</td>
+</tr>
+<tr class="even">
+<td align="left">ANA</td>
+<td align="left">1 mg/L</td>
+<td align="left">5 µL</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tableau 2 : Composition du milieu de culture in vitro de
+tabac</em></p>
+<p><img src="images/baeldung-4_2.png"
+alt="Figure 2: Préparation des explants de tabac en vue de la transformation" />
+<em>Figure 2 : Préparation des explants de tomates et de tabac en vue de
+la transformation [1]</em></p>
+</div>
+<div id="transformation-des-explants" class="section level5">
+<h5>Transformation des explants</h5>
+<p>Une solution d’<em>Agrobacterium tumefaciens</em> (souche C58C1),
+préalablement transformée avec un plasmide Ti désarmé contenant les
+constructions à tester (35S:GFP et RUBY) et un gène de résistance à la
+kanamycine, a été utilisée. La turbidité des solutions a été ajustée par
+mesure d’absorbance à 600 nm (DO entre 0,4 et 0,6).</p>
+<p>Pour la construction RUBY, la transformation bactérienne semblant
+inefficace, nous avons concentré les bactéries par centrifugation
+(4000G, 10 min, 25°C) pour reprendre dans un volume inférieur (10 mL de
+milieu Luria Broth), afin d’optimiser la transformation des explants.
+Les bactéries diluées ont ensuite été centrifugées et reprises dans 10
+mL de milieu de coculture (KCMS pour la tomate, MS pour le tabac).</p>
+<p>Les explants ont été immergés 30 minutes dans la solution
+d’infiltration, essorés pour éliminer l’excès de bactéries, puis
+repiqués sur de nouvelles boîtes (épiderme supérieur au contact de la
+gélose). Ils ont été laissés en culture pendant deux jours en lumière
+indirecte.</p>
+</div>
+<div id="régénération-des-plants-transformés" class="section level5">
+<h5>Régénération des plants transformés</h5>
+<p>Après la coculture, les explants ont subi quatre lavages successifs
+(5 min puis 3 x 3 min) dans un mélange eau + Tween pour éliminer les
+<em>Agrobacterium</em> de surface et éviter la nécrose due à leur
+reprise de croissance. Ils ont ensuite été mis en culture sur un milieu
+de régénération contenant de la kanamycine (100 µg/mL) et du Timentin
+(250 µg/mL).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Milieu</th>
+<th align="left">Kanamycine</th>
+<th align="left">Timentin</th>
+<th align="left">Suppléments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>KCMS (Tomate)</strong></td>
+<td align="left">100 µg/mL</td>
+<td align="left">250 µg/mL</td>
+<td align="left">0,9 µg/mL Thiamine</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>MS (Tabac)</strong></td>
+<td align="left">100 µg/mL</td>
+<td align="left">250 µg/mL</td>
+<td align="left">4 µL ANA + 4 µL BAP</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tableau 3 : Composition des milieux de culture de tomate (KCMS)
+et de tabac (MS) modifiés pour la régénération</em></p>
+<p><strong>Contrôles et Repiquage</strong> Bien que le groupe n’ait pas
+réalisé de contrôles internes (vecteur vide, régénération non
+transformée, sélection antibiotique stricte) pour maximiser le nombre
+d’explants transformés, les résultats des groupes ayant réalisé ces
+contrôles ont été utilisés pour l’analyse. Après une semaine, les
+explants ont été transférés sur du milieu frais (MS ou KCMS) avec 150
+mg/L de Timentin et de kanamycine. D’autres repiquages ont été effectués
+hebdomadairement jusqu’à l’apparition de tiges feuillées.</p>
+<p>Vingt jours après le premier transfert, des cals se sont formés et
+des tiges feuillées ont régénéré. Nous avons sélectionné une plantule
+vigoureuse, exempte de vitrification (phénotype gorgé d’eau, feuilles
+transparentes), car ces plantes ne peuvent pas former de racines. La
+tige a été détachée du cal et plantée dans un milieu sans hormones pour
+réactiver la différenciation des racines via la production d’auxine par
+le méristème apical caulinaire (SAM).</p>
+</div>
+<div id="observation-des-explants" class="section level5">
+<h5>Observation des explants</h5>
+<p>Certains explants ont été visualisés 12 jours après transformation à
+la loupe binoculaire et au stéréo-microscope. La GFP est excitée par des
+longueurs d’onde entre 460 et 488 nm (UV), permettant de visualiser sa
+fluorescence, bien que cela révèle aussi l’auto-fluorescence de la
+chlorophylle. Des plantes régénérées ont été observées après 17 jours de
+régénération racinaire.</p>
+</div>
+</div>
+<div id="transformation-transitoire" class="section level4">
+<h4>Transformation Transitoire</h4>
+<div id="construction-des-plasmides" class="section level5">
+<h5>Construction des plasmides</h5>
+<p>Les plasmides utilisés contenaient respectivement : *
+<strong>pBIN61</strong> : P19 (un suppresseur viral) *
+<strong>pK7WG2D</strong> : Δ6-Desaturase * <strong>pKB7WG2D</strong> :
+Élongase 1 * <strong>pH7WG2D</strong> : Δ5-Desaturase</p>
+<p><img src="images/baeldung-7_1%20(autre%20copie).png"
+alt="Figure 3 : Schéma du plasmide pK7WG2D" /> <em>Figure 3 : Schéma du
+plasmide pK7WG2D [3]</em></p>
+<p>Les échantillons ont été transformés avec les combinaisons suivantes
+: * <strong>3001</strong> : P19 * <strong>3101</strong> : P19 + Δ6 +
+Élongase * <strong>3201</strong> : P19 + Δ6 * <strong>3301</strong> :
+P19 + Δ6 + Élongase + Δ5</p>
+</div>
+<div id="agro-injection" class="section level5">
+<h5>Agro-Injection</h5>
+<p>La méthode utilisée est l’agro-injection sur des plants de tabac de 5
+semaines (Figure 4). 1. Mise en suspension des bactéries à une DO
+définie. 2. Injection de la solution dans la face inférieure des
+feuilles 3 et 4 à l’aide d’une seringue. 3. Après 48h, découpe de 2
+disques de feuilles transformés (pointe de 1000 µL). 4. Incubation des
+disques dans une solution d’acide sulfurique pour solubiliser les
+lipides, suivie d’une centrifugation. 5. Récupération de la phase
+organique pour analyse en Chromatographie en Phase Gazeuse (CPG).</p>
+<p><img src="images/baeldung-8_1.png"
+alt="Figure 4 : Agro-Injection des Agrobacterium et préparation des échantillons pour analyse en CPG" />
+<em>Figure 4 : Agro-Injection des Agrobacterium et préparation des
+échantillons pour analyse en CPG [1]</em></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="résultats" class="section level3">
+<h3>Résultats</h3>
+<div id="transformation-stable-1" class="section level4">
+<h4>Transformation Stable</h4>
+<p><strong>Observations macroscopiques et microscopiques</strong> Après
+une semaine de culture <em>in vitro</em>, les explants ont développé des
+cals. * <strong>GFP :</strong> Une fluorescence verte a été observée à
+certains endroits, notamment dans les trichomes. * <strong>RUBY
+:</strong> La transformation n’a pas réussi. Aucune coloration rouge
+notable n’a été observée ; seuls des signes de nécrose ou d’accumulation
+d’anthocyanes liés au stress ont été notés.</p>
+<p><img src="images/baeldung-8_4.jpg" style="width:30.0%" /> <img
+src="images/baeldung-8_5.jpg" /> <em>Figure 5 : Boîtes de pétrie de
+culture in vitro d’explants de tabac transformé avec la construction
+RUBY (en haut) et 35S:GFP (en bas)</em></p>
+<p><img src="images/baeldung-9_1.jpg"
+alt="Figure 6 : Boîtes de pétrie de culture in vitro d’explants de tabac transformé avec la construction RUBY (après repiquage)" />
+<img src="images/baeldung-9_2.jpg" /> <img
+src="images/baeldung-9_3.jpg" /> <em>Figure 6 : Boîtes de pétrie de
+culture in vitro d’explants de tabac transformé avec la construction
+RUBY (après repiquage)</em></p>
+<p>De nombreux échantillons ont été perdus à cause de contaminations
+fongiques, de vitrification ou de reprise des colonies
+d’<em>Agrobacterium</em>. Cependant, sur les échantillons restants, la
+fluorescence verte de la GFP a été clairement visible, indiquant une
+transformation fonctionnelle pour cette construction. Sous lumière UV,
+l’auto-fluorescence de la chlorophylle apparaît en rouge, ce qui peut
+masquer la GFP, mais celle-ci reste distincte dans les racines et les
+trichomes.</p>
+<p><img src="images/baeldung-9_4.png"
+alt="Figure 7 : Cals de tabac transformés à la GFP (lumière visible et UV)" />
+<em>Figure 7 : Cals de tabac transformés à la GFP. A= Tabac, B= Tomate.
+Photos prises à la lumière visible (à gauche) et la lumière UV (au
+milieu et à droite)</em></p>
+<p><img src="images/baeldung-10_1.jpg" style="width:30.0%"
+alt="Figure 8 : Microscopie à fluorescence de tabacs transformés à la GFP" />
+<img src="images/baeldung-10_2.jpg" style="width:30.0%" /> <em>Figure 8
+: Photographies en microscopie à fluorescence de tabacs transformés à la
+GFP après repiquage. A gauche sans filtre (auto-fluorescence
+chlorophylle rouge + GFP verte), à droite en UV (GFP seule)</em></p>
+</div>
+<div id="transformation-transitoire-1" class="section level4">
+<h4>Transformation Transitoire</h4>
+<p>L’analyse par chromatographie en phase gazeuse (CPG) a permis
+d’identifier les lipides produits selon les combinaisons de
+plasmides.</p>
+<p><img src="images/baeldung-10_3.png"
+alt="Figure 9 : Résultats de la chromatographie en phase gazeuse" />
+<em>Figure 9 : Résultats de la chromatographie en phase gazeuse. Les
+temps de rétention du standard externe sont marqués par des traits
+colorés.</em></p>
+<ul>
+<li><strong>Comparaison 3001 vs 3101 :</strong> La quantité de C18:2w6
+diminue pour laisser apparaître des C18:3w6 et C18:4w3. Cela correspond
+à l’action de la <strong>Δ6-Desaturase</strong>.</li>
+<li><strong>Comparaison 3001 vs 3201 :</strong> L’échantillon 3201
+possède moins de C18:2w6 et présente des C20:3w6 et C20:4w3 en faible
+quantité. Cela correspond aux effets cumulés de la
+<strong>Δ6-Désaturase</strong> et de l’<strong>Élongase</strong>.</li>
+<li><strong>Échantillon 3301 :</strong> Il possède moins de C18:2w6 et
+nettement moins de C18:3w3. Il contient les produits finaux de la voie
+des PUFAs : C20:3w6, C20:4w3, C20:4w6 et C20:5w3, bien qu’en très faible
+quantité. On observe ainsi l’action combinée de la
+<strong>Δ6-Désaturase</strong>, de l’<strong>Élongase</strong> et de la
+<strong>Δ5-Désaturase</strong>.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="conclusion-1" class="section level3">
+<h3>Conclusion</h3>
+<p>La transformation stable par <em>Agrobacterium tumefaciens</em> a
+permis d’observer des phénotypes associés à la construction
+<strong>35S:GFP</strong>, confirmant l’efficacité de cette méthode pour
+l’expression de gènes rapporteurs chez <em>Nicotiana benthamiana</em> et
+<em>Solanum lycopersicum</em>. En revanche, la construction
+<strong>RUBY</strong> n’a pas abouti à une coloration phénotypique
+observable, se limitant à des signes de stress. Le taux de réussite
+avant l’étape de repiquage était de 24 sur un total de 32 boîtes de
+Pétri. Les échecs sont principalement attribués à des contaminations
+fongiques, à la vitrification des explants ou à la reprise des colonies
+d’<em>Agrobacterium</em>. Globalement, les transformations sur tabac ont
+montré de meilleurs résultats que sur tomate.</p>
+<p>Concernant la transformation transitoire, la présence de lipides
+associés à la voie des PUFAs a bien été détectée dans les feuilles
+(notamment C20:4w6 et C20:5w3), bien que les signaux soient faibles. La
+réduction de la quantité de certains lipides précurseurs (C18:2w6,
+C18:3w3) est cohérente avec l’activité des enzymes introduites
+(Δ6-Désaturase, Élongase, Δ5-Désaturase), prouvant la reconstitution
+partielle de la voie de biosynthèse.</p>
+<hr />
+</div>
+<div id="références-1" class="section level3">
+<h3>Références</h3>
+<ul>
+<li>Figures 1, 2 et 4 : Réalisées sur le site
+<strong>BioRender</strong>.</li>
+<li>Lacroix, B., Assoumou, Y., &amp; Sangwan, R. S. (2003). Efficient
+<em>in vitro</em> direct shoot organogenesis and regeneration of fertile
+plants from embryo explants of Bambara groundnut (<em>Vigna
+subterranea</em> L. Verdc.). <em>Plant Cell Rep</em>, 21,
+1153–1158.</li>
+<li>Ruiz-Lopez, N., Haslam, R. P., Napier, J. A., &amp; Sayanova, O.
+(2014). Successful high-level accumulation of fish oil omega-3
+long-chain polyunsaturated fatty acids in a transgenic oilseed crop.
+<em>The Plant Journal</em>, 77, 198–208.</li>
+</ul>
+</div>
+</div>
+</div>
 <div id="predicting-canopy-height-maps-from-uav-imagery"
 class="section level1 tabset">
 <h1 class="tabset">Predicting Canopy Height Maps from UAV-Imagery</h1>
 <p><em>2024</em> <em>Auteurs : Jón Róason (University of Groningen),
 Thije Robbe (University of Groningen), Jhodi Avizara (University of
 Bordeaux), Florian Franz (University of Göttingen)</em></p>
-<div id="résumé-3" class="section level2">
+<div id="résumé-4" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet vise à prédire des cartes de hauteur de canopée forestière
 à partir d’images RGB à très haute résolution capturées par drones
@@ -1344,9 +1761,9 @@ une alternative accessible aux recherches écologiques et sylvicoles
 n’utilisant que des données spectrales.</p>
 <p><img src="images/Example%20orthomosaic.png" /></p>
 </div>
-<div id="détails-3" class="section level2">
+<div id="détails-4" class="section level2">
 <h2>Détails</h2>
-<div id="introduction-3" class="section level3">
+<div id="introduction-4" class="section level3">
 <h3>Introduction</h3>
 <p>Forest ecosystems are facing major challenges. Processes in the
 context of global change such as population growth, land use change and
@@ -1770,7 +2187,7 @@ spectral information. However, if a more fine-grained canopy height map
 is desired locally, our approach of using high-resolution orthomosaics
 instead of satellite imagery could be helpful.</p>
 </div>
-<div id="conclusion-1" class="section level3">
+<div id="conclusion-2" class="section level3">
 <h3>Conclusion</h3>
 <p>In this project, we aimed to develop a DL model capable of predicting
 canopy height maps corresponding to UAV orthomosaics. Using a U-Net
@@ -1903,7 +2320,7 @@ class="section level1 tabset">
 <h1 class="tabset">White Blood Cells (WBC) classification using
 Pytorch</h1>
 <p><em>2025</em> <br> <em>Auteurs: Jhodi</em></p>
-<div id="résumé-4" class="section level2">
+<div id="résumé-5" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet vise à automatiser la classification de quatre types de
 globules blancs (éosinophiles, lymphocytes, monocytes et neutrophiles) à
@@ -1928,9 +2345,9 @@ diversité des données ou l’exploration d’architectures pré-entraînées
 plus adaptées.</p>
 <p><img src="images/gradients.png" /></p>
 </div>
-<div id="détails-4" class="section level2">
+<div id="détails-5" class="section level2">
 <h2>Détails</h2>
-<div id="introduction-4" class="section level3">
+<div id="introduction-5" class="section level3">
 <h3>Introduction</h3>
 <p>La classification des cellules est une tâche cruciale en biologie et
 en médecine, permettant d’analyser des échantillons biologiques et de
@@ -2353,7 +2770,7 @@ class="section level1 tabset">
 l’environnement sur l’hétérogénéité spatio-temporelle du méta-métabolome
 du périphyton</h1>
 <p><em>2025</em> <br> <em>Auteur: Jhodi Avizara</em></p>
-<div id="résumé-5" class="section level2">
+<div id="résumé-6" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet consiste en la conception et l’application d’un pipeline
 d’analyse multi-bloc pour intégrer des données hétérogènes
@@ -2377,9 +2794,9 @@ devraient être stratifiées par saison pour isoler les effets
 environnementaux locaux.</p>
 <p><img src="images/baeldung-29_2.png" /></p>
 </div>
-<div id="détails-5" class="section level2">
+<div id="détails-6" class="section level2">
 <h2>Détails</h2>
-<div id="introduction-5" class="section level3">
+<div id="introduction-6" class="section level3">
 <h3>Introduction</h3>
 <p>Face aux changements globaux, il est crucial de mieux comprendre
 l’effet et l’influence réciproque des stress environnementaux sur les
@@ -3853,7 +4270,7 @@ chaque bloc des données de COMBO.</div>
 </div>
 </div>
 </div>
-<div id="conclusion-2" class="section level3">
+<div id="conclusion-3" class="section level3">
 <h3>Conclusion</h3>
 <p>L’objectif de ce stage était de développer un pipeline d’analyse
 multi-bloc pour l’intégration de données hétérogènes. Pour ce faire,
@@ -4098,10 +4515,10 @@ Physics : Conference Series</em>, volume 2129, page 012028. IOP
 Publishing, 2021.</p>
 <p>[2] K. P. Balanda and H. L. MacGillivray. Kurtosis : a critical
 review. <em>The American Statistician</em>, 42(2) :111–119, 1988.</p>
-<p>[3] et al. Baum. Multiblock pls : Block dependent prediction modeling
+<p>[3] et al. Baum. Multiblock pls : Block dependent prediction modeling
 for python. <em>Journal of Open Source Software</em>, 4(34) :1190,
 2019.</p>
-<p>[4] M. Bersanelli, E. Mosca, D. Remondini, et al. Methods for the
+<p>[4] M. Bersanelli, E. Mosca, D. Remondini, et al. Methods for the
 integration of multi-omics data : mathematical aspects. <em>BMC
 Bioinformatics</em>, 17(Suppl 2) :S15, 2016.</p>
 <p>[5] J. Boccard and D. N. Rutledge. A consensus orthogonal partial
@@ -4130,7 +4547,7 @@ multiblock data processing. <em>Analytica Chimica Acta</em>, 1239
 methylation and the microbial consortium in periphyton of tropical
 macrophytes : Effect of different inhibitors. <em>Environmental
 Research</em>, 112 :86–91, 2012.</p>
-<p>[11] N. Creusot, B. Chaumet, M. Eon, et al. Metabolomics insight into
+<p>[11] N. Creusot, B. Chaumet, M. Eon, et al. Metabolomics insight into
 the influence of environmental factors in responses of freshwater
 biofilms to the model herbicide diuron. <em>Environmental Science and
 Pollution Research</em>, 29 :29332–29347, 2022.</p>
@@ -4139,7 +4556,7 @@ ecotoxicology : an emerging discipline facing contemporary environmental
 threats. <em>Environmental Science and Pollution Research</em>, 23(5)
 :3981–3983, 2016.</p>
 <p>[13] H. Guasch, M. Ricart, J. Lopez Doval, C. Bonnineau, L. Proia, et
-al. Influence of grazing on triclosan toxicity to stream periphyton.
+al. Influence of grazing on triclosan toxicity to stream periphyton.
 <em>Freshwater Biology</em>, 61(12) :2002–2012, 2016.</p>
 <p>[14] Y.I. Gubelit and H.-P. Grossart. Frontiers in microbiology. 11
 :1275, 2020.</p>
@@ -4156,7 +4573,7 @@ read it. <em>Science</em>, 278 :601–602, 1997.</p>
 <p>[18] M. Kuhn, J. Wing, S. Weston, A. Williams, C. Keefer, A.
 Engelhardt, T. Cooper, Z. Mayer, B. Kenkel, and R Core Team. <em>R
 package</em>, 2010.</p>
-<p>[19] F. Larras, B. Montuelle, F. Rimet, et al. Seasonal shift in the
+<p>[19] F. Larras, B. Montuelle, F. Rimet, et al. Seasonal shift in the
 sensitivity of a natural benthic microalgal community to a herbicide
 mixture : impact on the protective level of thresholds derived from
 species sensitivity distributions</p>
@@ -4168,7 +4585,7 @@ id="robotgowest-vers-une-interprétation-des-signaux-électrophysiologiques-vég
 class="section level1 tabset">
 <h1 class="tabset">RobotGoWest : Vers une interprétation des signaux
 électrophysiologiques végétaux par intelligence artificielle</h1>
-<div id="résumé-6" class="section level2">
+<div id="résumé-7" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet vise à développer les fondations biologiques pour un robot
 autonome capable de suivre la lumière solaire. Il s’agit d’une étude de
@@ -4187,7 +4604,7 @@ la robustesse du modèle de classification.</p>
 </div>
 <div id="détail" class="section level2">
 <h2>Détail</h2>
-<div id="introduction-6" class="section level3">
+<div id="introduction-7" class="section level3">
 <h3>Introduction</h3>
 <p>Le projet <strong>RobotGoWest</strong> ambitionne de concevoir un
 robot mobile capable de s’orienter vers la lumière solaire en
@@ -4353,84 +4770,85 @@ et de régularisation (Dropout) ont été intégrées pour stabiliser
 l’apprentissage et prévenir le surapprentissage. Le réseau se termine
 par une couche dense et une fonction d’activation sigmoïde pour la
 classification binaire (jour/nuit).</p>
-<pre><code>import torch
-import torchvision
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader, TensorDataset
-from torchmetrics import Accuracy
-
-### SET MODEL SPECIFICATIONS ###
-fs= 250                  #sampling frequency
-channel= 8               #number of electrode
-num_input= 1             #number of channel picture (for EEG signal is always : 1)
-num_class= 2             #number of classes 
-signal_length = 512      #number of sample in each tarial
-F1= 8                    #number of temporal filters
-D= 3                     #depth multiplier (number of spatial filters)
-F2= D*F1                 #number of pointwise filters
-kernel_size_1= (1,round(fs/2)) 
-kernel_size_2= (channel, 1)
-kernel_size_3= (1, round(fs/8))
-kernel_size_4= (1, 1)
-kernel_avgpool_1= (1,4)
-kernel_avgpool_2= (1,8)
-dropout_rate= 0.5
-ks0= int(round((kernel_size_1[0]-1)/2))
-ks1= int(round((kernel_size_1[1]-1)/2))
-kernel_padding_1= (ks0, ks1-1)
-ks0= int(round((kernel_size_3[0]-1)/2))
-ks1= int(round((kernel_size_3[1]-1)/2))
-kernel_padding_3= (ks0, ks1)
-
-### DESIGN MODEL ###
-class EEGNet(nn.Module): 
-    def __init__(self):
-        super().__init__()
-        # layer 1
-        self.conv2d = nn.Conv2d(num_input, F1, kernel_size_1, padding=kernel_padding_1)
-        self.Batch_normalization_1 = nn.BatchNorm2d(F1)
-        # layer 2
-        self.Depthwise_conv2D = nn.Conv2d(F1, D*F1, kernel_size_2, groups= F1)
-        self.Batch_normalization_2 = nn.BatchNorm2d(D*F1)
-        self.Elu = nn.ELU()
-        self.Average_pooling2D_1 = nn.AvgPool2d(kernel_avgpool_1)
-        self.Dropout = nn.Dropout2d(dropout_rate)
-        # layer 3
-        self.Separable_conv2D_depth = nn.Conv2d( D*F1, D*F1, kernel_size_3, padding=kernel_padding_3, groups= D*F1)
-        self.Separable_conv2D_point = nn.Conv2d(D*F1, F2, kernel_size_4)
-        self.Batch_normalization_3 = nn.BatchNorm2d(F2)
-        self.Average_pooling2D_2 = nn.AvgPool2d(kernel_avgpool_2)
-        # layer 4
-        self.Flatten = nn.Flatten()
-        self.Dense = nn.Linear(F2*round(signal_length/34), num_class) 
-        self.Sigmoid = nn.Sigmoid() 
-        
-    def forward(self, x):
-        # layer 1
-        y = self.Batch_normalization_1(self.conv2d(x))
-        # layer 2
-        y = self.Batch_normalization_2(self.Depthwise_conv2D(y))
-        y = self.Elu(y)
-        y = self.Dropout(self.Average_pooling2D_1(y))
-        # layer 3
-        y = self.Separable_conv2D_depth(y)
-        y = self.Batch_normalization_3(self.Separable_conv2D_point(y))
-        y = self.Elu(y)
-        y = self.Dropout(self.Average_pooling2D_2(y))
-        # layer 4
-        y = self.Flatten(y)
-        y = self.Dense(y)
-        y = self.Sigmoid(y)
-        
-        return y</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="im">import</span> torchvision</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader, TensorDataset</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="im">from</span> torchmetrics <span class="im">import</span> Accuracy</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">### SET MODEL SPECIFICATIONS </span><span class="al">###</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>fs<span class="op">=</span> <span class="dv">250</span>                  <span class="co">#sampling frequency</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>channel<span class="op">=</span> <span class="dv">8</span>               <span class="co">#number of electrode</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>num_input<span class="op">=</span> <span class="dv">1</span>             <span class="co">#number of channel picture (for EEG signal is always : 1)</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>num_class<span class="op">=</span> <span class="dv">2</span>             <span class="co">#number of classes </span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>signal_length <span class="op">=</span> <span class="dv">512</span>      <span class="co">#number of sample in each tarial</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>F1<span class="op">=</span> <span class="dv">8</span>                    <span class="co">#number of temporal filters</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>D<span class="op">=</span> <span class="dv">3</span>                     <span class="co">#depth multiplier (number of spatial filters)</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>F2<span class="op">=</span> D<span class="op">*</span>F1                 <span class="co">#number of pointwise filters</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>kernel_size_1<span class="op">=</span> (<span class="dv">1</span>,<span class="bu">round</span>(fs<span class="op">/</span><span class="dv">2</span>)) </span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>kernel_size_2<span class="op">=</span> (channel, <span class="dv">1</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>kernel_size_3<span class="op">=</span> (<span class="dv">1</span>, <span class="bu">round</span>(fs<span class="op">/</span><span class="dv">8</span>))</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>kernel_size_4<span class="op">=</span> (<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>kernel_avgpool_1<span class="op">=</span> (<span class="dv">1</span>,<span class="dv">4</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>kernel_avgpool_2<span class="op">=</span> (<span class="dv">1</span>,<span class="dv">8</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>dropout_rate<span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>ks0<span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>((kernel_size_1[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>ks1<span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>((kernel_size_1[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>kernel_padding_1<span class="op">=</span> (ks0, ks1<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>ks0<span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>((kernel_size_3[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>ks1<span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>((kernel_size_3[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a>kernel_padding_3<span class="op">=</span> (ks0, ks1)</span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">### DESIGN MODEL </span><span class="al">###</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="kw">class</span> EEGNet(nn.Module): </span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a>        <span class="co"># layer 1</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a>        <span class="va">self</span>.conv2d <span class="op">=</span> nn.Conv2d(num_input, F1, kernel_size_1, padding<span class="op">=</span>kernel_padding_1)</span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a>        <span class="va">self</span>.Batch_normalization_1 <span class="op">=</span> nn.BatchNorm2d(F1)</span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a>        <span class="co"># layer 2</span></span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a>        <span class="va">self</span>.Depthwise_conv2D <span class="op">=</span> nn.Conv2d(F1, D<span class="op">*</span>F1, kernel_size_2, groups<span class="op">=</span> F1)</span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a>        <span class="va">self</span>.Batch_normalization_2 <span class="op">=</span> nn.BatchNorm2d(D<span class="op">*</span>F1)</span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a>        <span class="va">self</span>.Elu <span class="op">=</span> nn.ELU()</span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a>        <span class="va">self</span>.Average_pooling2D_1 <span class="op">=</span> nn.AvgPool2d(kernel_avgpool_1)</span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a>        <span class="va">self</span>.Dropout <span class="op">=</span> nn.Dropout2d(dropout_rate)</span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a>        <span class="co"># layer 3</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a>        <span class="va">self</span>.Separable_conv2D_depth <span class="op">=</span> nn.Conv2d( D<span class="op">*</span>F1, D<span class="op">*</span>F1, kernel_size_3, padding<span class="op">=</span>kernel_padding_3, groups<span class="op">=</span> D<span class="op">*</span>F1)</span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a>        <span class="va">self</span>.Separable_conv2D_point <span class="op">=</span> nn.Conv2d(D<span class="op">*</span>F1, F2, kernel_size_4)</span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a>        <span class="va">self</span>.Batch_normalization_3 <span class="op">=</span> nn.BatchNorm2d(F2)</span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a>        <span class="va">self</span>.Average_pooling2D_2 <span class="op">=</span> nn.AvgPool2d(kernel_avgpool_2)</span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a>        <span class="co"># layer 4</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a>        <span class="va">self</span>.Flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a>        <span class="va">self</span>.Dense <span class="op">=</span> nn.Linear(F2<span class="op">*</span><span class="bu">round</span>(signal_length<span class="op">/</span><span class="dv">34</span>), num_class) </span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a>        <span class="va">self</span>.Sigmoid <span class="op">=</span> nn.Sigmoid() </span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a>        </span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a>        <span class="co"># layer 1</span></span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Batch_normalization_1(<span class="va">self</span>.conv2d(x))</span>
+<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a>        <span class="co"># layer 2</span></span>
+<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Batch_normalization_2(<span class="va">self</span>.Depthwise_conv2D(y))</span>
+<span id="cb4-59"><a href="#cb4-59" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Elu(y)</span>
+<span id="cb4-60"><a href="#cb4-60" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Dropout(<span class="va">self</span>.Average_pooling2D_1(y))</span>
+<span id="cb4-61"><a href="#cb4-61" tabindex="-1"></a>        <span class="co"># layer 3</span></span>
+<span id="cb4-62"><a href="#cb4-62" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Separable_conv2D_depth(y)</span>
+<span id="cb4-63"><a href="#cb4-63" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Batch_normalization_3(<span class="va">self</span>.Separable_conv2D_point(y))</span>
+<span id="cb4-64"><a href="#cb4-64" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Elu(y)</span>
+<span id="cb4-65"><a href="#cb4-65" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Dropout(<span class="va">self</span>.Average_pooling2D_2(y))</span>
+<span id="cb4-66"><a href="#cb4-66" tabindex="-1"></a>        <span class="co"># layer 4</span></span>
+<span id="cb4-67"><a href="#cb4-67" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Flatten(y)</span>
+<span id="cb4-68"><a href="#cb4-68" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Dense(y)</span>
+<span id="cb4-69"><a href="#cb4-69" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.Sigmoid(y)</span>
+<span id="cb4-70"><a href="#cb4-70" tabindex="-1"></a>        </span>
+<span id="cb4-71"><a href="#cb4-71" tabindex="-1"></a>        <span class="cf">return</span> y</span></code></pre></div>
 <p>Bien que le pipeline soit opérationnel et que les visualisations UMAP
 suggèrent une séparation des classes, l’entraînement complet du modèle
 et l’évaluation de sa précision finale sont en cours. Les résultats
 préliminaires sur la qualité des données filtrées et normalisées sont
 encourageants pour la suite du projet.</p>
 </div>
-<div id="conclusion-3" class="section level3">
+<div id="conclusion-4" class="section level3">
 <h3>Conclusion</h3>
 <p>Ce projet de preuve de concept a permis de valider la faisabilité
 technique de l’extraction et du prétraitement de signaux
@@ -4460,7 +4878,7 @@ class="section level1 tabset">
 Synthèse d’analyse et d’encadrement technique</h1>
 <p><em>2025</em> <br> <em>Auteurs: Fatoumata THIAM, Ghita BOURAKKADI
 IDRISSI, Jhodi Avizara</em></p>
-<div id="résumé-7" class="section level2">
+<div id="résumé-8" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet, réalisé dans le cadre d’un stage au FabLab <a
 href="mailto:Coh@bit" class="email">Coh@bit</a> de l’Université de
@@ -4479,9 +4897,9 @@ approfondie et à une proposition d’amélioration du PCB intégrant une
 communication LoRaWAN pour une autonomie énergétique et une portée
 accrues.</p>
 </div>
-<div id="détails-6" class="section level2">
+<div id="détails-7" class="section level2">
 <h2>Détails</h2>
-<div id="introduction-7" class="section level3">
+<div id="introduction-8" class="section level3">
 <h3>Introduction</h3>
 <div id="contexte-et-enjeux" class="section level4">
 <h4>Contexte et enjeux</h4>
@@ -4599,7 +5017,7 @@ visant à réduire la consommation énergétique tout en augmentant la
 précision des mesures.</p>
 </div>
 </div>
-<div id="conclusion-4" class="section level3">
+<div id="conclusion-5" class="section level3">
 <h3>Conclusion</h3>
 <p>Ce projet d’encadrement a permis de valider la pertinence d’une
 approche hybride pour la surveillance des ruches. En combinant la
@@ -4623,7 +5041,9 @@ id="vineye-a-mobile-optimized-deep-learning-framework-for-grapevine-disease-dete
 class="section level1 tabset">
 <h1 class="tabset">VinEye: A Mobile-Optimized Deep Learning Framework
 for Grapevine Disease Detection</h1>
-<div id="résumé-8" class="section level2">
+<p><strong>2026</strong> <br> <strong>Auteurs: Jhodi Avizara, Yanis
+Akododja</strong></p>
+<div id="résumé-9" class="section level2">
 <h2>Résumé</h2>
 <p>Ce projet présente <strong>VinEye</strong>, une solution novatrice de
 bout en bout pour la détection automatisée des maladies de la vigne,
@@ -4652,7 +5072,7 @@ confiance et la création de mécanismes de repli pour garantir une
 expérience utilisateur fluide, même dans des environnements dépourvus de
 modules natifs.</p>
 </div>
-<div id="détails-7" class="section level2">
+<div id="détails-8" class="section level2">
 <h2>Détails</h2>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
@@ -4680,7 +5100,7 @@ thresholding, and the creation of fallback mechanisms to ensure a
 seamless user experience even in environments lacking native
 modules.</p>
 </div>
-<div id="introduction-8" class="section level3">
+<div id="introduction-9" class="section level3">
 <h3>Introduction</h3>
 <p>Grapevine diseases represent a significant threat to global vineyard
 productivity, with economic losses estimated at <strong>$12 billion
@@ -4995,7 +5415,7 @@ embedded directly into the app’s assets, ensuring that the AI
 capabilities are fully available offline.</p>
 </div>
 </div>
-<div id="conclusion-5" class="section level3">
+<div id="conclusion-6" class="section level3">
 <h3>Conclusion</h3>
 <p>This paper presented <strong>VinEye</strong>, a comprehensive
 solution for grapevine disease detection that bridges the gap between
@@ -5030,23 +5450,741 @@ vineyards and more sustainable agriculture.</p>
 <div id="creation-dun-jeu-video-à-laide-du-moteur-godot"
 class="section level1 tabset">
 <h1 class="tabset">Creation d’un jeu video à l’aide du moteur Godot</h1>
-<div id="résumé-9" class="section level2">
+<p><strong>2024</strong> <br> <strong>Auteurs: SANCHEZ Franck, AVIZARA
+Jhodi, GOUZY Yann</strong></p>
+<div id="résumé-10" class="section level2">
 <h2>Résumé</h2>
-<pre><code>*   *Mission :* Développement d&#39;un jeu vidéo éducatif (moteur Godot) intégrant des concepts biologiques.
-*   *Moyens :* Programmation C++, GDScript, modélisation de machines à état.
-*   *Résultat :* Création d&#39;un outil pédagogique interactif pour la vulgarisation scientifique.</code></pre>
+<p>Ce rapport détaille la conception et l’implémentation d’un jeu vidéo
+complet en 2D développé sur le moteur Godot. Le projet, réalisé par une
+équipe de développeurs, vise à créer un jeu de type “rogue-like” inspiré
+de <em>Vampire Survivors</em>, se déroulant dans un décor inspiré de
+l’Égypte ancienne en pixel art. L’objectif central est l’intégration et
+la démonstration du plugin <strong>La-State-Makina</strong>, un outil de
+machines à états finis (FSM) permettant de modéliser les comportements
+complexes des ennemis et la gestion des vagues. Le rapport couvre
+l’analyse des besoins, la conception architecturale, la réalisation
+technique (déplacement, combat, système d’expérience) et
+l’implémentation spécifique de la machine à états pour la fusion des
+mobs et le spawner, offrant une preuve de concept fonctionnelle et
+documentée.</p>
 </div>
-<div id="détails-8" class="section level2">
+<div id="détails-9" class="section level2">
 <h2>Détails</h2>
-<p>La création d’un jeu sous Godot, m’ont permis de consolider mes
-compétences en programmation et en vulgarisation. L’ensemble de ces
-expériences m’a permis de développer une véritable agilité
-professionnelle : je sais m’adapter à de nouveaux outils, collaborer
-avec des experts de divers domaines et contribuer activement à des
-projets de recherche, tout en restant curieux et ouvert à
-l’apprentissage continu.</p>
+<div id="analyse" class="section level3">
+<h3>Analyse</h3>
+<div id="contexte" class="section level4">
+<h4>Contexte</h4>
+<p>Godot est un moteur de jeu multiplateforme gratuit et open source qui
+permet la création de jeux vidéo 2D et 3D [9]. Nous avons choisi
+d’utiliser ce moteur performant pour développer un jeu se déroulant dans
+l’Égypte ancienne. Les clients ont développés un plugin permettant de
+manipuler des machines à états (graphes) pour modéliser les différentes
+étapes du jeu. Actuellement, une visualisation sommaire de ce graphe est
+disponible. Pour ce projet, notre objectif est de créer un jeu complet
+et abouti, en intégrant l’implémentation de ce plugin pour gérer les
+interactions entre les différentes entités du jeu.</p>
+</div>
+<div id="état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché"
+class="section level4">
+<h4>État de l’art des principaux moteurs de jeu sur le marché</h4>
+<p>Dans l’industrie du jeu vidéo, deux acteurs dominent une part
+conséquente du marché : Unity et Unreal Engine [4]. Ces outils sont
+utilisés non seulement dans la création de jeux vidéo, mais également
+dans d’autres domaines comme le cinéma (live action et animation) ainsi
+que la réalité virtuelle augmentée. Pendant plusieurs années, Unity a
+été le moteur de jeu le plus populaire, en raison de son accessibilité
+tant en termes de coût (Unity est gratuit jusqu’à un certain niveau de
+bénéfices) que de prise en main, grâce à une énorme communauté de
+développeurs [11]. Unity est exécutable sur MacOS et Windows, propose
+une API de script principale en C#, mais aussi en Boo et JavaScript. Des
+jeux à succès comme Cuphead, Subnautica et Pokémon Go ont été développés
+sur Unity. De plus, Unity prend en charge le HTML5, ce qui permet la
+diffusion des jeux sur diverses plateformes. Cependant, en septembre
+2023, Unity a annoncé une nouvelle tarification, exigeant désormais une
+somme d’argent pour chaque téléchargement de jeu, ce qui a entraîné une
+perte de popularité pour la plateforme [10].</p>
+<p>En concurrence directe, Unreal Engine a gagné en popularité,
+notamment grâce au succès de la série The Mandalorian [5], dont les
+effets visuels ont été réalisés sur ce moteur de jeu. Tout comme Unity,
+Unreal Engine s’adresse à une variété d’utilisateurs, des studios aux
+développeurs indépendants. Exécutable sur MacOS et Windows, le moteur
+est gratuit à l’installation, mais une part des recettes des jeux
+produits revient à la compagnie. Son langage de programmation est le C++
+et Python. Bien que sa prise en main soit plus difficile que celle de
+Unity, Unreal Engine propose des fonctionnalités avancées telles que des
+pipelines de gestion des ressources, l’automatisation des flux de
+travail et des interfaces utilisateur personnalisées. Des jeux à succès
+comme Tomb Raider Underworld (2008) sur Unreal Engine 3, Borderland 3
+(2019) sur Unreal Engine 4 et Mass Effect (2007) sur Unreal Engine 3 ont
+été créés avec ce moteur de jeu. Ce moteur se démarque par ses rendus
+photoréalistes, bien que cela nécessite des ressources plus importantes,
+limitant le nombre de ses utilisateurs [6].</p>
+<p>En contraste avec les géants commerciaux, on trouve des moteurs
+libres, gratuits et sans conditions, dont Godot Game Engine est l’un des
+meilleurs représentants [4]. Godot est un moteur de jeu open source et
+facilement accessible, grâce à son langage de programmation inspiré de
+Python, le GDScript, et à sa communauté active. Disponible sur MacOS,
+Windows et Linux, Godot propose des jeux sur PC, navigateur, Android et
+consoles. Son éditeur s’inspire de celui de Unity, offrant des
+fonctionnalités similaires telles que la création d’interfaces
+utilisateur et la gestion des scènes. Godot 4.0 a apporté des
+améliorations majeures de performance, notamment grâce à un nouveau
+système de rendu et d’optimisation [9]. Il offre des performances
+accrues et une meilleure compatibilité avec les plateformes mobiles. De
+plus, Godot dispose d’une bibliothèque de ressources comprenant des
+modèles 3D, des textures et des sons, facilitant ainsi la création de
+jeux sans avoir à tout créer à partir de zéro.</p>
+<div id="état-de-lart-sur-les-machines-à-états-finis-fsm"
+class="section level5">
+<h5>État de l’art sur les machines à états finis (FSM)</h5>
+<p>En règle générale, les FSM sont des modèles mathématiques de calcul
+utilisés en programmation informatique, en logique séquentielle, dans
+les protocoles de communication, le contrôle de processus et bien
+d’autres [1]. Ces modèles sont caractérisés par le fait qu’ils peuvent
+avoir un grand nombre d’états possibles mais ne sont que dans un seul
+état à la fois, que l’on appelle “état courant”. Ces états représentent
+toutes les variables d’un programme et leurs valeurs à un moment donné
+qui attendent d’être exécutées. Le passage d’un état à l’autre est
+activé par un événe-ment ou une condition, on parle de “transition”. Les
+transitions sont un ensemble d’actions à exécuter lorsqu’une condition
+est remplie ou lorsqu’un événement (ou symbole d’entrée) est reçu [2].
+Dans certains cas, la machine peut donner une réponse à des entrées
+spécifiques, on parle de symboles de sortie. Un FSM est donc défini par
+l’ensemble de ses états et par l’ensemble des règles qui dictent comment
+il passe d’un état à l’autre.</p>
+<p>Ces modèles peuvent être classés principalement en deux catégories,
+les accepteurs et les transducteurs. Les accepteurs analysent la
+structure de la donnée fournie, et l’acceptent si elle est conforme à la
+spécification décrite par la machine à états. Les transducteurs au
+contraire traduisent une chaîne de symboles en une autre. Et dans
+certains cas, on peut rencontrer des variantes appelées classificateurs
+et séquenceurs.</p>
+<p>Mais il existe également une classification supplémentaire, les
+modèles déterministes et non déterministes. Dans un FSM déterministe,
+chaque état possède au plus une transition pour chaque symbole d’entrée,
+et dans un FSM non déterministe, un symbole d’entrée peut étiqueter une,
+plusieurs ou aucune transition pour un état donné [13].</p>
+<p>Finalement, dans le domaine des jeux vidéo, les FSM permettent de
+représenter et de contrôler le flux d’exécution. Notamment pour
+implémenter des intelligences artificielles et produire des
+comportements complexes sans avoir à utiliser un grand nombre de lignes
+de codes. Toujours dans ce domaine, on peut citer Playmaker sur Unity
+comme exemple de FSM [7]. Il est utilisé dans des jeux comme Hollow
+Knight, Gris ou Firewatch qui des jeux reconnus pour la qualité de leur
+scénario et de leur gameplay.</p>
+<p>Bien entendu, il est impossible de ne pas présenter l’Alien du jeu
+Alien isolation, un jeu d’horreur se situant dans l’univers du film
+Alien. Le monstre éponyme poursuit le joueur tout au long du jeu et son
+intelligence le rend aussi terrifiant que son apparence. c’est à ce jour
+une des meilleures utilisation de la machine à états dans le monde du
+jeu vidéo, cette machine à états est très complexe avec une centaines
+d’états dont trente principaux ce qui permet à l’Alien d’avoir des
+réactions qui donne l’impression de s’adapter à celle du joueur. Il est
+également intéressant de noter que relativement peu de jeux utilisent
+des machines à état et passent alors à côté des avantages
+mentionnés.</p>
+<p>Quant à Godot, il existe une machine à états gérant uniquement les
+animations de personnages, AnimationTree, et un plugin permettant de
+gérer l’animation et tous les autres aspect du jeu, StateChart, Pour ce
+projet, à la demande de nos clients, nous avons utilisé La-State-Makina
+[12], un plugin implémentant une machine à états sous la forme d’un
+Grafcet (Graphe Fonctionnel de Commande d’Étape de Transition), un mode
+de représentation et d’analyse d’automatismes [3]. Ce plugin, à l’image
+de Playmaker et de StateChart, permet de gérer les flux d’exécution pour
+générer des comportements complexes dans un jeu.</p>
+</div>
+</div>
+<div id="analyse-des-besoins" class="section level4">
+<h4>Analyse des besoins</h4>
+<p>Pour ce projet, notre objectif est de fournir un jeu 2D complet sur
+le thème de l’Égypte et d’y intégrer le plugin La-State-Makina sous
+forme de preuve de concept ou directement dans le jeu final.</p>
+<div id="besoins-fonctionnels" class="section level5">
+<h5>Besoins fonctionnels</h5>
+<p>Le gameplay s’inspire de Vampire Survivor, où le joueur doit survivre
+à une vague continue d’ennemis. Le niveau du joueur augmente en fonction
+du nombre d’ennemis éliminés et de l’expérience ramassée. La difficulté
+est progressive avec l’apparition de nouveaux ennemis. Le joueur a la
+possibilité d’utiliser différentes attaques en fonction de l’équipement
+récupéré. Le jeu se déroule sur une carte infinie avec un motif répété.
+Nous avons jugé que ce choix était approprié car ce type de jeu offre
+une expérience de jeu relativement simple en termes de complexité, ce
+qui correspond bien à notre expérience en tant que développeurs de jeux
+débutants. De plus, étant donné le temps limité pour la sortie du jeu
+final, cette option nous semble être la plus réalisable dans les délais
+impartis.</p>
+<p><strong>Fonctionnement général du jeu</strong></p>
+<p>Le principe du jeu est simple, survivre à des vagues d’ennemis dans
+le temps, ramasser de l’expérience donnée par les ennemis en les
+éliminant, augmenter de niveau et choisir des améliorations d’armes et
+des bonus pour survivre à des hordes d’ennemis de plus en plus forts et
+plus nombreux par vague. Le style graphique des personnages s’inspirera
+d’assets libres de droits et également fournis par le client, sur le
+thème de l’Égypte ancienne.</p>
+<p>Pour les niveaux du jeu, nous partons sur des vagues d’ennemis de
+plus en plus forts, avec des caractéristiques évolutives telles que la
+vitesse de déplacement, les points de vie, les dégâts infligés aux
+joueurs et la résistance au knockback. De plus, le nombre d’ennemis
+générés par vague augmente progressivement. Chaque type d’ennemi est
+visuellement différent et possède des statistiques définies de manière à
+augmenter la difficulté au fur et à mesure de la progression du joueur.
+Cela permet une croissance de la difficulté tout au long du jeu.</p>
+<p>Pour chaque arme, nous avons quatre niveaux différents qui peuvent
+changer leurs statistiques générales telles que la vitesse d’attaque, la
+portée, les dégâts d’attaque ainsi que leur nombre, en plus de pouvoir
+modifier leur comportement. Au total, il y a trois armes différentes.
+Cela permet une progression significative du joueur. Pour les bonus,
+nous en avons six différents avec pour quatre d’entre eux quatre niveaux
+différents ajoutant une statistique supplémentaire à chaque fois telle
+que l’armure, la vitesse de déplacement, la taille des attaques et la
+vitesse d’attaque. Un bonus n’a que deux niveaux d’amélioration, il
+permet d’augmenter le nombre de toutes les attaques de un. Et un bonus
+sans niveau d’amélioration qui permet la régénération des points de vie
+du joueur.</p>
+<p>Les effets spéciaux comprennent les déplacements du joueur et des
+ennemis à l’aide d’animations image par image. Les armes ont des
+déplacements simples directement sur un ennemi, des déplacements
+aléatoires depuis la direction du joueur, ainsi que des déplacements
+autour du joueur. Nous ajoutons des animations lors de certaines
+attaques des armes. La barre d’expérience et celle des points de vie du
+joueur sont également animées. De plus, des animations sont incluses
+pour l’élimination des monstres et la récolte de l’expérience au sol,
+ainsi que dans le menu du jeu.</p>
+<p>Pour les musiques d’ambiance et les effets sonores, nous incluons
+plusieurs éléments pour enrichir l’expérience audio du joueur. Tout
+d’abord, des musiques sont jouées en boucle dans le menu du jeu et tout
+au long de la partie. Le passage de la souris sur un bouton du menu est
+accompagné d’un son distinctif pour indiquer une interaction possible.
+De plus, nous avons inclus des effets sonores pour chaque étape du
+combat : lorsque le joueur touche un ennemi avec une arme, lorsque
+l’ennemi est éliminé, ainsi que lors du ramassage de l’expérience au
+sol. Enfin, des sons distincts sont joués lors du passage d’un niveau et
+à la fin de la partie, marquant les moments importants de la progression
+du joueur.</p>
+<p><strong>Gestion des scènes et robustesse du code</strong></p>
+<p>Pour la gestion des différentes scènes dans le jeu, nous cherchons à
+en minimiser le nombre afin de simplifier la tâche de réalisation. Notre
+objectif est d’avoir le moins de choses possible à gérer lors du
+développement du jeu. En limitant le nombre de scènes, nous réduisons la
+complexité du projet et facilitons la maintenance du code. Cela nous
+permet de concentrer nos efforts sur la création de fonctionnalités et
+d’éléments de gameplay plutôt que sur la gestion de multiples scènes et
+de leurs interactions. Cela nous permet également de garantir une
+meilleure cohérence dans l’ensemble du jeu, en évitant les incohérences
+et les conflits entre les différentes parties du code.</p>
+<p><strong>Animations et génération des ennemis</strong></p>
+<p>Pour le spawn des ennemis, nous mettons en place un système de
+spawner d’ennemis. Ce système nous permet d’intégrer directement la
+scène d’un ennemi dans le spawner et ainsi de gérer tous ses paramètres
+d’apparition. Nous pouvons définir le moment de leur apparition, le taux
+d’apparition par seconde ainsi que la durée pendant laquelle ils doivent
+apparaître. En pratique, cela signifie que nous utilisons le même script
+pour chaque type d’ennemi, en ajustant simplement les animations et
+statistiques pour chaque ennemi. Les ennemis apparaissent aléatoirement
+dans une zone fixe autour du joueur, garantissant ainsi qu’ils restent
+près de lui peu importe ses déplacements. Cette approche nous permet de
+gagner du temps lors du développement et de garantir une cohérence dans
+le comportement des ennemis.</p>
+<p>Pour les ennemis, nous mettons en place une animation unique qui
+s’ajuste en fonction de la position du personnage par rapport à
+l’ennemi. Quelle que soit la direction dans laquelle le joueur se
+déplace, l’animation de l’ennemi s’oriente pour lui faire face. Les
+déplacements des ennemis, qu’ils soient horizontaux ou verticaux, sont
+dirigés vers la position actuelle du joueur. Pour le personnage
+principal, nous avons également une animation unique qui se modifie en
+fonction de sa direction de déplacement. Que le personnage se déplace
+vers la gauche ou la droite, l’animation s’adapte pour refléter cette
+direction. Cette approche simplifie la gestion des animations pour le
+personnage principal, ne nécessitant qu’une seule animation qui est
+manipulée dynamiquement en fonction des actions du joueur. Le joueur a
+des animations de déplacement vertical et horizontal. Il peut se
+déplacer librement sur la carte. Les animations se font image par image,
+avec le nombre de keyframes dépendant du modèle d’animation. Les FPS
+sont adaptés en conséquence.</p>
+<p><strong>Interfaces utilisateur</strong></p>
+<p>Pour les différentes interfaces du jeu, nous simplifions au maximum
+pour offrir une expérience fluide et intuitive. Tout d’abord, le menu
+principal comprend simplement deux boutons : “Play” et “Quit”. Ensuite,
+lors du passage à un nouveau niveau, le joueur a la possibilité de
+choisir parmi trois améliorations qui lui sont présentées aléatoirement.
+Ces améliorations sont sélectionnées dans une liste comprenant toutes
+les armes et bonus possibles. L’interface principale du jeu est le cœur
+de l’action, où tous les événements se déroulent. C’est ici que le
+joueur contrôle son personnage, affronte les ennemis, collecte de
+l’expérience et progresse à travers les niveaux. Enfin, à la fin de
+chaque partie, une interface de fin de partie s’affiche pour indiquer si
+le joueur a gagné ou perdu. Cette interface présente un bouton “Quit”
+permettant au joueur de retourner au menu principal du jeu afin de
+démarrer une nouvelle partie ou quitter le jeu.</p>
+<p>L’écran d’accueil comprend le titre du jeu, le bouton “Play” pour
+jouer, le bouton “Quit” pour quitter le jeu et quelques animations pour
+animer celui-ci. L’écran de fin de la partie affiche le mot “You win !”
+si le joueur à gagné la partie ou “You lose !” si le joueur à été
+éliminé ainsi que le bouton “Quit” pour retourner à l’écran
+d’accueil.</p>
+</div>
+<div id="besoins-non-fonctionnels" class="section level5">
+<h5>Besoins non-fonctionnels</h5>
+<p>Pendant la phase de conception, nous répartissons les différentes
+tâches entre les membres de l’équipe pour la création du cahier des
+charges. Cependant, pour l’ensemble des idées de conception du jeu, nous
+réfléchissons et prenons les décisions ensemble. Chaque membre de
+l’équipe contribue avec ses idées et ses suggestions pour façonner le
+jeu selon notre vision collective.</p>
+<p><strong>Aspects graphiques et commandes de jeu</strong></p>
+<p>Dans le cadre du développement du jeu, nous utilisons des animations
+simples et du pixel art. Nous évitons d’ajouter trop d’effets pour
+garantir des performances fluides et réactives, même sur des plateformes
+moins puissantes.</p>
+<p>Nous offrons aussi la possibilité de modifier le mapping des touches,
+que ce soit sur clavier ou sur manette, pour satisfaire au mieux le
+confort de jeu de l’utilisateur. Cela signifie que les joueurs peuvent
+personnaliser les commandes selon leurs préférences, afin de trouver la
+configuration qui leur convient le mieux.</p>
+<p>Nous réalisons également des interfaces simples et compréhensibles,
+car la facilité d’utilisation est essentielle pour garantir une
+expérience de jeu positive. Cela rend le jeu accessible à un large
+public, quel que soit son niveau d’expérience dans les jeux vidéo.</p>
+<p>L’utilisation esthétique du pixel art est une approche visuelle rétro
+qui apporte un charme particulier au jeu, nous visons à créer des
+visuels distinctifs et attrayants tout en conservant la performance du
+jeu. De plus, nous utilisons des sons pour apporter du dynamisme au jeu.
+Les effets sonores sont soigneusement sélectionnés pour correspondre à
+l’action à l’écran et immerger le joueur dans le jeu. Des musiques
+dynamiques accompagnent les phases du jeu. L’objectif est d’ajouter une
+dimension supplémentaire à l’expérience du jeu, en renforçant
+l’engagement du joueur et en créant un environnement sonore
+captivant.</p>
+<p>Le jeu comprend plusieurs armes et différents bonus obtenables à
+chaque niveau. Pour progresser, le joueur doit vaincre des ennemis et
+récupérer de l’expérience. Cette mécanique incite les joueurs à jouer
+davantage pour améliorer leurs compétences, découvrir de nouveaux
+équipements et explorer des défis plus difficiles.</p>
+<p><strong>Programmation</strong></p>
+<p>Enfin, nous mettons l’accent sur la structuration du code du jeu pour
+permettre une meilleure facilité de modification. En divisant le code en
+sections logiques et bien définies, nous facilitons la compréhension et
+la maintenance du jeu pour les développeurs futurs. Cette approche nous
+permet de réagir rapidement aux retours des joueurs, d’ajouter de
+nouvelles fonctionnalités et d’améliorer l’expérience de jeu de manière
+efficace et efficiente. En segmentant le code de manière organisée, nous
+nous assurons également de minimiser les risques d’erreurs et de
+conflits lors de l’ajout de nouvelles fonctionnalités, garantissant
+ainsi la stabilité et la durabilité du jeu sur le long terme.</p>
+</div>
+</div>
+</div>
+<div id="conception-1" class="section level3">
+<h3>Conception</h3>
+<p>Dans notre processus de conception du jeu, nous prendrons en compte
+notre niveau de compétence débutant avec Godot ainsi que le temps limité
+dont nous disposons pour développer le jeu. Nous chercherons donc des
+genres de jeux où la réalisation semble la plus simple. Après avoir
+passé en revue la liste des genres de jeux, nous opterons pour le genre
+de jeu de type rogue-like, tel que Vampire Survivor, car il offre des
+mécaniques de jeu simples. En optant pour un concept de jeu relativement
+simple mais solide comme Vampire Survivor, nous pourrons nous concentrer
+sur la mise en œuvre de ses mécanismes de base. Cela nous permettra
+également de gagner en expérience dans le développement de jeux tout en
+créant quelque chose de réalisable dans un délai raisonnable. Pour le
+concept du jeu, nous avons donc décidé de créer un jeu de type
+rogue-like se déroulant dans l’univers de l’Égypte ancienne. Le joueur
+incarnera un Égyptien solitaire qui affronte l’épreuve d’Amon, une
+divinité égyptienne.</p>
+<div id="conception-du-jeu" class="section level4">
+<h4>Conception du jeu</h4>
+<div id="mécaniques-du-jeu" class="section level5">
+<h5>Mécaniques du jeu</h5>
+<p>Les principales mécaniques de jeu comprendront des combats en temps
+réel et un aspect d’exploration. Le joueur devra survivre à des vagues
+d’ennemis tout en évoluant et en choisissant des armes et des
+améliorations. Nous ajouterons différentes armes avec différents types
+d’attaques. Pour les bonus, nous aurons également différents types de
+bonus qui affectent le personnage ainsi que ses armes. En ce qui
+concerne les ennemis, nous aurons des ennemis différents en termes de
+visuel et au niveau des statistiques (dégâts des attaques, points de
+vie, etc.). Pour l’évolution du personnage, il pourra ramasser de
+l’expérience qui sera donnée par les ennemis en les éliminant. Nous
+concevrons les niveaux pour offrir une difficulté progressive, avec des
+ennemis diversifiés, allant de l’ennemi simple et faible à des
+adversaires plus imposants et résistants.</p>
+</div>
+<div id="graphismes-et-effets-sonores" class="section level5">
+<h5>Graphismes et effets sonores</h5>
+<p>Pour l’artwork et les graphismes, nous opterons pour un style visuel
+pixel art, donnant au jeu un aspect rétro et distinctif. Les animations
+seront simples mais efficaces, permettant une jouabilité fluide sur
+différentes plateformes. L’interface utilisateur sera conçue pour être
+simple et intuitive, avec des menus faciles à naviguer et des
+instructions claires pour guider le joueur tout au long de la jeu. Nous
+inclurons également des options de personnalisation des touches pour
+répondre aux préférences individuelles des joueurs. En ce qui concerne
+le son et la musique, nous sélectionnerons des effets sonores et des
+musiques adaptés à l’ambiance du jeu. Les effets sonores renforceront
+l’immersion du joueur, tandis que la musique dynamique accompagnera les
+moments d’action et d’intensité.</p>
+</div>
+<div id="phases-de-test-et-correction-de-bugs" class="section level5">
+<h5>Phases de test et correction de bugs</h5>
+<p>Pour les tests et les itérations, nous effectuerons des tests
+réguliers, y compris des tests auprès de personnes qui ne jouent pas aux
+jeux vidéo en règle générale, en plus de nos propres tests. Ces tests
+nous permettront d’identifier et de corriger les bugs, ainsi que de
+recueillir les commentaires des joueurs. Ces retours nous aideront à
+ajuster et à améliorer le jeu tout au long du processus de
+développement.</p>
+</div>
+<div id="architecture-du-code" class="section level5">
+<h5>Architecture du code</h5>
+<p>Enfin, la structuration du code sera une priorité pour permettre une
+meilleure facilité de modification. En divisant le code en sections
+logiques et bien définies, nous faciliterons la compréhension et la
+maintenance du jeu pour les développeurs futurs. Cela nous permettra de
+réagir rapidement aux retours des joueurs, d’ajouter de nouvelles
+fonctionnalités et d’améliorer l’expérience de jeu de manière efficace
+et efficiente. En segmentant le code de manière organisée, nous nous
+assurerons également de minimiser les risques d’erreurs et de conflits
+lors de l’ajout de nouvelles fonctionnalités, garantissant ainsi la
+stabilité et la durabilité du jeu sur le long terme.</p>
+<p>La scène principale, appelée <strong>World</strong>, agira comme la
+racine de l’arbre du jeu dans notre architecture. En tant que scène
+principale, World contiendra toutes les entités principales du jeu et
+coordonnera leur fonctionnement. Elle gérera également les événements du
+jeu, tels que les collisions entre les entités, les transitions de
+niveau et les conditions de victoire ou de défaite. Cette scène sera
+cruciale pour le développement du jeu, car elle servira de point de
+départ pour l’implémentation des mécaniques de jeu et la mise en place
+de l’environnement de jeu. Ce sera à partir de cette scène que le joueur
+entrera dans l’univers du jeu et commencera à interagir avec ses
+éléments.</p>
+<p>Le nœud racine <strong>Player</strong> contiendra plusieurs
+sous-nœuds pour gérer différentes fonctionnalités du joueur dans le jeu
+: les nœuds Sprite2D et Animation seront responsables de l’apparence
+visuelle du joueur et de ses animations de déplacement. Le nœud Sprite2D
+contiendra le sprite représentant le joueur et le nœud Animation les
+animations associées comme la marche. Le sous-nœud
+<strong>Attack</strong> gérera les mécanismes d’attaque du joueur. Il
+s’occupera de détecter les ennemis dans la zone d’attaque du joueur et
+d’appliquer les dégâts correspondants ainsi que les différents types
+d’attaques de celui-ci. Le sous-nœud <strong>Hurt Box</strong>
+représentera la zone de collision du joueur avec les ennemis et les
+obstacles. Il détectera les collisions et appliquera les effets
+correspondants, comme la réduction des points de vie du joueur lors de
+contact avec un ennemi.</p>
+<p>La structure du nœud Player sera conçue pour encapsuler toutes les
+fonctionnalités liées au joueur de manière organisée. Chaque sous-nœud
+aura un rôle spécifique dans le fonctionnement du joueur et permettra
+une gestion de ses interactions avec l’environnement du jeu.</p>
+<p>Pour le nœud <strong>Enemy Spawner</strong> cela sera différent, il
+permettra l’apparition des ennemis dans la scène principale World.
+Contrairement aux entités individuelles comme le joueur, le nœud Enemy
+Spawner instanciera dynamiquement les ennemis et gérera leur création
+dans le jeu. Voici comment il fonctionnera : Le Enemy Spawner sera
+chargé d’instancier les ennemis dans la scène principale. À chaque fois
+qu’un nouvel ennemi doit apparaître, le spawner créera une nouvelle
+instance de la scène de l’ennemi (enemy.tscn). Chaque ennemi sera
+représenté par sa propre scène, contenant tous les éléments nécessaires
+à son fonctionnement. Cette scène comprendra notamment : Les sous-nœuds
+Sprite2D et Animation pour afficher l’ennemi dans le jeu et gérer ses
+animations. Le sous-nœud Hurt Box pour détecter les collisions avec les
+attaques du joueur et le sous-nœud Hit Box pour détecter les collisions
+avec le joueur.</p>
+<p>Une fois qu’une instance d’ennemi est créée, le nœud Enemy Spawner
+l’ajoutera à la scène principale en tant que sous-nœud. Chaque ennemi
+sera donc géré individuellement et pourra être instancié plusieurs fois
+simplifiant ainsi la conception des vagues d’ennemis dans le temps.</p>
+<p>Pour implémenter les dégâts dans le jeu, nous utiliserons des
+<strong>Hit Box</strong> et des <strong>Hurt Box</strong>. Le principe
+est le suivant : lorsque les Collision shape du nœud HurtBox et du nœud
+HitBox entrent en contact, le signal _on_hurt_box_hurt() est émis depuis
+le script hurt_box.gd. Ce signal est capturé dans le script player.gd ou
+enemy.gd, suivant si c’est le joueur ou l’ennemi qui est touché. En
+conséquence le personnage perd un ou plusieurs points de vie en fonction
+des statistiques de l’objet ou de l’ennemi responsable des dégâts. De
+plus, le script hit_box.gd sera équipé d’un Timer. Ce Timer permettra de
+faire perdre des dégâts par seconde tant que les deux Collision shape
+seront en contact. Cela garantit que même après une première collision,
+si les entités restent en contact, des dégâts continueront d’être
+infligés.</p>
+</div>
+</div>
+<div id="la-state-makina" class="section level4">
+<h4>La-State-Makina</h4>
+<p>Dans notre jeu, nous utilisons le plugin La-State-Makina en version
+0.1, développé par tomateauketchup. Nous avons décidé de développer une
+preuve concept avant de l’intégrer au jeu principal. Dans cette preuve
+de concept le plugin La-State-Makina permettra de faire apparaître et de
+contrôler le comportement de certains ennemis (mobs), le développement
+de ces mobs passent dans un premier temps par une preuve de concept. On
+crée un jeu simpliste pour tester l’implémentation de La-State-Makina et
+une fois celle-ci fonctionnelle, le mob est ajouté au jeu principal.</p>
+<p>L’implémentation de La-State-Makina se fait en quatre étapes clés.
+Premièrement, la création d’un fichier avec l’extension .json qui va
+comprendre les états avec leurs fonctions à l’activation et les
+fonctions qui vont être activées à chaque mise à jour. Il comprend aussi
+les événements responsables de la transition d’un état vers l’autre et
+enfin les transitions. Ensuite à partir de ce fichier et grâce au plugin
+intégré au moteur on va pouvoir générer deux nouveaux fichiers, la scène
+avec l’extension .tscn et l’api. La troisième consiste à copier l’api
+pour créer un fichier d’implémentation, c’est dans ce fichier que l’on
+va pouvoir rédiger nos fonctions en appelant les variables présentes
+dans Godot. La dernière étape quant à elle consiste à configurer les
+scripts d’extension .gd utilisés pour qu’ils puissent lire le fichier
+d’implémentation. Une fois toutes ces étapes réalisées La-State-Makina
+est désormais fonctionnelle.</p>
+<p>Ainsi nous avons deux utilisations de La-State-Makina, la première
+est un mob intégrant La-State-Makina nommé <strong>Spirit</strong> et la
+seconde est un spawner dépendant de La-State-Makina pour faire
+apparaître les mobs dans l’ordre souhaité. Le concept du mob est de se
+rassembler avec d’autres mobs du même types pour devenir un nouveau mob
+plus gros qui peut lui même devenir un mob encore plus gros dans le même
+principe de fusion. Le premier mob utilise une machine à états puis le
+second et le dernier mob partage la même machine à états, les structures
+restent cependant similaires. L’idée de faire une machine à états pour
+les trois mobs a été abordée mais n’a pas été retenue. Enfin la machine
+à états du spawner est très simple mais offre énormément
+d’opportunité.</p>
+</div>
+</div>
+<div id="réalisation-et-résultats" class="section level3">
+<h3>Réalisation et résultats</h3>
+<div id="le-jeu" class="section level4">
+<h4>Le jeu</h4>
+<div id="génération-de-la-scène-principale-et-de-la-carte-du-jeu"
+class="section level5">
+<h5>Génération de la scène principale et de la carte du jeu</h5>
+<p>Pour générer la scène principale nous allons donc dans un tout
+premier temps créer le nœud racine qui sera l’endroit ou toutes les
+interactions du jeu se feront. Pour cela nous choisissons l’onglet 2D
+Scene que l’on renommera par <strong>World</strong> dans le menu édition
+de Godot (voir annexe[4.1] et [4.2]). Ensuite pour y ajouter l’arrière
+plan de la scène principale du jeu nous allons ajouter au nœud racine
+World un nœud Sprite2D que l’on renommera <strong>Background</strong>.
+Dans les paramètres de ce nœud nous pouvons y ajouter une image
+(texture) en allant en haut à droite dans l’éditeur Godot dans
+“Inspector” -&gt; “Sprite2D” (voir annexe[4.3]). Une fois l’image
+générée on se rend compte qu’elle ne sera pas assez grande pour couvrir
+une large zone de déplacement pour le joueur. Pour ajuster cela, dans le
+même onglet de paramètre du Sprite2D nous allons dans “Region” et
+cochons la case “Enabled”. Cela va nous permettre de générer une région
+pour laquelle nous allons répéter en boucle notre image afin de couvrir
+une zone aussi grande que possible. Pour cela nous modifions la taille
+de la région choisie dans “Edit Region” et nous avons donc une zone
+élargie mais cependant elle n’est pas encore répétée (voir annexe[4.4]).
+Pour ensuite répéter notre image proprement dans la zone élargie nous
+allons, toujours dans le même onglet, dans “Texture” -&gt; “Repeat” et
+nous choisissons le paramètre “Enabled”. Nous obtenons donc un arrière
+plan de scène avec autant de répétition de notre image que possible
+remplissant la zone finale agrandit (voir annexe[4.5]). Il ne nous reste
+plus qu’à modifier la taille de la zone voulue et tout s’ajustera
+automatiquement par la suite. Il est également possible de changer la
+taille de la zone en écrivant directement la taille de chaque côté dans
+les paramètres.</p>
+</div>
+<div id="déplacement-du-joueur-et-des-ennemis" class="section level5">
+<h5>Déplacement du joueur et des ennemis</h5>
+<p>Pour permettre au joueur de contrôler le personnage, nous utilisons
+l’outil <strong>Input Map</strong> intégré à Godot. Cet outil est simple
+d’utilisation et permet la configuration des touches de déplacement.
+Pour accéder à l’Input Map, nous allons dans le menu en haut à gauche de
+l’éditeur dans “Project” -&gt; “Project Settings” -&gt; “Input Map”.</p>
+<p>Dans l’outil, nous créons des actions pour chaque type de déplacement
+que nous voulons. Nous avons des actions comme “up”, “down”, “left”,
+“right” et “click”. Une fois les actions créées, nous leur attribuons
+des touches en cliquant sur la case vide à côté de chaque action, puis
+en appuyant sur la touche souhaitée. Par exemple, pour la touche de
+déplacement vers la gauche, nous sélectionnons l’action “left” et lui
+attribuons la touche “A” (Touche généralement utilisée dans les jeux
+vidéos pour faire des déplacements vers la gauche) (voir
+annexe[4.6]).</p>
+<p>Ensuite nous allons créer un script rattaché à la scène player.tscn
+et qui sera nommé player.gd. Dans ce script nous allons utiliser les
+fonctions <code>_physics_process(_delta)</code> et
+<code>movement()</code>. La fonction
+<code>_physics_process(_delta)</code> est appelée à chaque frame. Dans
+cette fonction, nous appelons la fonction <code>movement()</code> pour
+gérer le mouvement du joueur. Celle-ci va utiliser
+<code>Input.get_action_strength()</code> pour obtenir la force de chaque
+touche de déplacement : Pour les touches de déplacement horizontal
+(“left” et “right”), elle soustrait la force de la touche de gauche à
+celle de la touche de droite et pour les touches de déplacement vertical
+(“up” et “down”), elle soustrait la force de la touche du haut à celle
+de la touche du bas. Enfin on va créer un vecteur de déplacement mov en
+utilisant les coordonnées des forces obtenues. Ce vecteur sera utilisé
+pour déplacer le joueur dans la direction appropriée. Et la fonction
+<code>move_and_slide()</code> va permettre l’application du mouvement
+final sur le nœud Player. La variable <code>movement_speed</code> est
+quant à elle définit au tout début avec une valeur par défaut que nous
+avons choisie.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Resume des fonctions de deplacement du joueur &quot;&quot;&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="dv">2</span> <span class="kw">func</span> <span class="bu">_physics_process</span>(<span class="co">_delta</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="dv">3</span>     movement ()</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="dv">4</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="dv">5</span> <span class="kw">func</span> movement ():</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="dv">6</span>     <span class="kw">var</span> x_move <span class="op">=</span> Input.<span class="fu">get_action_strength</span>(<span class="st">&quot;right&quot;</span>) <span class="op">-</span> Input.<span class="fu">get_action_strength</span>(<span class="st">&quot;left&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="dv">7</span>     <span class="kw">var</span> y_move <span class="op">=</span> Input.<span class="fu">get_action_strength</span>(<span class="st">&quot;down&quot;</span>) <span class="op">-</span> Input.<span class="fu">get_action_strength</span>(<span class="st">&quot;up&quot;</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="dv">8</span>     <span class="kw">var</span> mov <span class="op">=</span> <span class="fu">Vector2</span>(x_move ,y_move)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="dv">9</span>     velocity <span class="op">=</span> mov.normalized ()<span class="op">*</span>movement_speed</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="dv">10</span>    move_and_slide ()</span></code></pre></div>
+<p>Pour permettre à l’ennemi de poursuivre le joueur, nous allons
+récupérer la position actuelle du joueur à chaque mise à jour et
+déplacer l’ennemi en continu vers cette position. Pour cela nous avons
+d’abord ajouté le nœud Player dans un groupe nommé “player”. Pour faire
+cela, en haut à droite de l’interface Godot et en étant sur la scène
+player.tscn, on clique sur “Node” -&gt; “Groups” et on crée le groupe
+“player” (voir annexe[4.7]). On a créé ensuite une nouvelle scène
+appelée enemy.tscn. On récupère le nœud Player de la scène player.tscn
+par le biais du groupe “player” avec les fonctions
+<code>get_tree()</code> et <code>get_first_node_in_group()</code>
+intégrées à Godot.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Recuperation du premier noeud du groupe &quot;player&quot; &quot;&quot;&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="dv">2</span> @onready <span class="kw">var</span> player <span class="op">=</span> get_tree ().<span class="fu">get_first_node_in_group</span>(<span class="st">&quot;player&quot;</span>)</span></code></pre></div>
+<p>Comme pour le joueur, la fonction
+<code>_physics_process(_delta)</code> est appelée à chaque frame. Elle
+va créer une nouvelle variable direction à chaque fois en utilisant la
+fonction <code>direction_to(player.global_position)</code> qui va
+permettre de faire le déplacement de la position actuelle de l’ennemi
+sur la position actuelle du joueur au même temps donné. Il ne reste plus
+qu’à utiliser la fonction <code>move_and_slide()</code> affin
+d’appliquer le mouvement sur le nœud Enemy.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Fonction de deplacement de l&#39;ennemi &quot;&quot;&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="dv">2</span> <span class="kw">func</span> <span class="bu">_physics_process</span>(<span class="co">_delta</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="dv">3</span>     <span class="kw">var</span> direction <span class="op">=</span> global_position.<span class="fu">direction_to</span>(player.global_position)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="dv">4</span>     velocity <span class="op">=</span> direction<span class="op">*</span>movement_speed</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="dv">5</span>     move_and_slide ()</span></code></pre></div>
+</div>
+<div id="animation-des-déplacements" class="section level5">
+<h5>Animation des déplacements</h5>
+<p>Pour le joueur et l’ennemi, nous avons ajouté un nœud
+<strong>AnimationPlayer2D</strong>. C’est un nœud déjà intégré à Godot
+et qui permet de gérer les animations des nœuds Sprite2D. Les frames de
+chaque animation ont été importées en tant que sprites individuels
+(sprite sheet) (voir annexe[4.8]). Chaque sprite représente une étape
+spécifique ordonnée dans l’animation de déplacement, comme une marche ou
+une course. Dans ce nœud un outil est directement présent pour
+sélectionner les frames auxquelles nous voulons faire les changements de
+sprite à un temps donné (voir annexe[4.9]). Ensuite il suffit simplement
+d’ordonner chronologiquement les sprites de l’animation pour y créer
+l’effet de déplacement. Une fois l’animation de prête, il faut la
+récupérer ainsi que le nœud Sprite2D qui va permettre l’affichage de
+cette animation dans le jeu. Pour le joueur nous avons deux Sprite2D
+différents, un pour les déplacements à gauche et un pour les
+déplacements à droite et donc deux animations différentes “move_gauche”
+et “move_droite”. Il suffit donc de récupérer les 3 nœuds dans le
+script.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Recuperation des noeuds dans des variables &quot;&quot;&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="dv">2</span> @onready <span class="kw">var</span> sprite <span class="op">=</span> <span class="va">$Sprite2D</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="dv">3</span> @onready <span class="kw">var</span> sprite2 <span class="op">=</span> <span class="va">$Sprite2D3</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="dv">4</span> @onready <span class="kw">var</span> playermove <span class="op">=</span> <span class="va">$playermove</span></span></code></pre></div>
+<p>Ensuite il suffit de vérifier à chaque instant de
+<code>movement()</code> la position vers laquelle le joueur se dirige
+pour savoir quel Sprite2D et quelle animation jouer. Si le déplacement
+en x du joueur est supérieur à 0 alors on va jouer l’animation
+“move_droite” et si elle est inférieur à 0 alors on va jouer l’animation
+“move_gauche” et de même que l’on va afficher ou non le Sprite2D du
+déplacement vers la gauche ou la droite (voir annexe[4.10]). Pour
+l’affichage des nœuds nous allons alors utiliser la fonction déjà
+intégrée dans Godot qui est <code>.visible</code> auxquels cas nous
+mettrons <code>false</code> pour rendre le Sprite2D non visible et
+<code>true</code> pour le rendre visible. La fonction
+<code>.play()</code> est elle utilisée pour lancer l’animation
+correspondante depuis le nœud d’animation et la fonction
+<code>.stop()</code> pour stopper celle-ci lorsque le joueur ne se
+déplace plus.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Affichage et animation des deplacements pour le joueur &quot;&quot;&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="dv">2</span> <span class="cf">if</span> mov.x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="dv">3</span>     playermove.<span class="fu">play</span>(<span class="st">&quot;move_droite&quot;</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="dv">4</span>     sprite.visible <span class="op">=</span> <span class="va">false</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="dv">5</span>     sprite2.visible <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="dv">6</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="dv">7</span> <span class="cf">if</span> mov.x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="dv">8</span>     playermove.<span class="fu">play</span>(<span class="st">&quot;move_gauche&quot;</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="dv">9</span>     sprite.visible <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="dv">10</span>    sprite2.visible <span class="op">=</span> <span class="va">false</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="dv">11</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="dv">12</span> <span class="cf">if</span> mov <span class="op">==</span> Vector2.ZERO:</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="dv">13</span>     playermove.<span class="fu">stop</span>()</span></code></pre></div>
+<p>Pour les déplacements de ennemis c’est à peu près le même principe
+sauf qu’ici nous n’avons utilisé qu’un seul Sprite2D pour lequel nous
+avons fais une rotation horizontale droite au gauche suivant la position
+du joueur. Pour l’animation du déplacement nous avons utilisé exactement
+la même méthode. Ensuite pour effectuer la rotation de l’ennemi afin
+qu’il lui fasse tout le temps face au joueur nous utilisons la fonction
+<code>.flip_h</code> avec <code>true</code> ou <code>false</code> comme
+paramètre pour effectuer la rotation ou non de l’ennemi et cela en
+fonction des positions en x de celui-ci et avec les mêmes conditions que
+pour le joueur.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Affichage et animation des deplacements pour l&#39;ennemi &quot;&quot;&quot;</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="dv">2</span> <span class="cf">if</span> direction.x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="dv">3</span>     sprite.flip_h <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="dv">4</span> <span class="cf">elif</span> direction.x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="dv">5</span>     sprite.flip_h <span class="op">=</span> <span class="va">false</span></span></code></pre></div>
+<p>Cela permettra donc de faire en sorte que quelle que soit la position
+de l’ennemi avec le joueur il lui fasse toujours face. Nous avons à ce
+stade de la réalisation un joueur capable de se déplacer librement dans
+la scène principale et des ennemis capables de le suivre en lui faisant
+tout le temps face.</p>
+</div>
+<div id="système-de-perte-de-points-de-vie-hurt-box-et-hit-box"
+class="section level5">
+<h5>Système de perte de points de vie (Hurt Box et Hit Box)</h5>
+<p>Pour rappel, la <strong>Hit Box</strong> est la zone qui va induire
+les dégâts et la <strong>Hurt Box</strong> est la zone qui va indiquer
+qu’il faut prendre des dégâts. Pour les deux la scène va être identique,
+elle sera composée d’un nœud racine Area2D et avec comme enfants un nœud
+CollisionShape2D et un nœud Timer (voir annexe[4.11]). Pour la scène
+hurt_box.tscn, nous avons créé un nouveau script et nous avons tout
+d’abord récupérer les nœuds CollisionShape2D et Timer dans des variables
+et nous avons défini le style futur de la Hurt Box avec
+<code>@export_enum("Cooldown","HitOnce","DisableHit Box")</code>. Nous
+avons également créé un signal <code>hurt(damage)</code> qui nous
+servira pour plus tard.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode gdscript"><code class="sourceCode gdscript"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="dv">1</span> <span class="st">&quot;&quot;&quot; Initialisation des variables de la Hurt Box &quot;&quot;&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="dv">2</span> @<span class="fu">export_enum</span>(<span class="st">&quot;Cooldown&quot;</span>,<span class="st">&quot;HitOnce&quot;</span>,<span class="st">&quot;DisableHitBox&quot;</span>) <span class="kw">var</span> HurtBoxType <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="dv">3</span> @onready <span class="kw">var</span> collision <span class="op">=</span> <span class="va">$CollisionShape2D</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="dv">4</span> @onready <span class="kw">var</span> disableTimer <span class="op">=</span> <span class="va">$DisableTimer</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="dv">5</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="dv">6</span> <span class="kw">signal</span> <span class="fu">hurt</span>(damage)</span></code></pre></div>
+<p>Ensuite nous allons créer un signal interne dans le script de la
+scène hurt_box.tscn, ce signal va donner la fonction
+<code>_on_area_entered(area)</code> qui sera activée à chaque fois
+qu’une CollisionShape2D entrera en contact avec celle de la Hit Box.
+Pour créer les signaux internes, il faut aller dans le même endroit que
+pour la créations des groupes de scène mais cette fois-ci dans la
+section “Signals” -&gt; “Area2D” pour y trouver la fonction. (voir
+annexe[4.12]). Il suffit ensuite de double cliquer sur cette fonction et
+de la connecter au nœud racine HurtBox de la scène hurt_box.tscn (voir
+annexe[4.13]). Une fois le signal connecté nous pouvons maintenant
+passer à son implémentation. Tout d’abord nous allons ajouter la scène
+hit_box.tscn dans un groupe nommé “attack” exactement de la même manière
+que nous l’avons fait pour la scène player.tscn. Cela nous permet
+ensuite dans la fonction de vérifier que la zone qui est entrée en
+contact avec la Hurt Box est bien celle de la Hit Box avec une autre
+fonction déjà intégrée dans Godot qui est
+<code>.is_in_groupe("attack")</code> avec “attack” placé en paramètre de
+celle-ci. On vérifie ensuite si la zone qui vient d’entrer et contact
+possède des dégâts avec <code>if not area.get("damage") == null</code>,
+cela permettra d’éviter les éventuels bugs lors de l’utilisation de la
+fonction. Ensuite nous allons matcher le HurtBoxType sur le premier
+élément (le 0 après match) qui est “Cooldown”. Cette partie va permettre
+de désactiver la CollisionShape2D à l’aide du Timer lors du premier
+contact avec celle de la Hit Box. Ensuite nous créons un nouveau signal
+dans le script avec le Timer afin de réinitialiser la CollisionShape2D.
+Ce signal est <code>_on_disable_timer_timeout()</code> et va être
+déclenché à la fin du premier Timer induit par le premier contact des
+deux zones. Pour le</p>
 <p>ToDo: Donner tous les projets persos que j’ai pu mener à coté de mes
 études.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 

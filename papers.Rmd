@@ -14,8 +14,6 @@ output:
     css: styles.css
 ---
 
-<br>
-
 --- 
 
 # Environmental drivers of metabolic and taxonomic temporal dynamics of freshwater biofilms and their role in the sensitivity to the chemical stress
