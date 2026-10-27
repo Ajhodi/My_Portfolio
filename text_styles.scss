@@ -1,0 +1,55 @@
+// ===== TEXTES =====
+p {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.7;
+}
+
+p::first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 0.8;
+  padding-right: 0.15em;
+  color: $accent;
+  font-weight: bold;
+}
+
+/* === IMAGES FLOTTANTES === */
+.img-left {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  max-width: 40%;
+}
+
+.img-right {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  max-width: 40%;
+}
+
+.img-center {
+  display: block;
+  margin: 20px auto;
+  max-width: 80%;
+}
+
+/* Clearfix pour éviter que le contenu suivant ne se chevauche */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .img-left,
+  .img-right {
+    float: none;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}

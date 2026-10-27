@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>creation-dun-jeu-video-à-laide-du-moteur-godot – Jhodi Avizara</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-0d7f4869f2c8b7a940b1ed5401927bcf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Jhodi Avizara">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Jhodi Avizara">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Jhodi Avizara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img">
+</i> 
+<span class="menu-text">|</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Projects/projects.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Papers/papers.html"> 
+<span class="menu-text">Articles</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Ex_pro/exp.html"> 
+<span class="menu-text">Expériences</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Hobbies/hobbies.html"> 
+<span class="menu-text">Hobbies</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house-fill" role="img">
+</i> 
+ <span class="menu-text">|</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Projects/projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Papers/papers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Articles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Ex_pro/exp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expériences</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Hobbies/hobbies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hobbies</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">_</h2>
+   
+  <ul>
+  <li><a href="#creation-dun-jeu-video-à-laide-du-moteur-godot" id="toc-creation-dun-jeu-video-à-laide-du-moteur-godot" class="nav-link active" data-scroll-target="#creation-dun-jeu-video-à-laide-du-moteur-godot">Creation d’un jeu video à l’aide du moteur Godot</a>
+  <ul class="collapse">
+  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse">Analyse</a>
+  <ul class="collapse">
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché" id="toc-état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché" class="nav-link" data-scroll-target="#état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché">État de l’art des principaux moteurs de jeu sur le marché</a></li>
+  <li><a href="#analyse-des-besoins" id="toc-analyse-des-besoins" class="nav-link" data-scroll-target="#analyse-des-besoins">Analyse des besoins</a></li>
+  </ul></li>
+  <li><a href="#conception" id="toc-conception" class="nav-link" data-scroll-target="#conception">Conception</a>
+  <ul class="collapse">
+  <li><a href="#conception-du-jeu" id="toc-conception-du-jeu" class="nav-link" data-scroll-target="#conception-du-jeu">Conception du jeu</a></li>
+  <li><a href="#la-state-makina" id="toc-la-state-makina" class="nav-link" data-scroll-target="#la-state-makina">La-State-Makina</a></li>
+  </ul></li>
+  <li><a href="#réalisation-et-résultats" id="toc-réalisation-et-résultats" class="nav-link" data-scroll-target="#réalisation-et-résultats">Réalisation et résultats</a>
+  <ul class="collapse">
+  <li><a href="#le-jeu" id="toc-le-jeu" class="nav-link" data-scroll-target="#le-jeu">Le jeu</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="creation-dun-jeu-video-à-laide-du-moteur-godot" class="level1">
+<h1>Creation d’un jeu video à l’aide du moteur Godot</h1>
+<p><strong>2024</strong> <br> <strong>Auteurs: SANCHEZ Franck, AVIZARA Jhodi, GOUZY Yann</strong></p>
+<section id="analyse" class="level2">
+<h2 class="anchored" data-anchor-id="analyse">Analyse</h2>
+<section id="contexte" class="level3">
+<h3 class="anchored" data-anchor-id="contexte">Contexte</h3>
+<p>Godot est un moteur de jeu multiplateforme gratuit et open source qui permet la création de jeux vidéo 2D et 3D [9]. Nous avons choisi d’utiliser ce moteur performant pour développer un jeu se déroulant dans l’Égypte ancienne. Les clients ont développés un plugin permettant de manipuler des machines à états (graphes) pour modéliser les différentes étapes du jeu. Actuellement, une visualisation sommaire de ce graphe est disponible. Pour ce projet, notre objectif est de créer un jeu complet et abouti, en intégrant l’implémentation de ce plugin pour gérer les interactions entre les différentes entités du jeu.</p>
+</section>
+<section id="état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché" class="level3">
+<h3 class="anchored" data-anchor-id="état-de-lart-des-principaux-moteurs-de-jeu-sur-le-marché">État de l’art des principaux moteurs de jeu sur le marché</h3>
+<p>Dans l’industrie du jeu vidéo, deux acteurs dominent une part conséquente du marché : Unity et Unreal Engine [4]. Ces outils sont utilisés non seulement dans la création de jeux vidéo, mais également dans d’autres domaines comme le cinéma (live action et animation) ainsi que la réalité virtuelle augmentée. Pendant plusieurs années, Unity a été le moteur de jeu le plus populaire, en raison de son accessibilité tant en termes de coût (Unity est gratuit jusqu’à un certain niveau de bénéfices) que de prise en main, grâce à une énorme communauté de développeurs [11]. Unity est exécutable sur MacOS et Windows, propose une API de script principale en C#, mais aussi en Boo et JavaScript. Des jeux à succès comme Cuphead, Subnautica et Pokémon Go ont été développés sur Unity. De plus, Unity prend en charge le HTML5, ce qui permet la diffusion des jeux sur diverses plateformes. Cependant, en septembre 2023, Unity a annoncé une nouvelle tarification, exigeant désormais une somme d’argent pour chaque téléchargement de jeu, ce qui a entraîné une perte de popularité pour la plateforme [10].</p>
+<p>En concurrence directe, Unreal Engine a gagné en popularité, notamment grâce au succès de la série The Mandalorian [5], dont les effets visuels ont été réalisés sur ce moteur de jeu. Tout comme Unity, Unreal Engine s’adresse à une variété d’utilisateurs, des studios aux développeurs indépendants. Exécutable sur MacOS et Windows, le moteur est gratuit à l’installation, mais une part des recettes des jeux produits revient à la compagnie. Son langage de programmation est le C++ et Python. Bien que sa prise en main soit plus difficile que celle de Unity, Unreal Engine propose des fonctionnalités avancées telles que des pipelines de gestion des ressources, l’automatisation des flux de travail et des interfaces utilisateur personnalisées. Des jeux à succès comme Tomb Raider Underworld (2008) sur Unreal Engine 3, Borderland 3 (2019) sur Unreal Engine 4 et Mass Effect (2007) sur Unreal Engine 3 ont été créés avec ce moteur de jeu. Ce moteur se démarque par ses rendus photoréalistes, bien que cela nécessite des ressources plus importantes, limitant le nombre de ses utilisateurs [6].</p>
+<p>En contraste avec les géants commerciaux, on trouve des moteurs libres, gratuits et sans conditions, dont Godot Game Engine est l’un des meilleurs représentants [4]. Godot est un moteur de jeu open source et facilement accessible, grâce à son langage de programmation inspiré de Python, le GDScript, et à sa communauté active. Disponible sur MacOS, Windows et Linux, Godot propose des jeux sur PC, navigateur, Android et consoles. Son éditeur s’inspire de celui de Unity, offrant des fonctionnalités similaires telles que la création d’interfaces utilisateur et la gestion des scènes. Godot 4.0 a apporté des améliorations majeures de performance, notamment grâce à un nouveau système de rendu et d’optimisation [9]. Il offre des performances accrues et une meilleure compatibilité avec les plateformes mobiles. De plus, Godot dispose d’une bibliothèque de ressources comprenant des modèles 3D, des textures et des sons, facilitant ainsi la création de jeux sans avoir à tout créer à partir de zéro.</p>
+<section id="état-de-lart-sur-les-machines-à-états-finis-fsm" class="level4">
+<h4 class="anchored" data-anchor-id="état-de-lart-sur-les-machines-à-états-finis-fsm">État de l’art sur les machines à états finis (FSM)</h4>
+<p>En règle générale, les FSM sont des modèles mathématiques de calcul utilisés en programmation informatique, en logique séquentielle, dans les protocoles de communication, le contrôle de processus et bien d’autres [1]. Ces modèles sont caractérisés par le fait qu’ils peuvent avoir un grand nombre d’états possibles mais ne sont que dans un seul état à la fois, que l’on appelle “état courant”. Ces états représentent toutes les variables d’un programme et leurs valeurs à un moment donné qui attendent d’être exécutées. Le passage d’un état à l’autre est activé par un événe-ment ou une condition, on parle de “transition”. Les transitions sont un ensemble d’actions à exécuter lorsqu’une condition est remplie ou lorsqu’un événement (ou symbole d’entrée) est reçu [2]. Dans certains cas, la machine peut donner une réponse à des entrées spécifiques, on parle de symboles de sortie. Un FSM est donc défini par l’ensemble de ses états et par l’ensemble des règles qui dictent comment il passe d’un état à l’autre.</p>
+<p>Ces modèles peuvent être classés principalement en deux catégories, les accepteurs et les transducteurs. Les accepteurs analysent la structure de la donnée fournie, et l’acceptent si elle est conforme à la spécification décrite par la machine à états. Les transducteurs au contraire traduisent une chaîne de symboles en une autre. Et dans certains cas, on peut rencontrer des variantes appelées classificateurs et séquenceurs.</p>
+<p>Mais il existe également une classification supplémentaire, les modèles déterministes et non déterministes. Dans un FSM déterministe, chaque état possède au plus une transition pour chaque symbole d’entrée, et dans un FSM non déterministe, un symbole d’entrée peut étiqueter une, plusieurs ou aucune transition pour un état donné [13].</p>
+<p>Finalement, dans le domaine des jeux vidéo, les FSM permettent de représenter et de contrôler le flux d’exécution. Notamment pour implémenter des intelligences artificielles et produire des comportements complexes sans avoir à utiliser un grand nombre de lignes de codes. Toujours dans ce domaine, on peut citer Playmaker sur Unity comme exemple de FSM [7]. Il est utilisé dans des jeux comme Hollow Knight, Gris ou Firewatch qui des jeux reconnus pour la qualité de leur scénario et de leur gameplay.</p>
+<p>Bien entendu, il est impossible de ne pas présenter l’Alien du jeu Alien isolation, un jeu d’horreur se situant dans l’univers du film Alien. Le monstre éponyme poursuit le joueur tout au long du jeu et son intelligence le rend aussi terrifiant que son apparence. c’est à ce jour une des meilleures utilisation de la machine à états dans le monde du jeu vidéo, cette machine à états est très complexe avec une centaines d’états dont trente principaux ce qui permet à l’Alien d’avoir des réactions qui donne l’impression de s’adapter à celle du joueur. Il est également intéressant de noter que relativement peu de jeux utilisent des machines à état et passent alors à côté des avantages mentionnés.</p>
+<p>Quant à Godot, il existe une machine à états gérant uniquement les animations de personnages, AnimationTree, et un plugin permettant de gérer l’animation et tous les autres aspect du jeu, StateChart, Pour ce projet, à la demande de nos clients, nous avons utilisé La-State-Makina [12], un plugin implémentant une machine à états sous la forme d’un Grafcet (Graphe Fonctionnel de Commande d’Étape de Transition), un mode de représentation et d’analyse d’automatismes [3]. Ce plugin, à l’image de Playmaker et de StateChart, permet de gérer les flux d’exécution pour générer des comportements complexes dans un jeu.</p>
+</section>
+</section>
+<section id="analyse-des-besoins" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-des-besoins">Analyse des besoins</h3>
+<p>Pour ce projet, notre objectif est de fournir un jeu 2D complet sur le thème de l’Égypte et d’y intégrer le plugin La-State-Makina sous forme de preuve de concept ou directement dans le jeu final.</p>
+<section id="besoins-fonctionnels" class="level4">
+<h4 class="anchored" data-anchor-id="besoins-fonctionnels">Besoins fonctionnels</h4>
+<p>Le gameplay s’inspire de Vampire Survivor, où le joueur doit survivre à une vague continue d’ennemis. Le niveau du joueur augmente en fonction du nombre d’ennemis éliminés et de l’expérience ramassée. La difficulté est progressive avec l’apparition de nouveaux ennemis. Le joueur a la possibilité d’utiliser différentes attaques en fonction de l’équipement récupéré. Le jeu se déroule sur une carte infinie avec un motif répété. Nous avons jugé que ce choix était approprié car ce type de jeu offre une expérience de jeu relativement simple en termes de complexité, ce qui correspond bien à notre expérience en tant que développeurs de jeux débutants. De plus, étant donné le temps limité pour la sortie du jeu final, cette option nous semble être la plus réalisable dans les délais impartis.</p>
+<p><strong>Fonctionnement général du jeu</strong></p>
+<p>Le principe du jeu est simple, survivre à des vagues d’ennemis dans le temps, ramasser de l’expérience donnée par les ennemis en les éliminant, augmenter de niveau et choisir des améliorations d’armes et des bonus pour survivre à des hordes d’ennemis de plus en plus forts et plus nombreux par vague. Le style graphique des personnages s’inspirera d’assets libres de droits et également fournis par le client, sur le thème de l’Égypte ancienne.</p>
+<p>Pour les niveaux du jeu, nous partons sur des vagues d’ennemis de plus en plus forts, avec des caractéristiques évolutives telles que la vitesse de déplacement, les points de vie, les dégâts infligés aux joueurs et la résistance au knockback. De plus, le nombre d’ennemis générés par vague augmente progressivement. Chaque type d’ennemi est visuellement différent et possède des statistiques définies de manière à augmenter la difficulté au fur et à mesure de la progression du joueur. Cela permet une croissance de la difficulté tout au long du jeu.</p>
+<p>Pour chaque arme, nous avons quatre niveaux différents qui peuvent changer leurs statistiques générales telles que la vitesse d’attaque, la portée, les dégâts d’attaque ainsi que leur nombre, en plus de pouvoir modifier leur comportement. Au total, il y a trois armes différentes. Cela permet une progression significative du joueur. Pour les bonus, nous en avons six différents avec pour quatre d’entre eux quatre niveaux différents ajoutant une statistique supplémentaire à chaque fois telle que l’armure, la vitesse de déplacement, la taille des attaques et la vitesse d’attaque. Un bonus n’a que deux niveaux d’amélioration, il permet d’augmenter le nombre de toutes les attaques de un. Et un bonus sans niveau d’amélioration qui permet la régénération des points de vie du joueur.</p>
+<p>Les effets spéciaux comprennent les déplacements du joueur et des ennemis à l’aide d’animations image par image. Les armes ont des déplacements simples directement sur un ennemi, des déplacements aléatoires depuis la direction du joueur, ainsi que des déplacements autour du joueur. Nous ajoutons des animations lors de certaines attaques des armes. La barre d’expérience et celle des points de vie du joueur sont également animées. De plus, des animations sont incluses pour l’élimination des monstres et la récolte de l’expérience au sol, ainsi que dans le menu du jeu.</p>
+<p>Pour les musiques d’ambiance et les effets sonores, nous incluons plusieurs éléments pour enrichir l’expérience audio du joueur. Tout d’abord, des musiques sont jouées en boucle dans le menu du jeu et tout au long de la partie. Le passage de la souris sur un bouton du menu est accompagné d’un son distinctif pour indiquer une interaction possible. De plus, nous avons inclus des effets sonores pour chaque étape du combat : lorsque le joueur touche un ennemi avec une arme, lorsque l’ennemi est éliminé, ainsi que lors du ramassage de l’expérience au sol. Enfin, des sons distincts sont joués lors du passage d’un niveau et à la fin de la partie, marquant les moments importants de la progression du joueur.</p>
+<p><strong>Gestion des scènes et robustesse du code</strong></p>
+<p>Pour la gestion des différentes scènes dans le jeu, nous cherchons à en minimiser le nombre afin de simplifier la tâche de réalisation. Notre objectif est d’avoir le moins de choses possible à gérer lors du développement du jeu. En limitant le nombre de scènes, nous réduisons la complexité du projet et facilitons la maintenance du code. Cela nous permet de concentrer nos efforts sur la création de fonctionnalités et d’éléments de gameplay plutôt que sur la gestion de multiples scènes et de leurs interactions. Cela nous permet également de garantir une meilleure cohérence dans l’ensemble du jeu, en évitant les incohérences et les conflits entre les différentes parties du code.</p>
+<p><strong>Animations et génération des ennemis</strong></p>
+<p>Pour le spawn des ennemis, nous mettons en place un système de spawner d’ennemis. Ce système nous permet d’intégrer directement la scène d’un ennemi dans le spawner et ainsi de gérer tous ses paramètres d’apparition. Nous pouvons définir le moment de leur apparition, le taux d’apparition par seconde ainsi que la durée pendant laquelle ils doivent apparaître. En pratique, cela signifie que nous utilisons le même script pour chaque type d’ennemi, en ajustant simplement les animations et statistiques pour chaque ennemi. Les ennemis apparaissent aléatoirement dans une zone fixe autour du joueur, garantissant ainsi qu’ils restent près de lui peu importe ses déplacements. Cette approche nous permet de gagner du temps lors du développement et de garantir une cohérence dans le comportement des ennemis.</p>
+<p>Pour les ennemis, nous mettons en place une animation unique qui s’ajuste en fonction de la position du personnage par rapport à l’ennemi. Quelle que soit la direction dans laquelle le joueur se déplace, l’animation de l’ennemi s’oriente pour lui faire face. Les déplacements des ennemis, qu’ils soient horizontaux ou verticaux, sont dirigés vers la position actuelle du joueur. Pour le personnage principal, nous avons également une animation unique qui se modifie en fonction de sa direction de déplacement. Que le personnage se déplace vers la gauche ou la droite, l’animation s’adapte pour refléter cette direction. Cette approche simplifie la gestion des animations pour le personnage principal, ne nécessitant qu’une seule animation qui est manipulée dynamiquement en fonction des actions du joueur. Le joueur a des animations de déplacement vertical et horizontal. Il peut se déplacer librement sur la carte. Les animations se font image par image, avec le nombre de keyframes dépendant du modèle d’animation. Les FPS sont adaptés en conséquence.</p>
+<p><strong>Interfaces utilisateur</strong></p>
+<p>Pour les différentes interfaces du jeu, nous simplifions au maximum pour offrir une expérience fluide et intuitive. Tout d’abord, le menu principal comprend simplement deux boutons : “Play” et “Quit”. Ensuite, lors du passage à un nouveau niveau, le joueur a la possibilité de choisir parmi trois améliorations qui lui sont présentées aléatoirement. Ces améliorations sont sélectionnées dans une liste comprenant toutes les armes et bonus possibles. L’interface principale du jeu est le cœur de l’action, où tous les événements se déroulent. C’est ici que le joueur contrôle son personnage, affronte les ennemis, collecte de l’expérience et progresse à travers les niveaux. Enfin, à la fin de chaque partie, une interface de fin de partie s’affiche pour indiquer si le joueur a gagné ou perdu. Cette interface présente un bouton “Quit” permettant au joueur de retourner au menu principal du jeu afin de démarrer une nouvelle partie ou quitter le jeu.</p>
+<p>L’écran d’accueil comprend le titre du jeu, le bouton “Play” pour jouer, le bouton “Quit” pour quitter le jeu et quelques animations pour animer celui-ci. L’écran de fin de la partie affiche le mot “You win !” si le joueur à gagné la partie ou “You lose !” si le joueur à été éliminé ainsi que le bouton “Quit” pour retourner à l’écran d’accueil.</p>
+</section>
+<section id="besoins-non-fonctionnels" class="level4">
+<h4 class="anchored" data-anchor-id="besoins-non-fonctionnels">Besoins non-fonctionnels</h4>
+<p>Pendant la phase de conception, nous répartissons les différentes tâches entre les membres de l’équipe pour la création du cahier des charges. Cependant, pour l’ensemble des idées de conception du jeu, nous réfléchissons et prenons les décisions ensemble. Chaque membre de l’équipe contribue avec ses idées et ses suggestions pour façonner le jeu selon notre vision collective.</p>
+<p><strong>Aspects graphiques et commandes de jeu</strong></p>
+<p>Dans le cadre du développement du jeu, nous utilisons des animations simples et du pixel art. Nous évitons d’ajouter trop d’effets pour garantir des performances fluides et réactives, même sur des plateformes moins puissantes.</p>
+<p>Nous offrons aussi la possibilité de modifier le mapping des touches, que ce soit sur clavier ou sur manette, pour satisfaire au mieux le confort de jeu de l’utilisateur. Cela signifie que les joueurs peuvent personnaliser les commandes selon leurs préférences, afin de trouver la configuration qui leur convient le mieux.</p>
+<p>Nous réalisons également des interfaces simples et compréhensibles, car la facilité d’utilisation est essentielle pour garantir une expérience de jeu positive. Cela rend le jeu accessible à un large public, quel que soit son niveau d’expérience dans les jeux vidéo.</p>
+<p>L’utilisation esthétique du pixel art est une approche visuelle rétro qui apporte un charme particulier au jeu, nous visons à créer des visuels distinctifs et attrayants tout en conservant la performance du jeu. De plus, nous utilisons des sons pour apporter du dynamisme au jeu. Les effets sonores sont soigneusement sélectionnés pour correspondre à l’action à l’écran et immerger le joueur dans le jeu. Des musiques dynamiques accompagnent les phases du jeu. L’objectif est d’ajouter une dimension supplémentaire à l’expérience du jeu, en renforçant l’engagement du joueur et en créant un environnement sonore captivant.</p>
+<p>Le jeu comprend plusieurs armes et différents bonus obtenables à chaque niveau. Pour progresser, le joueur doit vaincre des ennemis et récupérer de l’expérience. Cette mécanique incite les joueurs à jouer davantage pour améliorer leurs compétences, découvrir de nouveaux équipements et explorer des défis plus difficiles.</p>
+<p><strong>Programmation</strong></p>
+<p>Enfin, nous mettons l’accent sur la structuration du code du jeu pour permettre une meilleure facilité de modification. En divisant le code en sections logiques et bien définies, nous facilitons la compréhension et la maintenance du jeu pour les développeurs futurs. Cette approche nous permet de réagir rapidement aux retours des joueurs, d’ajouter de nouvelles fonctionnalités et d’améliorer l’expérience de jeu de manière efficace et efficiente. En segmentant le code de manière organisée, nous nous assurons également de minimiser les risques d’erreurs et de conflits lors de l’ajout de nouvelles fonctionnalités, garantissant ainsi la stabilité et la durabilité du jeu sur le long terme.</p>
+</section>
+</section>
+</section>
+<section id="conception" class="level2">
+<h2 class="anchored" data-anchor-id="conception">Conception</h2>
+<p>Dans notre processus de conception du jeu, nous prendrons en compte notre niveau de compétence débutant avec Godot ainsi que le temps limité dont nous disposons pour développer le jeu. Nous chercherons donc des genres de jeux où la réalisation semble la plus simple. Après avoir passé en revue la liste des genres de jeux, nous opterons pour le genre de jeu de type rogue-like, tel que Vampire Survivor, car il offre des mécaniques de jeu simples. En optant pour un concept de jeu relativement simple mais solide comme Vampire Survivor, nous pourrons nous concentrer sur la mise en œuvre de ses mécanismes de base. Cela nous permettra également de gagner en expérience dans le développement de jeux tout en créant quelque chose de réalisable dans un délai raisonnable. Pour le concept du jeu, nous avons donc décidé de créer un jeu de type rogue-like se déroulant dans l’univers de l’Égypte ancienne. Le joueur incarnera un Égyptien solitaire qui affronte l’épreuve d’Amon, une divinité égyptienne.</p>
+<section id="conception-du-jeu" class="level3">
+<h3 class="anchored" data-anchor-id="conception-du-jeu">Conception du jeu</h3>
+<section id="mécaniques-du-jeu" class="level4">
+<h4 class="anchored" data-anchor-id="mécaniques-du-jeu">Mécaniques du jeu</h4>
+<p>Les principales mécaniques de jeu comprendront des combats en temps réel et un aspect d’exploration. Le joueur devra survivre à des vagues d’ennemis tout en évoluant et en choisissant des armes et des améliorations. Nous ajouterons différentes armes avec différents types d’attaques. Pour les bonus, nous aurons également différents types de bonus qui affectent le personnage ainsi que ses armes. En ce qui concerne les ennemis, nous aurons des ennemis différents en termes de visuel et au niveau des statistiques (dégâts des attaques, points de vie, etc.). Pour l’évolution du personnage, il pourra ramasser de l’expérience qui sera donnée par les ennemis en les éliminant. Nous concevrons les niveaux pour offrir une difficulté progressive, avec des ennemis diversifiés, allant de l’ennemi simple et faible à des adversaires plus imposants et résistants.</p>
+</section>
+<section id="graphismes-et-effets-sonores" class="level4">
+<h4 class="anchored" data-anchor-id="graphismes-et-effets-sonores">Graphismes et effets sonores</h4>
+<p>Pour l’artwork et les graphismes, nous opterons pour un style visuel pixel art, donnant au jeu un aspect rétro et distinctif. Les animations seront simples mais efficaces, permettant une jouabilité fluide sur différentes plateformes. L’interface utilisateur sera conçue pour être simple et intuitive, avec des menus faciles à naviguer et des instructions claires pour guider le joueur tout au long de la jeu. Nous inclurons également des options de personnalisation des touches pour répondre aux préférences individuelles des joueurs. En ce qui concerne le son et la musique, nous sélectionnerons des effets sonores et des musiques adaptés à l’ambiance du jeu. Les effets sonores renforceront l’immersion du joueur, tandis que la musique dynamique accompagnera les moments d’action et d’intensité.</p>
+</section>
+<section id="phases-de-test-et-correction-de-bugs" class="level4">
+<h4 class="anchored" data-anchor-id="phases-de-test-et-correction-de-bugs">Phases de test et correction de bugs</h4>
+<p>Pour les tests et les itérations, nous effectuerons des tests réguliers, y compris des tests auprès de personnes qui ne jouent pas aux jeux vidéo en règle générale, en plus de nos propres tests. Ces tests nous permettront d’identifier et de corriger les bugs, ainsi que de recueillir les commentaires des joueurs. Ces retours nous aideront à ajuster et à améliorer le jeu tout au long du processus de développement.</p>
+</section>
+<section id="architecture-du-code" class="level4">
+<h4 class="anchored" data-anchor-id="architecture-du-code">Architecture du code</h4>
+<p>Enfin, la structuration du code sera une priorité pour permettre une meilleure facilité de modification. En divisant le code en sections logiques et bien définies, nous faciliterons la compréhension et la maintenance du jeu pour les développeurs futurs. Cela nous permettra de réagir rapidement aux retours des joueurs, d’ajouter de nouvelles fonctionnalités et d’améliorer l’expérience de jeu de manière efficace et efficiente. En segmentant le code de manière organisée, nous nous assurerons également de minimiser les risques d’erreurs et de conflits lors de l’ajout de nouvelles fonctionnalités, garantissant ainsi la stabilité et la durabilité du jeu sur le long terme.</p>
+<p>La scène principale, appelée <strong>World</strong>, agira comme la racine de l’arbre du jeu dans notre architecture. En tant que scène principale, World contiendra toutes les entités principales du jeu et coordonnera leur fonctionnement. Elle gérera également les événements du jeu, tels que les collisions entre les entités, les transitions de niveau et les conditions de victoire ou de défaite. Cette scène sera cruciale pour le développement du jeu, car elle servira de point de départ pour l’implémentation des mécaniques de jeu et la mise en place de l’environnement de jeu. Ce sera à partir de cette scène que le joueur entrera dans l’univers du jeu et commencera à interagir avec ses éléments.</p>
+<p>Le nœud racine <strong>Player</strong> contiendra plusieurs sous-nœuds pour gérer différentes fonctionnalités du joueur dans le jeu : les nœuds Sprite2D et Animation seront responsables de l’apparence visuelle du joueur et de ses animations de déplacement. Le nœud Sprite2D contiendra le sprite représentant le joueur et le nœud Animation les animations associées comme la marche. Le sous-nœud <strong>Attack</strong> gérera les mécanismes d’attaque du joueur. Il s’occupera de détecter les ennemis dans la zone d’attaque du joueur et d’appliquer les dégâts correspondants ainsi que les différents types d’attaques de celui-ci. Le sous-nœud <strong>Hurt Box</strong> représentera la zone de collision du joueur avec les ennemis et les obstacles. Il détectera les collisions et appliquera les effets correspondants, comme la réduction des points de vie du joueur lors de contact avec un ennemi.</p>
+<p>La structure du nœud Player sera conçue pour encapsuler toutes les fonctionnalités liées au joueur de manière organisée. Chaque sous-nœud aura un rôle spécifique dans le fonctionnement du joueur et permettra une gestion de ses interactions avec l’environnement du jeu.</p>
+<p>Pour le nœud <strong>Enemy Spawner</strong> cela sera différent, il permettra l’apparition des ennemis dans la scène principale World. Contrairement aux entités individuelles comme le joueur, le nœud Enemy Spawner instanciera dynamiquement les ennemis et gérera leur création dans le jeu. Voici comment il fonctionnera : Le Enemy Spawner sera chargé d’instancier les ennemis dans la scène principale. À chaque fois qu’un nouvel ennemi doit apparaître, le spawner créera une nouvelle instance de la scène de l’ennemi (enemy.tscn). Chaque ennemi sera représenté par sa propre scène, contenant tous les éléments nécessaires à son fonctionnement. Cette scène comprendra notamment : Les sous-nœuds Sprite2D et Animation pour afficher l’ennemi dans le jeu et gérer ses animations. Le sous-nœud Hurt Box pour détecter les collisions avec les attaques du joueur et le sous-nœud Hit Box pour détecter les collisions avec le joueur.</p>
+<p>Une fois qu’une instance d’ennemi est créée, le nœud Enemy Spawner l’ajoutera à la scène principale en tant que sous-nœud. Chaque ennemi sera donc géré individuellement et pourra être instancié plusieurs fois simplifiant ainsi la conception des vagues d’ennemis dans le temps.</p>
+<p>Pour implémenter les dégâts dans le jeu, nous utiliserons des <strong>Hit Box</strong> et des <strong>Hurt Box</strong>. Le principe est le suivant : lorsque les Collision shape du nœud HurtBox et du nœud HitBox entrent en contact, le signal _on_hurt_box_hurt() est émis depuis le script hurt_box.gd. Ce signal est capturé dans le script player.gd ou enemy.gd, suivant si c’est le joueur ou l’ennemi qui est touché. En conséquence le personnage perd un ou plusieurs points de vie en fonction des statistiques de l’objet ou de l’ennemi responsable des dégâts. De plus, le script hit_box.gd sera équipé d’un Timer. Ce Timer permettra de faire perdre des dégâts par seconde tant que les deux Collision shape seront en contact. Cela garantit que même après une première collision, si les entités restent en contact, des dégâts continueront d’être infligés.</p>
+</section>
+</section>
+<section id="la-state-makina" class="level3">
+<h3 class="anchored" data-anchor-id="la-state-makina">La-State-Makina</h3>
+<p>Dans notre jeu, nous utilisons le plugin La-State-Makina en version 0.1, développé par tomateauketchup. Nous avons décidé de développer une preuve concept avant de l’intégrer au jeu principal. Dans cette preuve de concept le plugin La-State-Makina permettra de faire apparaître et de contrôler le comportement de certains ennemis (mobs), le développement de ces mobs passent dans un premier temps par une preuve de concept. On crée un jeu simpliste pour tester l’implémentation de La-State-Makina et une fois celle-ci fonctionnelle, le mob est ajouté au jeu principal.</p>
+<p>L’implémentation de La-State-Makina se fait en quatre étapes clés. Premièrement, la création d’un fichier avec l’extension .json qui va comprendre les états avec leurs fonctions à l’activation et les fonctions qui vont être activées à chaque mise à jour. Il comprend aussi les événements responsables de la transition d’un état vers l’autre et enfin les transitions. Ensuite à partir de ce fichier et grâce au plugin intégré au moteur on va pouvoir générer deux nouveaux fichiers, la scène avec l’extension .tscn et l’api. La troisième consiste à copier l’api pour créer un fichier d’implémentation, c’est dans ce fichier que l’on va pouvoir rédiger nos fonctions en appelant les variables présentes dans Godot. La dernière étape quant à elle consiste à configurer les scripts d’extension .gd utilisés pour qu’ils puissent lire le fichier d’implémentation. Une fois toutes ces étapes réalisées La-State-Makina est désormais fonctionnelle.</p>
+<p>Ainsi nous avons deux utilisations de La-State-Makina, la première est un mob intégrant La-State-Makina nommé <strong>Spirit</strong> et la seconde est un spawner dépendant de La-State-Makina pour faire apparaître les mobs dans l’ordre souhaité. Le concept du mob est de se rassembler avec d’autres mobs du même types pour devenir un nouveau mob plus gros qui peut lui même devenir un mob encore plus gros dans le même principe de fusion. Le premier mob utilise une machine à états puis le second et le dernier mob partage la même machine à états, les structures restent cependant similaires. L’idée de faire une machine à états pour les trois mobs a été abordée mais n’a pas été retenue. Enfin la machine à états du spawner est très simple mais offre énormément d’opportunité.</p>
+</section>
+</section>
+<section id="réalisation-et-résultats" class="level2">
+<h2 class="anchored" data-anchor-id="réalisation-et-résultats">Réalisation et résultats</h2>
+<section id="le-jeu" class="level3">
+<h3 class="anchored" data-anchor-id="le-jeu">Le jeu</h3>
+<section id="génération-de-la-scène-principale-et-de-la-carte-du-jeu" class="level4">
+<h4 class="anchored" data-anchor-id="génération-de-la-scène-principale-et-de-la-carte-du-jeu">Génération de la scène principale et de la carte du jeu</h4>
+<p>Pour générer la scène principale nous allons donc dans un tout premier temps créer le nœud racine qui sera l’endroit ou toutes les interactions du jeu se feront. Pour cela nous choisissons l’onglet 2D Scene que l’on renommera par <strong>World</strong> dans le menu édition de Godot (voir annexe[4.1] et [4.2]). Ensuite pour y ajouter l’arrière plan de la scène principale du jeu nous allons ajouter au nœud racine World un nœud Sprite2D que l’on renommera <strong>Background</strong>. Dans les paramètres de ce nœud nous pouvons y ajouter une image (texture) en allant en haut à droite dans l’éditeur Godot dans “Inspector” -&gt; “Sprite2D” (voir annexe[4.3]). Une fois l’image générée on se rend compte qu’elle ne sera pas assez grande pour couvrir une large zone de déplacement pour le joueur. Pour ajuster cela, dans le même onglet de paramètre du Sprite2D nous allons dans “Region” et cochons la case “Enabled”. Cela va nous permettre de générer une région pour laquelle nous allons répéter en boucle notre image afin de couvrir une zone aussi grande que possible. Pour cela nous modifions la taille de la région choisie dans “Edit Region” et nous avons donc une zone élargie mais cependant elle n’est pas encore répétée (voir annexe[4.4]). Pour ensuite répéter notre image proprement dans la zone élargie nous allons, toujours dans le même onglet, dans “Texture” -&gt; “Repeat” et nous choisissons le paramètre “Enabled”. Nous obtenons donc un arrière plan de scène avec autant de répétition de notre image que possible remplissant la zone finale agrandit (voir annexe[4.5]). Il ne nous reste plus qu’à modifier la taille de la zone voulue et tout s’ajustera automatiquement par la suite. Il est également possible de changer la taille de la zone en écrivant directement la taille de chaque côté dans les paramètres.</p>
+</section>
+<section id="déplacement-du-joueur-et-des-ennemis" class="level4">
+<h4 class="anchored" data-anchor-id="déplacement-du-joueur-et-des-ennemis">Déplacement du joueur et des ennemis</h4>
+<p>Pour permettre au joueur de contrôler le personnage, nous utilisons l’outil <strong>Input Map</strong> intégré à Godot. Cet outil est simple d’utilisation et permet la configuration des touches de déplacement. Pour accéder à l’Input Map, nous allons dans le menu en haut à gauche de l’éditeur dans “Project” -&gt; “Project Settings” -&gt; “Input Map”.</p>
+<p>Dans l’outil, nous créons des actions pour chaque type de déplacement que nous voulons. Nous avons des actions comme “up”, “down”, “left”, “right” et “click”. Une fois les actions créées, nous leur attribuons des touches en cliquant sur la case vide à côté de chaque action, puis en appuyant sur la touche souhaitée. Par exemple, pour la touche de déplacement vers la gauche, nous sélectionnons l’action “left” et lui attribuons la touche “A” (Touche généralement utilisée dans les jeux vidéos pour faire des déplacements vers la gauche) (voir annexe[4.6]).</p>
+<p>Ensuite nous allons créer un script rattaché à la scène player.tscn et qui sera nommé player.gd. Dans ce script nous allons utiliser les fonctions <code>_physics_process(_delta)</code> et <code>movement()</code>. La fonction <code>_physics_process(_delta)</code> est appelée à chaque frame. Dans cette fonction, nous appelons la fonction <code>movement()</code> pour gérer le mouvement du joueur. Celle-ci va utiliser <code>Input.get_action_strength()</code> pour obtenir la force de chaque touche de déplacement : Pour les touches de déplacement horizontal (“left” et “right”), elle soustrait la force de la touche de gauche à celle de la touche de droite et pour les touches de déplacement vertical (“up” et “down”), elle soustrait la force de la touche du haut à celle de la touche du bas. Enfin on va créer un vecteur de déplacement mov en utilisant les coordonnées des forces obtenues. Ce vecteur sera utilisé pour déplacer le joueur dans la direction appropriée. Et la fonction <code>move_and_slide()</code> va permettre l’application du mouvement final sur le nœud Player. La variable <code>movement_speed</code> est quant à elle définit au tout début avec une valeur par défaut que nous avons choisie.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Resume des fonctions de deplacement du joueur """</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="kw">func</span> <span class="bu">_physics_process</span>(<span class="co">_delta</span>):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     movement ()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="kw">func</span> movement ():</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>     <span class="kw">var</span> x_move <span class="op">=</span> Input.<span class="fu">get_action_strength</span>(<span class="st">"right"</span>) <span class="op">-</span> Input.<span class="fu">get_action_strength</span>(<span class="st">"left"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>     <span class="kw">var</span> y_move <span class="op">=</span> Input.<span class="fu">get_action_strength</span>(<span class="st">"down"</span>) <span class="op">-</span> Input.<span class="fu">get_action_strength</span>(<span class="st">"up"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>     <span class="kw">var</span> mov <span class="op">=</span> <span class="fu">Vector2</span>(x_move ,y_move)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>     velocity <span class="op">=</span> mov.normalized ()<span class="op">*</span>movement_speed</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    move_and_slide ()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pour permettre à l’ennemi de poursuivre le joueur, nous allons récupérer la position actuelle du joueur à chaque mise à jour et déplacer l’ennemi en continu vers cette position. Pour cela nous avons d’abord ajouté le nœud Player dans un groupe nommé “player”. Pour faire cela, en haut à droite de l’interface Godot et en étant sur la scène player.tscn, on clique sur “Node” -&gt; “Groups” et on crée le groupe “player” (voir annexe[4.7]). On a créé ensuite une nouvelle scène appelée enemy.tscn. On récupère le nœud Player de la scène player.tscn par le biais du groupe “player” avec les fonctions <code>get_tree()</code> et <code>get_first_node_in_group()</code> intégrées à Godot.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Recuperation du premier noeud du groupe "player" """</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> @onready <span class="kw">var</span> player <span class="op">=</span> get_tree ().<span class="fu">get_first_node_in_group</span>(<span class="st">"player"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Comme pour le joueur, la fonction <code>_physics_process(_delta)</code> est appelée à chaque frame. Elle va créer une nouvelle variable direction à chaque fois en utilisant la fonction <code>direction_to(player.global_position)</code> qui va permettre de faire le déplacement de la position actuelle de l’ennemi sur la position actuelle du joueur au même temps donné. Il ne reste plus qu’à utiliser la fonction <code>move_and_slide()</code> affin d’appliquer le mouvement sur le nœud Enemy.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Fonction de deplacement de l'ennemi """</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="kw">func</span> <span class="bu">_physics_process</span>(<span class="co">_delta</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     <span class="kw">var</span> direction <span class="op">=</span> global_position.<span class="fu">direction_to</span>(player.global_position)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>     velocity <span class="op">=</span> direction<span class="op">*</span>movement_speed</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     move_and_slide ()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="animation-des-déplacements" class="level4">
+<h4 class="anchored" data-anchor-id="animation-des-déplacements">Animation des déplacements</h4>
+<p>Pour le joueur et l’ennemi, nous avons ajouté un nœud <strong>AnimationPlayer2D</strong>. C’est un nœud déjà intégré à Godot et qui permet de gérer les animations des nœuds Sprite2D. Les frames de chaque animation ont été importées en tant que sprites individuels (sprite sheet) (voir annexe[4.8]). Chaque sprite représente une étape spécifique ordonnée dans l’animation de déplacement, comme une marche ou une course. Dans ce nœud un outil est directement présent pour sélectionner les frames auxquelles nous voulons faire les changements de sprite à un temps donné (voir annexe[4.9]). Ensuite il suffit simplement d’ordonner chronologiquement les sprites de l’animation pour y créer l’effet de déplacement. Une fois l’animation de prête, il faut la récupérer ainsi que le nœud Sprite2D qui va permettre l’affichage de cette animation dans le jeu. Pour le joueur nous avons deux Sprite2D différents, un pour les déplacements à gauche et un pour les déplacements à droite et donc deux animations différentes “move_gauche” et “move_droite”. Il suffit donc de récupérer les 3 nœuds dans le script.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Recuperation des noeuds dans des variables """</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> @onready <span class="kw">var</span> sprite <span class="op">=</span> <span class="va">$Sprite2D</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> @onready <span class="kw">var</span> sprite2 <span class="op">=</span> <span class="va">$Sprite2D3</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> @onready <span class="kw">var</span> playermove <span class="op">=</span> <span class="va">$playermove</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ensuite il suffit de vérifier à chaque instant de <code>movement()</code> la position vers laquelle le joueur se dirige pour savoir quel Sprite2D et quelle animation jouer. Si le déplacement en x du joueur est supérieur à 0 alors on va jouer l’animation “move_droite” et si elle est inférieur à 0 alors on va jouer l’animation “move_gauche” et de même que l’on va afficher ou non le Sprite2D du déplacement vers la gauche ou la droite (voir annexe[4.10]). Pour l’affichage des nœuds nous allons alors utiliser la fonction déjà intégrée dans Godot qui est <code>.visible</code> auxquels cas nous mettrons <code>false</code> pour rendre le Sprite2D non visible et <code>true</code> pour le rendre visible. La fonction <code>.play()</code> est elle utilisée pour lancer l’animation correspondante depuis le nœud d’animation et la fonction <code>.stop()</code> pour stopper celle-ci lorsque le joueur ne se déplace plus.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Affichage et animation des deplacements pour le joueur """</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="cf">if</span> mov.x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     playermove.<span class="fu">play</span>(<span class="st">"move_droite"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>     sprite.visible <span class="op">=</span> <span class="va">false</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     sprite2.visible <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="cf">if</span> mov.x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>     playermove.<span class="fu">play</span>(<span class="st">"move_gauche"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>     sprite.visible <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    sprite2.visible <span class="op">=</span> <span class="va">false</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span> <span class="cf">if</span> mov <span class="op">==</span> Vector2.ZERO:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span>     playermove.<span class="fu">stop</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pour les déplacements de ennemis c’est à peu près le même principe sauf qu’ici nous n’avons utilisé qu’un seul Sprite2D pour lequel nous avons fais une rotation horizontale droite au gauche suivant la position du joueur. Pour l’animation du déplacement nous avons utilisé exactement la même méthode. Ensuite pour effectuer la rotation de l’ennemi afin qu’il lui fasse tout le temps face au joueur nous utilisons la fonction <code>.flip_h</code> avec <code>true</code> ou <code>false</code> comme paramètre pour effectuer la rotation ou non de l’ennemi et cela en fonction des positions en x de celui-ci et avec les mêmes conditions que pour le joueur.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Affichage et animation des deplacements pour l'ennemi """</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="cf">if</span> direction.x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     sprite.flip_h <span class="op">=</span> <span class="va">true</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="cf">elif</span> direction.x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     sprite.flip_h <span class="op">=</span> <span class="va">false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cela permettra donc de faire en sorte que quelle que soit la position de l’ennemi avec le joueur il lui fasse toujours face. Nous avons à ce stade de la réalisation un joueur capable de se déplacer librement dans la scène principale et des ennemis capables de le suivre en lui faisant tout le temps face.</p>
+</section>
+<section id="système-de-perte-de-points-de-vie-hurt-box-et-hit-box" class="level4">
+<h4 class="anchored" data-anchor-id="système-de-perte-de-points-de-vie-hurt-box-et-hit-box">Système de perte de points de vie (Hurt Box et Hit Box)</h4>
+<p>Pour rappel, la <strong>Hit Box</strong> est la zone qui va induire les dégâts et la <strong>Hurt Box</strong> est la zone qui va indiquer qu’il faut prendre des dégâts. Pour les deux la scène va être identique, elle sera composée d’un nœud racine Area2D et avec comme enfants un nœud CollisionShape2D et un nœud Timer (voir annexe[4.11]). Pour la scène hurt_box.tscn, nous avons créé un nouveau script et nous avons tout d’abord récupérer les nœuds CollisionShape2D et Timer dans des variables et nous avons défini le style futur de la Hurt Box avec <code>@export_enum("Cooldown","HitOnce","DisableHit Box")</code>. Nous avons également créé un signal <code>hurt(damage)</code> qui nous servira pour plus tard.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode gdscript code-with-copy"><code class="sourceCode gdscript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="st">""" Initialisation des variables de la Hurt Box """</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> @<span class="fu">export_enum</span>(<span class="st">"Cooldown"</span>,<span class="st">"HitOnce"</span>,<span class="st">"DisableHitBox"</span>) <span class="kw">var</span> HurtBoxType <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> @onready <span class="kw">var</span> collision <span class="op">=</span> <span class="va">$CollisionShape2D</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> @onready <span class="kw">var</span> disableTimer <span class="op">=</span> <span class="va">$DisableTimer</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="kw">signal</span> <span class="fu">hurt</span>(damage)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ensuite nous allons créer un signal interne dans le script de la scène hurt_box.tscn, ce signal va donner la fonction <code>_on_area_entered(area)</code> qui sera activée à chaque fois qu’une CollisionShape2D entrera en contact avec celle de la Hit Box. Pour créer les signaux internes, il faut aller dans le même endroit que pour la créations des groupes de scène mais cette fois-ci dans la section “Signals” -&gt; “Area2D” pour y trouver la fonction. (voir annexe[4.12]). Il suffit ensuite de double cliquer sur cette fonction et de la connecter au nœud racine HurtBox de la scène hurt_box.tscn (voir annexe[4.13]). Une fois le signal connecté nous pouvons maintenant passer à son implémentation. Tout d’abord nous allons ajouter la scène hit_box.tscn dans un groupe nommé “attack” exactement de la même manière que nous l’avons fait pour la scène player.tscn. Cela nous permet ensuite dans la fonction de vérifier que la zone qui est entrée en contact avec la Hurt Box est bien celle de la Hit Box avec une autre fonction déjà intégrée dans Godot qui est <code>.is_in_groupe("attack")</code> avec “attack” placé en paramètre de celle-ci. On vérifie ensuite si la zone qui vient d’entrer et contact possède des dégâts avec <code>if not area.get("damage") == null</code>, cela permettra d’éviter les éventuels bugs lors de l’utilisation de la fonction. Ensuite nous allons matcher le HurtBoxType sur le premier élément (le 0 après match) qui est “Cooldown”. Cette partie va permettre de désactiver la CollisionShape2D à l’aide du Timer lors du premier contact avec celle de la Hit Box. Ensuite nous créons un nouveau signal dans le script avec le Timer afin de réinitialiser la CollisionShape2D. Ce signal est <code>_on_disable_timer_timeout()</code> et va être déclenché à la fin du premier Timer induit par le premier contact des deux zones. Pour le</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<div class="line-block">Made with Quarto | 📍Talence 33400, France | 📧 Avizara-Jhodi[at]protonmail.com | 📞 [fr] 7 72 15 98 25s | 🔗 github.com/Ajhodi</div>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

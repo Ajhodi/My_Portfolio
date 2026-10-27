@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>predicting-canopy-height-maps-from-uav-imagery – Jhodi Avizara</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-7ed588d4c7ebb825c8b10ea7a0c700af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Jhodi Avizara">
+<meta property="og:description" content="">
+<meta property="og:image" content="./Differences among three standard surface models.png">
+<meta property="og:site_name" content="Jhodi Avizara">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Jhodi Avizara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Projects/projects.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Papers/papers.html"> 
+<span class="menu-text">Articles</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Ex_pro/exp.html"> 
+<span class="menu-text">Expériences</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/Hobbies/hobbies.html"> 
+<span class="menu-text">Hobbies</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Projects/projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Papers/papers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Articles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Ex_pro/exp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Expériences</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../content/Hobbies/hobbies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hobbies</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">_</h2>
+   
+  <ul>
+  <li><a href="#predicting-canopy-height-maps-from-uav-imagery" id="toc-predicting-canopy-height-maps-from-uav-imagery" class="nav-link active" data-scroll-target="#predicting-canopy-height-maps-from-uav-imagery">Predicting Canopy Height Maps from UAV-Imagery</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#materials-and-methods" id="toc-materials-and-methods" class="nav-link" data-scroll-target="#materials-and-methods">Materials and Methods</a>
+  <ul class="collapse">
+  <li><a href="#study-area" id="toc-study-area" class="nav-link" data-scroll-target="#study-area">Study area</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#pre-processing" id="toc-pre-processing" class="nav-link" data-scroll-target="#pre-processing">Pre-processing</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
+  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training">Training</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="predicting-canopy-height-maps-from-uav-imagery" class="level1">
+<h1>Predicting Canopy Height Maps from UAV-Imagery</h1>
+<p><em>2024</em> <em>Auteurs : Jón Róason (University of Groningen), Thije Robbe (University of Groningen), Jhodi Avizara (University of Bordeaux), Florian Franz (University of Göttingen)</em></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Forest ecosystems are facing major challenges. Processes in the context of global change such as population growth, land use change and climate change are visible, for example, in a loss of forest cover, particularly in tropical rainforests (Hansen et al., 2013), and in forest damage (Schuldt et al., 2020). The availability of spatially precise and up-to-date data is therefore becoming increasingly important in order to monitor such changes and also to support forest management (Goodbody et al., 2019). In this regard, technological progress has significantly increased the importance of remote sensing technologies in the forest sector and is now a worldwide used tool (Fassnacht et al., 2023). Traditionally, aerial photos from aircraft have been the main tool used in forestry (Hildebrandt, 2010). Satellites are another major platform, covering larger areas (Jensen, 2014). In recent years, unmanned aerial vehicles (UAV, also called drones) have also gained interest in the forest community, as they can be used relatively flexibly and enable high-resolution spatial data (Guimarães et al., 2020; Tang and Shao, 2015). All of these remote sensing platforms can be equipped with different types of sensors. For example, multispectral cameras can be used to measure different wavelengths and generate true color images (red-green-blue (RGB)) (Jensen, 2014). In addition to cameras, Light Detection and Ranging (LiDAR) sensors are primarily used for forest related analysis (Ko and Remmel, 2017). This technology enables the generation of three-dimensional (3D) point clouds which can be further used to derive so-called digital height models as raster files (Wehr and Lohr, 1999). A distinction is made between three types: digital surface models (DSM), digital terrain models (DTM), and canopy height models (CHM). DSMs represent the elevation of an area’s uppermost surface, encompassing all objects present, whereas DTMs depict the bare ground surface, devoid of any objects. By subtracting DTM from DSM, a CHM can be obtained, sometimes also referred to as normalized DSM (nDSM) (Ko and Remmel, 2017). Figure 1 shows the three different height models in simplified form for a forest area. CHMs are particularly valuable in forestry, as they can be used to derive forest related parameters such as tree heights or basal area (Beland et al., 2019). Both, images and LiDAR-derived products, are increasingly being analyzed automatically due to advancing technology. In particular, deep learning (DL) methods are becoming more valuable, progressively outperforming traditional machine learning techniques (Kattenborn et al., 2021). Their ability to process complex and large datasets allows them to identify patterns and provide insights more effectively, marking a significant advancement in the field of automated analysis in remote sensing (Ma et al., 2019). Applications for forestry purposes include for example tree species classifications (Egli and Höpke, 2020) or tree crown segmentations (Freudenberg et al., 2022). Aerial/UAV or satellite images are preferably used for such analyses, as they are relatively inexpensive to obtain compared to LiDAR data, and can also be utilized to derive 3D point clouds (Freudenberg et al., 2022; White et al., 2013). However, this is often limited due to specific software requirements and the time needed for processing (Leberl et al., 2010). A direct estimation of height values from the images would be much more effective. Hence, we applied a DL approach to predict canopy height from very-high resolution UAV-based RGB imagery. The aim was to examine the suitability of using only the spectral information from the images for predicting canopy height.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Differences among three standard surface models.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig. 1: Differences among three standard surface models for a hypothetical forest stand growing on a slope: DSM, DTM, and CHM (from Ko and Remmel, 2017).</em></figcaption>
+</figure>
+</div>
+<p><br></p>
+</section>
+<section id="materials-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="materials-and-methods">Materials and Methods</h2>
+<section id="study-area" class="level3">
+<h3 class="anchored" data-anchor-id="study-area">Study area</h3>
+<p>The study was conducted in the Black Forest in Germany, more precisely in the southern part of it (Fig. 2). It is a typical low mountain range located in the southwest of the federal state Baden-Wuerttemberg. The Black Forest is characterized by temperate forests, mainly dominated by European spruce (Picea abies), naturally occurring at higher altitudes and cultivated at lower altitudes as a result of past forestry (Schmidt, 2002).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Location of the Black Forest in Germany.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig. 2: Location of the Black Forest in Germany.</em></figcaption>
+</figure>
+</div>
+<p><br></p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>The dataset used for this study contains 47 UAV-based orthomosaics and corresponding CHMs, each with a tile size of 130 m. Two orthomosaics were excluded, as they contained no information. In order to maintain data consistency, the corresponding CHMs were also removed, resulting in 45 files. The orthomosaics have a resolution of 0.01 m, while the CHMs have a resolution of 0.05 meters. The orthomosaics feature spectral information in the RGB spectrum. The generation of the files (orthomosaic generation from single images, normalization and rasterization of point clouds) was not part of this study.</p>
+</section>
+<section id="pre-processing" class="level3">
+<h3 class="anchored" data-anchor-id="pre-processing">Pre-processing</h3>
+<p>The pre-processing of the dataset consisted of filling the missing values in the CHMs and downsampling the orthomosaics. The missing values in the CHMs were filled with 0s. The orthomosaics were of a higher resolution than the CHM files, so they were downsampled to match the resolution of the CHMs, with the final resolution of both images being (2600, 2600) pixels. An example of the resulting orthomosaics and CHM files can be seen in Figure 3. Additionally, the orthomosaics contained a fourth band of data, which contained no information and so was removed. When the data is loaded, we split the dataset into a training, validation and test set with the split fractions 0.7, 0.2, and 0.1 respectively. This results in 31 images in the train set, 9, in the validation set, and 5 in the test set. The images are then normalized to the range [0,1] using a constant scale factor of 255. The height maps, which encode the height of each pixel in meters, are normalized to [0,1] by a fixed scale factor of 100. At training time, we perform data augmentation steps on the input training data which consist of randomly cropping the image to a size of (236, 236) or (540, 540) pixels, and performing random horizontal and vertical flips of the data. Since the augmentations need to be done at both the input image and the target height map, the image and height map are both passed simultaneously through the augmentation layer by adding the height map as a fourth channel to the image. Since the output image’s size of the U-Net architecture is different from the size of the input image, the target image is cropped at the center to the output size of the architecture. Since this is dependent on the architecture and the input size, this is implemented within the architecture pipeline.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Example orthomosaic.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig. 3: Example orthomosaic (left) and corresponding CHM (right) after pre-processing (excluding normalization).</em></figcaption>
+</figure>
+</div>
+<p><br></p>
+</section>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
+<p>We implemented the U-Net architecture (Ronneberger et al., 2015), which is shown in Figure 4. Our U-Net consisted of an augmentation layer, which performs the image augmentation described in the previous section, an encoder block and a decoder block, which will be described now. The encoder block consists of 3 smaller convolutional blocks. These convolutional blocks take an input and pass it through a convolutional layer, with a ReLU activation, followed by another convolutional layer. Between each such convolutional block, a max pooling operation is performed. The outputs from each block are saved and output from the encoder block. The decoder block contains 2 smaller convolutional blocks, in the same fashion as the encoder. Between each convolutional block, the input is first passed through a transposed convolutional layer and then concatenated with the corresponding output from an encoder convolutional block, which is cropped to the same size as the current input. The gray arrows in Figure 4 represent this operation. Lastly, the input is passed through a final 1x1 convolution layer, which takes the output from the final convolutional block in the decoder and outputs a single matrix of values.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./U-Net architecture.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig. 4: U-Net architecture as described by Ronneberger et. al., (2015).</em></figcaption>
+</figure>
+</div>
+<p><br></p>
+<p>We evaluated two simplified versions based on the general U-Net architecture: One with three convolution blocks of 8, 16, and 32 channels respectively, and one with an extra block of 64 channels. No activation function is used at the output of the architecture, since we are regressing individual pixel values in the outputs to their true values in the height maps.</p>
+</section>
+<section id="training" class="level3">
+<h3 class="anchored" data-anchor-id="training">Training</h3>
+<p>Training is done by first loading the entire dataset (31 * (3 + 1) * 2600 * 2600) into memory, which speeds up training considerably more than when loading batches of images from disk. The Adam optimizer is used for all models with a weight decay of 1e-5. For model versions 3, 5, and 7, an exponential learning rate schedule is used with a gamma of 0.955, which results in a learning rate decay of factor 10 over 50 epochs (500.1=0.955). The loss function used for training the models was mean-squared error loss. Images are grouped in batches of four.</p>
+<table class="table caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Model</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v1</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v2</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v3</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v4</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v5</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v6</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v7</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">UNet_v8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Architecture</td>
+<td style="text-align: left;">UNet (8, 16, 32)</td>
+<td style="text-align: left; width: 100px;">UNet (8, 16, 32)</td>
+<td style="text-align: left; width: 100px;">UNet (8, 16, 32)</td>
+<td style="text-align: left;">UNet (8, 16, 32)</td>
+<td style="text-align: left;">UNet (8, 16, 32)</td>
+<td style="text-align: left;">UNet (8, 16, 32, 64)</td>
+<td style="text-align: left;">UNet (8, 16, 32, 64)</td>
+<td style="text-align: left;">UNet (8, 16, 32, 64)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">input dimensions</td>
+<td style="text-align: left;">236 x 236</td>
+<td style="text-align: left; width: 100px;">236 x 236</td>
+<td style="text-align: left; width: 100px;">236 x 236</td>
+<td style="text-align: left;">540 x 540</td>
+<td style="text-align: left;">540 x 540</td>
+<td style="text-align: left;">540 x 540</td>
+<td style="text-align: left;">540 x 540</td>
+<td style="text-align: left;">236 x 236</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">epochs</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left; width: 100px;">200</td>
+<td style="text-align: left; width: 100px;">100</td>
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">learning rate</td>
+<td style="text-align: left;">1e-4</td>
+<td style="text-align: left; width: 100px;">1e-4</td>
+<td style="text-align: left; width: 100px;">1e-4</td>
+<td style="text-align: left;">1e-4</td>
+<td style="text-align: left;">1e-3</td>
+<td style="text-align: left;">1e-4</td>
+<td style="text-align: left;">1e-4</td>
+<td style="text-align: left;">1e-4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lr schedule</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left; width: 100px;">-</td>
+<td style="text-align: left; width: 100px;">0.955</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">0.955</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">0.955</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 1: Model training hyper-parameters.</em></p>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The training and validation loss for each of the models described in Table 1 can be seen in Figure 5. We can observe that both losses for all models tend towards zero, with the exception of a notable spike in both validation and training loss for the model “U-Net-v5.” The model with the lowest test loss was the U-Net-v3 model, with a mean-squared error of 0.0065. To demonstrate some example outputs from our trained model, we show four example outputs in Figure 6.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Training and validation.png" class="img-fluid figure-img"></p>
+<figcaption><em>Fig. 5: Training and validation losses of the models.</em></figcaption>
+</figure>
+</div>
+<p><br></p>
+<p><img src="./Predicted canopy.png" class="img-fluid" alt="Fig. 6: Predicted canopy height maps generated by U-Net models v2, v3, v5, and v7 to the same input image. Note that the first two orthomosaics are cropped versions of the latter two."> <br></p>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The plotted loss values in Figure 5 demonstrate that the model is learning something, and the predicted outputs in Figure 6 seem to show that the areas the model predicts have large or low height values, and those values overlap well with the targets. However, when looking at the input images, there also appears to be a large degree of overlap with the brightness of the images. For example, in the last row of Figure 6 we see that the true canopy height map shows largest values in the bottom right corner, but the predicted output shows largest values in the center of the image. This center region corresponds to the treetops with the highest brightness in the input image. Additionally, we notice that the predictions are much more fine-grained than the true canopy height maps, with the tree-branches being much more distinct in the predictions. This makes sense intuitively, since higher treetops get more sunlight, and so would be taller. However, without more detailed height maps, we cannot know whether the predictions are in fact accurate. Nevertheless, the predicted fine-grained canopy height-maps could possibly be useful for some small-scale forestry studies of the canopy structure. This could be an interesting area of study for future research. A major limitation of this project was the small size of the dataset. The number of parameters in the model and the dimensionality of the data greatly outnumber the number of samples. This makes the model prone to overfitting. We attempted to mitigate this issue by using random crops of the images when training, but the limitation is still there. This has implications for the evaluation of our test loss, as with only five images in our test set the metrics might not be fully representative of the performance of the model. Similar approach to our study was applied by Liu et al., (2023), who produced a Europe-wide canopy height map from 3-meter resolution nanosatellite imagery. They overcome our small size of the dataset by using airborne LiDAR data across Europe as reference data. Their study shows that it is already possible to scale up the approach of predicting canopy height from spectral information. However, if a more fine-grained canopy height map is desired locally, our approach of using high-resolution orthomosaics instead of satellite imagery could be helpful.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this project, we aimed to develop a DL model capable of predicting canopy height maps corresponding to UAV orthomosaics. Using a U-Net architecture, we implemented and evaluated various hyperparameter settings, which resulted in a best model with a test loss of 0.0065. This project was limited by the small size of the dataset. To combat potential overfitting, data augmentation steps including cropping and rotating were performed. The resulting models were able to produce canopy height maps that appear to be more detailed than the true height maps. Whether the models have in fact learned to correctly tree canopy height given orthomosaics is unclear while more detailed canopy height maps are unavailable. Besides this, our approach holds significant promise for localized studies of canopy structure, enabling forest researchers to conduct detailed ecological assessments with readily available imagery. Thus, this method presents a valuable tool for forestry and ecological research where only UAV-based spectral data is necessary.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Beland, M., Parker, G., Sparrow, B., Harding, D., Chasmer, L., Phinn, S., Antonarakis, A., Strahler, A., 2019. On promoting the use of lidar systems in forest ecosystem research. For. Ecol. Manag. 450, 117484. <a href="https://doi.org/10.1016/j.foreco.2019.117484" class="uri">https://doi.org/10.1016/j.foreco.2019.117484</a></li>
+<li>Egli, S., Höpke, M., 2020. CNN-Based Tree Species Classification Using High Resolution RGB Image Data from Automated UAV Observations. Remote Sens. 12, 3892. <a href="https://doi.org/10.3390/rs12233892" class="uri">https://doi.org/10.3390/rs12233892</a></li>
+<li>Fassnacht, F.E., White, J.C., Wulder, M.A., Næsset, E., 2023. Remote sensing in forestry: current challenges, considerations and directions. For. Int. J. For. Res. cpad024. <a href="https://doi.org/10.1093/forestry/cpad024" class="uri">https://doi.org/10.1093/forestry/cpad024</a></li>
+<li>Freudenberg, M., Magdon, P., Nölke, N., 2022. Individual tree crown delineation in high-resolution remote sensing images based on U-Net. Neural Comput. Appl. 34, 22197–22207. <a href="https://doi.org/10.1007/s00521-022-07640-4" class="uri">https://doi.org/10.1007/s00521-022-07640-4</a></li>
+<li>Goodbody, T.R.H., Coops, N.C., White, J.C., 2019. Digital Aerial Photogrammetry for Updating Area-Based Forest Inventories: A Review of Opportunities, Challenges, and Future Directions. Curr. For. Rep.&nbsp;5, 55–75. <a href="https://doi.org/10.1007/s40725-019-00087-2" class="uri">https://doi.org/10.1007/s40725-019-00087-2</a></li>
+<li>Guimarães, N., Pádua, L., Marques, P., Silva, N., Peres, E., Sousa, J.J., 2020. Forestry Remote Sensing from Unmanned Aerial Vehicles: A Review Focusing on the Data, Processing and Potentialities. Remote Sens. 12, 1046. <a href="https://doi.org/10.3390/rs12061046" class="uri">https://doi.org/10.3390/rs12061046</a></li>
+<li>Hansen, M.C., Potapov, P.V., Moore, R., Hancher, M., Turubanova, S.A., Tyukavina, A., Thau, D., Stehman, S.V., Goetz, S.J., Loveland, T.R., Kommareddy, A., Egorov, A., Chini, L., Justice, C.O., Townshend, J.R.G., 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342, 850–853. <a href="https://doi.org/10.1126/science.1244693" class="uri">https://doi.org/10.1126/science.1244693</a></li>
+<li>Hildebrandt, G., 2010. The Beginnings of Aerial Photogrammetry and Interpretation in German Forestry after 1945. Photogramm. - Fernerkund. - Geoinformation 2010, 235–242. <a href="https://doi.org/10.1127/1432-8364/2010/0051" class="uri">https://doi.org/10.1127/1432-8364/2010/0051</a></li>
+<li>Jensen, J.R., 2014. Remote sensing of the environment: an earth resource perspective, Second edition [exclusive edition only for the benefit of students outside the United States and Canada]. ed.&nbsp;Pearson, Harlow.</li>
+<li>Kattenborn, T., Leitloff, J., Schiefer, F., Hinz, S., 2021. Review on Convolutional Neural Networks (CNN) in vegetation remote sensing. ISPRS J. Photogramm. Remote Sens. 173, 24–49. <a href="https://doi.org/10.1016/j.isprsjprs.2020.12.010" class="uri">https://doi.org/10.1016/j.isprsjprs.2020.12.010</a></li>
+<li>Ko, C., Remmel, T.K., 2017. Airborne LiDAR Applications in Forest Landscapes, in: Remmel, T.K., Perera, A.H. (Eds.), Mapping Forest Landscape Patterns. Springer New York, New York, NY, pp.&nbsp;147–185. <a href="https://doi.org/10.1007/978-1-4939-7331-6_4" class="uri">https://doi.org/10.1007/978-1-4939-7331-6_4</a></li>
+<li>Leberl, F., Irschara, A., Pock, T., Meixner, P., Gruber, M., Scholz, S., Wiechert, A., 2010. Point Clouds: Lidar versus 3D Vision. Photogramm. Eng. Remote Sens. 76, 1123–1134. <a href="https://doi.org/10.14358/PERS.76.10.1123" class="uri">https://doi.org/10.14358/PERS.76.10.1123</a></li>
+<li>Liu, S., Brandt, M., Nord-Larsen, T., Chave, J., Reiner, F., Lang, N., Tong, X., Ciais, P., Igel, C., Pascual, A., Guerra-Hernandez, J., Li, S., Mugabowindekwe, M., Saatchi, S., Yue, Y., Chen, Z., Fensholt, R., 2023. The overlooked contribution of trees outside forests to tree cover and woody biomass across Europe. Sci. Adv. 9, eadh4097. <a href="https://doi.org/10.1126/sciadv.adh4097" class="uri">https://doi.org/10.1126/sciadv.adh4097</a></li>
+<li>Ma, L., Liu, Y., Zhang, X., Ye, Y., Yin, G., Johnson, B.A., 2019. Deep learning in remote sensing applications: A meta-analysis and review. ISPRS J. Photogramm. Remote Sens. 152, 166–177. <a href="https://doi.org/10.1016/j.isprsjprs.2019.04.015" class="uri">https://doi.org/10.1016/j.isprsjprs.2019.04.015</a></li>
+<li>Ronneberger, O., Fischer, P., Brox, T., 2015. U-Net: Convolutional Networks for Biomedical Image Segmentation. <a href="https://doi.org/10.48550/arXiv.1505.04597" class="uri">https://doi.org/10.48550/arXiv.1505.04597</a></li>
+<li>Schmidt, U.E., 2002. Der Wald in Deutschland im 18. und 19. Jahrhundert: das Problem der Ressourcenknappheit dargestellt am Beispiel der Waldressourcenknappheit in Deutschland im 18. und 19. Jahrhundert: eine historisch-politische Analyse. Conte/Forst, Saarbrücken.</li>
+<li>Schuldt, B., Buras, A., Arend, M., Vitasse, Y., Beierkuhnlein, C., Damm, A., Gharun, M., Grams, T.E.E., Hauck, M., Hajek, P., Hartmann, H., Hiltbrunner, E., Hoch, G., Holloway-Phillips, M., Körner, C., Larysch, E., Lübbe, T., Nelson, D.B., Rammig, A., Rigling, A., Rose, L., Ruehr, N.K., Schumann, K., Weiser, F., Werner, C., Wohlgemuth, T., Zang, C.S., Kahmen, A., 2020. A first assessment of the impact of the extreme 2018 summer drought on Central European forests. Basic Appl. Ecol. 45, 86–103. <a href="https://doi.org/10.1016/j.baae.2020.04.003" class="uri">https://doi.org/10.1016/j.baae.2020.04.003</a></li>
+<li>Tang, L., Shao, G., 2015. Drone remote sensing for forestry research and practices. J. For. Res. 26, 791–797. <a href="https://doi.org/10.1007/s11676-015-0088-y" class="uri">https://doi.org/10.1007/s11676-015-0088-y</a></li>
+<li>Wehr, A., Lohr, U., 1999. Airborne laser scanning—an introduction and overview. ISPRS J. Photogramm. Remote Sens. 54, 68–82. <a href="https://doi.org/10.1016/S0924-2716(99)00011-8" class="uri">https://doi.org/10.1016/S0924-2716(99)00011-8</a></li>
+<li>White, J., Wulder, M., Vastaranta, M., Coops, N., Pitt, D., Woods, M., 2013. The Utility of Image-Based Point Clouds for Forest Inventory: A Comparison with Airborne Laser Scanning. Forests 4, 518–536. <a href="https://doi.org/10.3390/f4030518" class="uri">https://doi.org/10.3390/f4030518</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<div class="line-block">📍Talence 33400, France 📧 Avizara-Jhodi@protonmail.com 📞 +33 7 72 15 98 25 🔗 github.com/Ajhodi</div>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
